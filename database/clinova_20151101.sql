@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2015 at 03:19 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Nov 01, 2015 at 02:47 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.5.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `database_ver1.0`
+-- Database: `clinova`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `about` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -48,19 +48,21 @@ CREATE TABLE IF NOT EXISTS `about` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `show_order`, `is_show`, `is_focus`, `is_focus1`, `is_focus2`, `is_focus3`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-1', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 1, 1, 0, 0, 0, 1425283827, 1425283927, 'vi'),
-(2, 1, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-3', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 1, 1, 0, 0, 0, 1425283827, 1425283927, 'en'),
-(3, 3, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-4', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425283848, 1425283848, 'vi'),
-(4, 3, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-3-1', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425283827, 1425283827, 'en'),
-(5, 5, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'test', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'test-2', 'test | test', 'test, test', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353669, 1425353669, 'vi'),
-(6, 5, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'test', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'test-3', 'test | test', 'test, test', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353669, 1425353669, 'en');
+(1, 1, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-1', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 0, 1, 0, 0, 0, 1425283827, 1425283927, 'vi'),
+(2, 1, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-3', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 0, 1, 0, 0, 0, 1425283827, 1425283927, 'en'),
+(3, 3, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-4', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425283848, 1425283848, 'vi'),
+(4, 3, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'Giới thiệu công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'gioi-thieu-cong-ty-3-1', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425283827, 1425283827, 'en'),
+(5, 5, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'test', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'test-2', 'test | test', 'test, test', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353669, 1425353669, 'vi'),
+(6, 5, 0, '', 'about/2015_03/131010hinh-hai-qua-bong-thuy-tinh-long-lanh.jpg', 'test', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'test-3', 'test | test', 'test, test', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353669, 1425353669, 'en'),
+(7, 7, 0, '', '', 'Giới Thiệu', '', '&lt;p&gt;T&amp;ocirc;i l&amp;agrave; programmer!!!&lt;/p&gt;', 'gioi-thieu', 'Giới Thiệu | Gioi Thieu', 'Giới Thiệu, Gioi Thieu', 'T&ocirc;i l&agrave; programmer!!!', 0, 1, 0, 0, 0, 0, 1443858573, 1443858573, 'vi'),
+(8, 7, 0, '', '', 'Giới Thiệu', '', '&lt;p&gt;T&amp;ocirc;i l&amp;agrave; programmer!!!&lt;/p&gt;', 'gioi-thieu-cong-ty-5', 'Giới Thiệu | Gioi Thieu', 'Giới Thiệu, Gioi Thieu', 'T&ocirc;i l&agrave; programmer!!!', 0, 1, 0, 0, 0, 0, 1443858573, 1443858573, 'en');
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,7 @@ INSERT INTO `about` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `title
 --
 
 CREATE TABLE IF NOT EXISTS `about_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `about_meta_title` varchar(250) NOT NULL,
   `about_meta_key` text NOT NULL,
   `about_meta_desc` text NOT NULL,
@@ -94,7 +96,7 @@ INSERT INTO `about_setting` (`id`, `about_meta_title`, `about_meta_key`, `about_
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -110,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `group_id`, `username`, `password`, `picture`, `full_name`, `email`, `date_login`, `session`) VALUES
-(1, -1, 'admin', '91739eb0a14999c738a8cea3691902d7', '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1435406290, 'cd61a580392a70389e27b0bc2b439f49');
+(1, -1, 'admin', '91739eb0a14999c738a8cea3691902d7', '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1446375655, 'cd61a580392a70389e27b0bc2b439f49');
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,7 @@ INSERT INTO `admin` (`id`, `group_id`, `username`, `password`, `picture`, `full_
 --
 
 CREATE TABLE IF NOT EXISTS `admin_group` (
-`group_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
   `arr_title` text NOT NULL,
   `arr_powers` text NOT NULL,
   `show_order` float NOT NULL,
@@ -142,7 +144,7 @@ INSERT INTO `admin_group` (`group_id`, `arr_title`, `arr_powers`, `show_order`, 
 --
 
 CREATE TABLE IF NOT EXISTS `admin_menu` (
-`menu_id` int(10) unsigned NOT NULL,
+  `menu_id` int(10) unsigned NOT NULL,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
   `is_type` varchar(50) NOT NULL DEFAULT 'module',
   `name_action` varchar(50) NOT NULL,
@@ -193,7 +195,7 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (31, 30, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:11:"Cấu hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1393923361, 1393923361),
 (32, 30, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:20:"Quản lý nhóm tin";s:2:"en";s:20:"Quản lý nhóm tin";}', 'add,edit,manage,trash,restore,del', 1, 0, 1393923389, 1393923389),
 (33, 30, 'action', 'news', 'fa-list', 'a:2:{s:2:"vi";s:14:"Quản lý tin";s:2:"en";s:14:"Quản lý tin";}', 'add,edit,manage,trash,restore,del', 1, 0, 1393923737, 1393923737),
-(34, 0, 'module', 'gallery', 'fa-folder', 'a:2:{s:2:"vi";s:17:"Thư viện hình";s:2:"en";s:17:"Thư viện hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394006218, 1394006218),
+(34, 0, 'module', 'gallery', 'fa-folder', 'a:2:{s:2:"vi";s:17:"Thư viện hình";s:2:"en";s:17:"Thư viện hình";}', 'add,edit,manage,trash,restore,del', 0, 0, 1394006218, 1394006218),
 (35, 34, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:11:"Cấu hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394006246, 1394006246),
 (36, 34, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý nhóm";s:2:"en";s:16:"Quản lý nhóm";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394006278, 1394006278),
 (37, 34, 'action', 'gallery', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý hình";s:2:"en";s:16:"Quản lý hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394006294, 1394006294),
@@ -204,38 +206,38 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (42, 21, 'action', 'status', 'fa-list', 'a:1:{s:2:"vi";s:26:"Trạng thái sản phẩm";}', 'add,edit,manage,trash,restore,del', 1, 5, 1395717158, 1395717158),
 (43, 1, 'action', 'support', 'fa-list', 'a:1:{s:2:"vi";s:25:"Hỗ trợ trực tuyến";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395738093, 1395738093),
 (44, 21, 'action', 'ordering', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản ký đơn hàng";}', 'edit,manage,trash,restore,del', 1, -2, 1395817787, 1395817787),
-(45, 0, 'module', 'user', 'fa-folder', 'a:1:{s:2:"vi";s:23:"Quản lý thành viên";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395888659, 1395888659),
+(45, 0, 'module', 'user', 'fa-folder', 'a:1:{s:2:"vi";s:23:"Quản lý thành viên";}', 'add,edit,manage,trash,restore,del', 0, 0, 1395888659, 1395888659),
 (46, 45, 'action', 'setting', 'fa-list', 'a:1:{s:2:"vi";s:11:"Cấu hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395888675, 1395888675),
 (47, 45, 'action', 'user', 'fa-list', 'a:1:{s:2:"vi";s:23:"Danh sách thành viên";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395888703, 1395888703),
 (48, 21, 'action', 'order_shipping', 'fa-list', 'a:1:{s:2:"vi";s:30:"Phương thức vận chuyển";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1396281376, 1396281376),
 (49, 21, 'action', 'order_method', 'fa-list', 'a:1:{s:2:"vi";s:27:"Phương thức thanh toán";}', 'add,edit,duplicate,manage,trash,restore,del', 1, -1, 1396281394, 1396281394),
 (50, 21, 'action', 'size', 'fa-list', 'a:1:{s:2:"vi";s:15:"Quản lý size";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 4, 1396317848, 1398140155),
 (51, 21, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý phiếu kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, -3, 1398240358, 1398240358),
-(52, 0, 'module', 'ordering', 'fa-folder', 'a:1:{s:2:"vi";s:19:"Đơn hàng và kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 79, 1398303939, 1398303939),
+(52, 0, 'module', 'ordering', 'fa-folder', 'a:1:{s:2:"vi";s:19:"Đơn hàng và kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 79, 1398303939, 1398303939),
 (53, 52, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý phiếu kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398303976, 1398304053),
 (54, 56, 'action', 'repository', 'fa-list', 'a:1:{s:2:"vi";s:3:"Kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398495627, 1398678657),
 (55, 52, 'action', 'receipt_out', 'fa-list', 'a:1:{s:2:"vi";s:18:"Phiếu xuất kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398495710, 1398495710),
-(56, 0, 'module', 'repository', 'fa-folder', 'a:1:{s:2:"vi";s:3:"Kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 78, 1398672169, 1398672169),
+(56, 0, 'module', 'repository', 'fa-folder', 'a:1:{s:2:"vi";s:3:"Kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 78, 1398672169, 1398672169),
 (57, 56, 'action', 'method_group', 'fa-list', 'a:1:{s:2:"vi";s:22:"DM phương thức XNK";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398672205, 1398672205),
 (58, 56, 'action', 'method_import', 'fa-list', 'a:1:{s:2:"vi";s:22:"Phương thức nhập";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398672289, 1398672289),
 (59, 56, 'action', 'method_export', 'fa-list', 'a:1:{s:2:"vi";s:22:"Phương thức xuất";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398672330, 1398672330),
-(60, 0, 'module', 'repository_import', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Quản lý nhập kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 77, 1398739765, 1398741401),
+(60, 0, 'module', 'repository_import', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Quản lý nhập kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 77, 1398739765, 1398741401),
 (61, 60, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:31:"Phiếu đề nghị nhập kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 10, 1398739793, 1399252705),
 (62, 60, 'action', 'receipt_approved', 'fa-list', 'a:1:{s:2:"vi";s:33:"Phiếu đề nghị đã duyệt";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 9, 1398739824, 1399252729),
 (63, 60, 'action', 'receipt_unapproved', 'fa-list', 'a:1:{s:2:"vi";s:34:"Phiếu đề nghị chưa duyệt";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 8, 1398739847, 1399252738),
 (64, 60, 'action', 'stock', 'fa-list', 'a:1:{s:2:"vi";s:3:"Kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 5, 1398739865, 1398741458),
 (65, 60, 'action', 'receipt_history', 'fa-list', 'a:1:{s:2:"vi";s:33:"Thống kê lịch sử mua hàng";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 6, 1398739886, 1399263829),
 (66, 60, 'action', 'receipt_import', 'fa-list', 'a:1:{s:2:"vi";s:18:"Phiếu nhập kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 7, 1399252766, 1399257078),
-(67, 0, 'module', 'repository_export', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Quản lý xuất kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 76, 1399276283, 1399276283),
+(67, 0, 'module', 'repository_export', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Quản lý xuất kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 76, 1399276283, 1399276283),
 (68, 67, 'action', 'receipt_export', 'fa-list', 'a:1:{s:2:"vi";s:24:"Lập phiếu xuất kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1399276836, 1399276836),
 (69, 67, 'action', 'ordering', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản ký đơn hàng";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1399276867, 1399276867),
-(70, 0, 'module', 'voucher', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Voucher & promotional";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 75, 1401093674, 1401093674),
+(70, 0, 'module', 'voucher', 'fa-folder', 'a:1:{s:2:"vi";s:21:"Voucher & promotional";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 75, 1401093674, 1401093674),
 (71, 70, 'action', 'voucher', 'fa-list', 'a:1:{s:2:"vi";s:7:"Voucher";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1401093713, 1401093713),
 (72, 70, 'action', 'promotion', 'fa-list', 'a:1:{s:2:"vi";s:10:"Pomotional";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1401093840, 1401093840),
 (73, 70, 'action', 'setting', 'fa-list', 'a:1:{s:2:"vi";s:11:"Cấu hình";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 10, 1401096668, 1401096668),
 (74, 1, 'action', 'template_email', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý mẫu email";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1401165210, 1401165210),
 (75, 70, 'action', 'ordering', 'fa-list', 'a:1:{s:2:"vi";s:23:"Đơn hàng mua voucher";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1401180136, 1401180136),
-(76, 0, 'module', 'video', 'fa-folder', 'a:1:{s:2:"vi";s:16:"Quản lý video";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1405934794, 1405934794),
+(76, 0, 'module', 'video', 'fa-folder', 'a:1:{s:2:"vi";s:16:"Quản lý video";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 0, 1405934794, 1405934794),
 (77, 76, 'action', 'setting', 'fa-list', 'a:1:{s:2:"vi";s:11:"Cấu hình";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1405934809, 1405934809),
 (78, 76, 'action', 'group', 'fa-list', 'a:1:{s:2:"vi";s:16:"Quản lý nhóm";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1405934822, 1405934822),
 (79, 76, 'action', 'video', 'fa-list', 'a:1:{s:2:"vi";s:16:"Quản lý video";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1405934835, 1405934835),
@@ -244,11 +246,11 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (82, 1, 'action', 'location_province', 'fa-list', 'a:2:{s:2:"vi";s:32:"Quản lý Tỉnh / Thành phố";s:2:"en";s:32:"Quản lý Tỉnh / Thành phố";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1407210965, 1407210965),
 (83, 1, 'action', 'location_district', 'fa-list', 'a:2:{s:2:"vi";s:27:"Quản lý quận / huyện";s:2:"en";s:25:"Quản lý quận huyện";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1407210999, 1407211039),
 (84, 1, 'action', 'location_ward', 'fa-list', 'a:2:{s:2:"vi";s:26:"Quản lý phường / xã";s:2:"en";s:26:"Quản lý phường / xã";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1407211022, 1407211022),
-(85, 0, 'module', 'service', 'fa-folder', 'a:1:{s:2:"vi";s:22:"Quản lý dịch vụ";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421047911, 1421047911),
+(85, 0, 'module', 'service', 'fa-folder', 'a:1:{s:2:"vi";s:22:"Quản lý dịch vụ";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 0, 1421047911, 1421047911),
 (86, 85, 'action', 'setting', 'fa-list', 'a:1:{s:2:"vi";s:11:"Cấu hình";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421047945, 1421047945),
 (87, 85, 'action', 'group', 'fa-list', 'a:1:{s:2:"vi";s:16:"Quản lý nhóm";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421047971, 1421047971),
 (88, 85, 'action', 'service', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý dịch vụ";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421048010, 1421048010),
-(89, 0, 'module', 'project', 'fa-folder', 'a:2:{s:2:"vi";s:19:"Quản lý dự án";s:2:"en";s:19:"Quản lý dự án";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421373901, 1421373901),
+(89, 0, 'module', 'project', 'fa-folder', 'a:2:{s:2:"vi";s:19:"Quản lý dự án";s:2:"en";s:19:"Quản lý dự án";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 0, 1421373901, 1421373901),
 (90, 89, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:11:"Cấu hình";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421373919, 1421373919),
 (91, 89, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý nhóm";s:2:"en";s:16:"Quản lý nhóm";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421373937, 1421373937),
 (92, 89, 'action', 'project', 'fa-list', 'a:2:{s:2:"vi";s:19:"Quản lý dự án";s:2:"en";s:19:"Quản lý dự án";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1421373960, 1421373960),
@@ -266,7 +268,7 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 --
 
 CREATE TABLE IF NOT EXISTS `banner` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `banner_id` int(11) NOT NULL,
   `group_id` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
@@ -284,14 +286,14 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
   `lang` varchar(20) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type`, `link`, `target`, `content`, `date_begin`, `date_end`, `show_mod`, `show_act`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'logo', 'image', 'Công Ty TNHH Giải Pháp IMS', 'site', '', '_self', 'banner/2015_01/IMS_logo.png', 0, 0, '', '', 0, 1, 1407469101, 1421222311, 'vi'),
+(1, 1, 'logo', 'image', 'Công Ty TNHH Giải Pháp IMS', 'site', '', '_self', 'banner/2015_11/logo.png', 0, 0, '', '', 0, 1, 1407469101, 1446384375, 'vi'),
 (3, 3, 'footer', 'text', '', 'site', '', '_self', '<div style="text-align: center;">Sử dụng nội dung ở trang n&agrave;y v&agrave; dịch vụ tại IMS c&oacute; nghĩa l&agrave; bạn đồng &yacute; với Thỏa thuận sử dụng v&agrave; Ch&iacute;nh s&aacute;ch bảo mật của ch&uacute;ng t&ocirc;i.</div>\r\n<div style="text-align: center;">Copyright &copy; IMS. All right Reserved.</div>', 0, 0, '', '', 0, 1, 1407476242, 1421402366, 'vi'),
 (6, 6, 'share', 'image', 'Facebook', 'web', 'http://www.facebook.com', '_blank', 'banner/2015_01/share-02.gif', 0, 0, '', '', 9, 1, 1407922065, 1421744694, 'vi'),
 (7, 7, 'ordering-complete', 'text', 'Thông báo đặt hàng thành công', 'site', '', '_self', '<p>Cảm ơn qu&yacute; kh&aacute;ch đ&atilde; đặt h&agrave;ng tại c&ocirc;ng ty ch&uacute;ng t&ocirc;i!</p>\r\n<p>Đơn h&agrave;ng sẽ được xử l&yacute; trong 24h</p>', 0, 0, '', '', 0, 1, 1408091839, 1408091839, 'vi'),
@@ -300,8 +302,8 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (10, 10, 'share', 'image', 'Youtube', 'web', 'http://www.youtube.com', '_blank', 'banner/2015_01/share.gif', 0, 0, '', '', 0, 1, 1410860573, 1421744756, 'vi'),
 (14, 14, 'header', 'image', '', 'site', '', '_self', 'banner/2014_11/share_mess.gif', 0, 0, '', '', 0, 1, 1415352279, 1415352279, 'vi'),
 (15, 15, 'slogan', 'image', '', 'site', '', '_self', 'banner/2014_11/slogan.png', 0, 0, '', '', 0, 1, 1415353339, 1415353339, 'vi'),
-(16, 16, 'banner-main', 'image', 'bbgreen', 'site', '', '_self', 'banner/2014_11/banner_main.jpg', 0, 0, '', '', 0, 1, 1415601898, 1415601898, 'vi'),
-(17, 17, 'banner-main', 'image', 'main banner', 'site', '', '_self', 'banner/2015_01/banner-main-1.jpg', 0, 0, '', '', 0, 1, 1415601928, 1421303944, 'vi'),
+(16, 16, 'banner-main', 'image', 'bbgreen', 'site', '', '_self', 'banner/2015_11/banner_full5.jpg', 0, 0, '', '', 3, 1, 1415601898, 1446384008, 'vi'),
+(17, 17, 'banner-main', 'image', 'main banner', 'site', '', '_self', 'banner/2015_11/banner_full4.jpg', 0, 0, '', '', 2, 1, 1415601928, 1446383993, 'vi'),
 (18, 18, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Jellyfish.jpg', 0, 0, '', '', 0, 1, 1415688590, 1415688590, 'vi'),
 (19, 19, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Koala.jpg', 0, 0, '', '', 0, 1, 1415688598, 1415688598, 'vi'),
 (20, 20, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Lighthouse.jpg', 0, 0, '', '', 0, 1, 1415688605, 1415688605, 'vi'),
@@ -322,7 +324,13 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (35, 35, 'share', 'image', 'Twitter', 'web', 'http://www.twitter.com', '_blank', 'banner/2015_01/share-03.gif', 0, 0, '', '', 0, 1, 1421744792, 1421744792, 'vi'),
 (36, 35, 'share', 'image', 'Twitter', 'web', 'http://www.twitter.com', '_blank', 'banner/2015_01/share-03.gif', 0, 0, '', '', 0, 1, 1421744792, 1421744792, 'en'),
 (37, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'vi'),
-(38, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'en');
+(38, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'en'),
+(39, 39, 'banner-quangcao', 'image', 'Quảng cáo', 'web', 'https://www.facebook.com/', '_blank', 'banner/2015_10/Penguins.jpg', 0, 0, '', '', 0, 1, 1443856679, 1443856981, 'vi'),
+(40, 39, 'banner-quangcao', 'image', 'Quảng cáo', 'site', 'google.com.vn', '_self', 'banner/2015_10/Penguins.jpg', 0, 0, '', '', 0, 1, 1443856679, 1443856679, 'en'),
+(41, 41, 'banner-header-phone', 'image', '', 'site', '', '_self', 'banner/2015_11/hotline_b.png', 0, 0, '', '', 0, 1, 1446278327, 1446384386, 'vi'),
+(42, 41, 'banner-header-phone', 'image', '', 'site', '', '_self', 'banner/2015_10/hotline_b.png', 0, 0, '', '', 0, 1, 1446278327, 1446278327, 'en'),
+(43, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_11/banner_full1.jpg', 0, 0, '', '', 1, 1, 1446279026, 1446383980, 'vi'),
+(44, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_10/banner_full3.jpg', 0, 0, '', '', 1, 1, 1446279026, 1446279026, 'en');
 
 -- --------------------------------------------------------
 
@@ -348,7 +356,9 @@ CREATE TABLE IF NOT EXISTS `banner_group` (
 
 INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_show`, `show_order`, `is_show`, `date_create`, `date_update`) VALUES
 ('bank', 'a:2:{s:2:"vi";s:11:"Ngân hàng";s:2:"en";s:11:"Ngân hàng";}', 102, 50, 'full', 0, 1, 1421317164, 1421317164),
+('banner-header-phone', 'a:2:{s:2:"vi";s:19:"Banner Header Phone";s:2:"en";s:19:"Banner Header Phone";}', 0, 0, 'fixed', 0, 1, 1446278291, 1446278291),
 ('banner-main', 'a:2:{s:2:"vi";s:13:"Banner chính";s:2:"en";s:13:"Banner chính";}', 0, 0, 'full', 0, 1, 1393908826, 1421303885),
+('banner-quangcao', 'a:2:{s:2:"vi";s:19:"Banner quảng cáo";s:2:"en";s:19:"Banner quảng cáo";}', 100, 100, 'fixed', 0, 1, 1443856585, 1443857003),
 ('cart-empty', 'a:1:{s:2:"vi";s:30:"Thông báo giỏ hàng rỗng";}', 800, 0, 'fixed', 0, 1, 1408093869, 1408093869),
 ('content', 'a:2:{s:2:"vi";s:16:"Nội dung tĩnh";s:2:"en";s:22:"Nội dung trang chủ";}', 725, 0, 'fixed', 0, 1, 1392038710, 1395710846),
 ('footer', 'a:2:{s:2:"vi";s:12:"Cuối trang";s:2:"en";s:23:"Nội dung cuối trang";}', 500, 0, 'fixed', -10, 1, 1393814759, 1415354805),
@@ -360,7 +370,7 @@ INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_sh
 ('header1', 'a:1:{s:2:"vi";s:14:"Đầu trang 1";}', 220, 50, 'fixed', 98, 0, 1400638125, 1400638125),
 ('hotline-footer', 'a:1:{s:2:"vi";s:20:"Hotline cuối trang";}', 160, 0, 'fixed', 0, 0, 1396607739, 1396608026),
 ('left', 'a:1:{s:2:"vi";s:12:"Banner trái";}', 180, 0, 'fixed', 0, 0, 1397444134, 1397444134),
-('logo', 'a:2:{s:2:"vi";s:4:"Logo";s:2:"en";s:4:"Logo";}', 185, 100, 'full', 100, 1, 1391610951, 1421222234),
+('logo', 'a:2:{s:2:"vi";s:4:"Logo";s:2:"en";s:4:"Logo";}', 380, 56, 'full', 100, 1, 1391610951, 1446384438),
 ('logo-footer', 'a:2:{s:2:"vi";s:17:"Logo cuối trang";s:2:"en";s:17:"Logo cuối trang";}', 82, 41, 'fixed', -11, 0, 1393840329, 1393840329),
 ('ordering-complete', 'a:1:{s:2:"vi";s:37:"Thông báo đặt hàng thành công";}', 800, 0, 'fixed', 0, 1, 1408091759, 1408091759),
 ('right', 'a:2:{s:2:"vi";s:17:"Cột bên phải";s:2:"en";s:17:"Cột bên phải";}', 184, 0, 'fixed', -9, 0, 1391611851, 1395735328),
@@ -379,7 +389,7 @@ INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_sh
 --
 
 CREATE TABLE IF NOT EXISTS `config` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `email` varchar(250) NOT NULL,
   `hotline` varchar(250) NOT NULL,
   `hotline_support` varchar(250) NOT NULL,
@@ -415,7 +425,7 @@ INSERT INTO `config` (`id`, `email`, `hotline`, `hotline_support`, `fax`, `n_lis
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
-`contact_id` int(10) unsigned NOT NULL,
+  `contact_id` int(10) unsigned NOT NULL,
   `full_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `email_forward` varchar(250) NOT NULL,
@@ -438,7 +448,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 CREATE TABLE IF NOT EXISTS `contact_map` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `map_id` int(11) NOT NULL,
   `map_type` varchar(20) NOT NULL DEFAULT 'google_map',
   `map_latitude` float NOT NULL,
@@ -460,8 +470,8 @@ CREATE TABLE IF NOT EXISTS `contact_map` (
 --
 
 INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_longitude`, `title`, `short`, `content`, `map_information`, `map_picture`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'google_map', 10.7761, 106.672, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '&lt;p&gt;fsadfsfds&lt;/p&gt;', '', 0, 1, 1425455383, 1425455400, 'vi'),
-(2, 1, 'google_map', 10.7761, 106.672, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1425455400, 'en');
+(1, 1, 'google_map', 10.7937, 106.657, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '&lt;p&gt;L&amp;ecirc; B&amp;igrave;nh, Phường 4, T&amp;acirc;n B&amp;igrave;nh, Hồ Ch&amp;iacute; Minh, Việt Nam&lt;/p&gt;', '', 0, 1, 1425455383, 1443860382, 'vi'),
+(2, 1, 'google_map', 10.7937, 106.657, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1443860382, 'en');
 
 -- --------------------------------------------------------
 
@@ -470,7 +480,7 @@ INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_long
 --
 
 CREATE TABLE IF NOT EXISTS `contact_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `contact_meta_title` varchar(250) NOT NULL,
   `contact_meta_key` text NOT NULL,
   `contact_meta_desc` text NOT NULL,
@@ -497,7 +507,7 @@ INSERT INTO `contact_setting` (`id`, `contact_meta_title`, `contact_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `dealer` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -548,7 +558,7 @@ INSERT INTO `dealer` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`,
 --
 
 CREATE TABLE IF NOT EXISTS `dealer_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -581,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `dealer_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `dealer_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `dealer_meta_title` varchar(250) NOT NULL,
   `dealer_meta_key` text NOT NULL,
   `dealer_meta_desc` text NOT NULL,
@@ -606,7 +616,7 @@ INSERT INTO `dealer_setting` (`id`, `dealer_meta_title`, `dealer_meta_key`, `dea
 --
 
 CREATE TABLE IF NOT EXISTS `download` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -635,10 +645,10 @@ CREATE TABLE IF NOT EXISTS `download` (
 --
 
 INSERT INTO `download` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `file`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `show_order`, `is_show`, `is_focus`, `is_focus1`, `is_focus2`, `is_focus3`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 0, '', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'Thiết kế website', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'thiet-ke-website-2', 'Thiết kế website | Thiet ke website', 'Thiết kế website, Thiet ke website', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353790, 1425353790, 'vi'),
-(2, 1, 0, '', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'Thiết kế website', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'thiet-ke-website-3', 'Thiết kế website | Thiet ke website', 'Thiết kế website, Thiet ke website', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353790, 1425353790, 'en'),
-(3, 3, 7, '7', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'autopro.com.vn', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'autoprocomvn', 'autopro.com.vn | autopro.com.vn', 'autopro.com.vn, autopro.com.vn', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353856, 1425353856, 'vi'),
-(4, 3, 7, '7', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'autopro.com.vn', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'autoprocomvn-1', 'autopro.com.vn | autopro.com.vn', 'autopro.com.vn, autopro.com.vn', 'Nội dung', 0, 1, 0, 0, 0, 0, 1425353856, 1425353856, 'en');
+(1, 1, 0, '', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'Thiết kế website', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'thiet-ke-website-2', 'Thiết kế website | Thiet ke website', 'Thiết kế website, Thiet ke website', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353790, 1425353790, 'vi'),
+(2, 1, 0, '', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'Thiết kế website', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'thiet-ke-website-3', 'Thiết kế website | Thiet ke website', 'Thiết kế website, Thiet ke website', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353790, 1425353790, 'en'),
+(3, 3, 7, '7', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'autopro.com.vn', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'autoprocomvn', 'autopro.com.vn | autopro.com.vn', 'autopro.com.vn, autopro.com.vn', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353856, 1425353856, 'vi'),
+(4, 3, 7, '7', 'download/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'download/2015_03/hinh-nen.rar', 'autopro.com.vn', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', 'autoprocomvn-1', 'autopro.com.vn | autopro.com.vn', 'autopro.com.vn, autopro.com.vn', 'Nội dung', 0, 0, 0, 0, 0, 0, 1425353856, 1425353856, 'en');
 
 -- --------------------------------------------------------
 
@@ -647,7 +657,7 @@ INSERT INTO `download` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `fi
 --
 
 CREATE TABLE IF NOT EXISTS `download_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -671,15 +681,17 @@ CREATE TABLE IF NOT EXISTS `download_group` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `download_group`
 --
 
 INSERT INTO `download_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(7, 7, '7', 1, 0, '', '', 'Nhóm 4', '&lt;p&gt;asdasd a&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;asd &amp;aacute;d&lt;/p&gt;', 'nhom-4', 'Nhóm 4 | Nhom 4', 'Nhóm 4, Nhom 4', ' asd ád', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425351956, 1425352522, 'vi'),
-(8, 7, '7', 1, 0, '', '', 'Nhóm 4', '&lt;p&gt;asdasd a&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;asd &amp;aacute;d&lt;/p&gt;', 'nhom-4-1', 'Nhóm 4 | Nhom 4', 'Nhóm 4, Nhom 4', '&nbsp;asd &aacute;d', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425351956, 1425352522, 'en');
+(7, 7, '7', 1, 0, '', '', 'Nhóm 4', '&lt;p&gt;asdasd a&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;asd &amp;aacute;d&lt;/p&gt;', 'nhom-4', 'Nhóm 4 | Nhom 4', 'Nhóm 4, Nhom 4', ' asd ád', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425351956, 1425352522, 'vi'),
+(8, 7, '7', 1, 0, '', '', 'Nhóm 4', '&lt;p&gt;asdasd a&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;asd &amp;aacute;d&lt;/p&gt;', 'nhom-4-1', 'Nhóm 4 | Nhom 4', 'Nhóm 4, Nhom 4', '&nbsp;asd &aacute;d', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425351956, 1425352522, 'en'),
+(9, 9, '9', 1, 0, '', '', 'Tiện ích', '', '', 'tien-ich', 'Tiện ích | Tien ich', 'Tiện ích, Tien ich', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1446279762, 1446279762, 'vi'),
+(10, 9, '9', 1, 0, '', '', 'Tiện ích', '', '', 'tien-ich1', 'Tiện ích | Tien ich', 'Tiện ích, Tien ich', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1446279762, 1446279762, 'en');
 
 -- --------------------------------------------------------
 
@@ -688,7 +700,7 @@ INSERT INTO `download_group` (`id`, `group_id`, `group_nav`, `group_level`, `par
 --
 
 CREATE TABLE IF NOT EXISTS `download_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `download_meta_title` varchar(250) NOT NULL,
   `download_meta_key` text NOT NULL,
   `download_meta_desc` text NOT NULL,
@@ -712,7 +724,7 @@ INSERT INTO `download_setting` (`id`, `download_meta_title`, `download_meta_key`
 --
 
 CREATE TABLE IF NOT EXISTS `friendly_link` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `friendly_link` varchar(250) NOT NULL,
   `module` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
@@ -721,7 +733,7 @@ CREATE TABLE IF NOT EXISTS `friendly_link` (
   `lang` varchar(4) NOT NULL DEFAULT 'vi',
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1277 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1321 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `friendly_link`
@@ -729,7 +741,6 @@ CREATE TABLE IF NOT EXISTS `friendly_link` (
 
 INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable`, `dbtable_id`, `lang`, `date_create`, `date_update`) VALUES
 (22, 'nhom-1', 'page', 'group', 'page_group_lang', '1', 'vi', 1400742794, 1420785467),
-(23, 'tin-tuc', 'page', 'group', 'page_group_lang', '2', 'vi', 1400742856, 1411034307),
 (24, 'cach-thanh-toan', 'page', 'detail', 'page_lang', '1', 'vi', 1400742985, 1415613862),
 (25, 'hotline', 'page', 'detail', 'page_lang', '2', 'vi', 1400743065, 1415614075),
 (26, 'about', 'page', 'detail', 'page_lang', '3', 'vi', 1400743109, 1421114680),
@@ -1298,9 +1309,9 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (612, '1425356377-10-5', 'gallery', 'detail', 'gallery', '317', 'vi', 1425356377, 1425356377),
 (613, '1425356377-10-6', '', 'detail', '', '317', 'en', 1425356377, 1425356377),
 (614, '1425356377-10-7', '', 'detail', '', '317', 'vi', 1425356377, 1425356377),
-(615, '1425356377-10-8', 'gallery', 'detail', 'gallery', '319', 'vi', 1425356377, 1425356377);
+(615, '1425356377-10-8', 'gallery', 'detail', 'gallery', '319', 'vi', 1425356377, 1425356377),
+(616, '1425356377-10-9', '', 'detail', '', '319', 'en', 1425356377, 1425356377);
 INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable`, `dbtable_id`, `lang`, `date_create`, `date_update`) VALUES
-(616, '1425356377-10-9', '', 'detail', '', '319', 'en', 1425356377, 1425356377),
 (617, '1425356378', '', 'detail', '', '319', 'vi', 1425356378, 1425356378),
 (618, '1425356378-1', 'gallery', 'detail', 'gallery', '321', 'vi', 1425356378, 1425356378),
 (619, '1425356378-2', '', 'detail', '', '321', 'en', 1425356378, 1425356378),
@@ -1904,9 +1915,9 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1217, '1425356409-9', '', 'detail', '', '719', 'vi', 1425356409, 1425356409),
 (1218, '1425356409-10', 'gallery', 'detail', 'gallery', '721', 'vi', 1425356409, 1425356409),
 (1219, '1425356409-10-1', '', 'detail', '', '721', 'en', 1425356409, 1425356409),
-(1220, '1425356409-10-2', '', 'detail', '', '721', 'vi', 1425356409, 1425356409);
+(1220, '1425356409-10-2', '', 'detail', '', '721', 'vi', 1425356409, 1425356409),
+(1221, '1425356409-10-3', 'gallery', 'detail', 'gallery', '723', 'vi', 1425356409, 1425356409);
 INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable`, `dbtable_id`, `lang`, `date_create`, `date_update`) VALUES
-(1221, '1425356409-10-3', 'gallery', 'detail', 'gallery', '723', 'vi', 1425356409, 1425356409),
 (1222, '1425356409-10-4', '', 'detail', '', '723', 'en', 1425356409, 1425356409),
 (1223, '1425356409-10-5', '', 'detail', '', '723', 'vi', 1425356409, 1425356409),
 (1224, '1425356409-10-6', 'gallery', 'detail', 'gallery', '725', 'vi', 1425356409, 1425356409),
@@ -1928,8 +1939,6 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1240, 'quan-ly-download-1', 'news', 'group', 'news_group', '1', 'en', 1425358187, 1425358243),
 (1241, 'cong-ty-tnhh-song-vui', 'news', 'detail', 'news', '1', 'vi', 1425358483, 1425358483),
 (1242, 'cong-ty-tnhh-song-vui-1', 'news', 'detail', 'news', '1', 'en', 1425358483, 1425358483),
-(1243, 'banner-2', 'page', 'group', 'page_group', '1', 'vi', 1425365552, 1425365552),
-(1244, 'banner-3', 'page', 'group', 'page_group', '1', 'en', 1425365552, 1425365552),
 (1245, 'cpu', 'page', 'detail', 'page', '1', 'vi', 1425366151, 1425366151),
 (1246, 'cpu-1', 'page', 'detail', 'page', '1', 'en', 1425366151, 1425366151),
 (1247, 'construction', 'partner', 'group', 'partner_group', '1', 'vi', 1425366739, 1425366739),
@@ -1961,7 +1970,51 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1273, 'thi-cong-xay-dung', 'video', 'detail', 'video', '1', 'vi', 1425440822, 1425440822),
 (1274, 'thi-cong-xay-dung-1', 'video', 'detail', 'video', '1', 'en', 1425440822, 1425440822),
 (1275, 'thi-cong-xay-dung-2', 'video', 'detail', 'video', '3', 'vi', 1425440870, 1425440870),
-(1276, 'thi-cong-xay-dung-3', 'video', 'detail', 'video', '3', 'en', 1425440870, 1425440870);
+(1276, 'thi-cong-xay-dung-3', 'video', 'detail', 'video', '3', 'en', 1425440870, 1425440870),
+(1277, 'san-pham-nhom-1', 'product', 'group', 'product_group', '3', 'vi', 1443854265, 1443854265),
+(1278, 'san-pham-nhom-2', 'product', 'group', 'product_group', '3', 'en', 1443854265, 1443854265),
+(1279, 'ao-so-mi', 'product', 'detail', 'product', '7', 'vi', 1443854466, 1443859143),
+(1280, 'ao-so-mi1', 'product', 'detail', 'product', '7', 'en', 1443854466, 1443854466),
+(1281, 'shop-hoa', 'product', 'product', 'modules', 'product', 'vi', 1443855551, 1443858746),
+(1282, 'san-pham-nhom-3', 'product', 'product', 'modules', 'product', 'en', 1443855552, 1443855552),
+(1283, 'gioi-thieu', 'about', 'detail', 'about', '7', 'vi', 1443858573, 1443858573),
+(1284, 'gioi-thieu-cong-ty-5', 'about', 'detail', 'about', '7', 'en', 1443858573, 1443858573),
+(1285, 'hoa-hong', 'product', 'group', 'product_group', '5', 'vi', 1443858820, 1443858820),
+(1286, 'hoa-hong1', 'product', 'group', 'product_group', '5', 'en', 1443858820, 1443858820),
+(1287, 'hoa-lan', 'product', 'group', 'product_group', '7', 'vi', 1443858828, 1443858828),
+(1288, 'hoa-lan1', 'product', 'group', 'product_group', '7', 'en', 1443858828, 1443858828),
+(1289, 'hoa-lan2', 'product', 'detail', 'product', '9', 'vi', 1443859285, 1443948181),
+(1290, 'hoa-lan3', 'product', 'detail', 'product', '9', 'en', 1443859285, 1443859285),
+(1291, 'tin-tuc', 'news', 'news', 'modules', 'news', 'vi', 1443860067, 1443860146),
+(1292, 'tin-tuc2', 'news', 'news', 'modules', 'news', 'en', 1443860068, 1443860068),
+(1293, 'nao-bo-tuyen-yen-buong-trung', 'page', 'group', 'page_group', '3', 'vi', 1446279384, 1446279384),
+(1294, 'nao-bo-tuyen-yen-buong-trung1', 'page', 'group', 'page_group', '3', 'en', 1446279384, 1446279384),
+(1295, 'sam-angela', 'product', 'detail', 'product', '11', 'vi', 1446279474, 1446279474),
+(1296, 'sam-angela1', 'product', 'detail', 'product', '11', 'en', 1446279474, 1446279474),
+(1297, 'kien-thuc-benh-hoc', 'page', 'group', 'page_group', '5', 'vi', 1446279504, 1446279504),
+(1298, 'kien-thuc-benh-hoc1', 'page', 'group', 'page_group', '5', 'en', 1446279504, 1446279504),
+(1299, 'tin-tuc3', 'news', 'group', 'news_group', '3', 'vi', 1446279532, 1446279532),
+(1300, 'tin-tuc4', 'news', 'group', 'news_group', '3', 'en', 1446279533, 1446279533),
+(1301, 'hoat-dong', 'news', 'group', 'news_group', '5', 'vi', 1446279601, 1446279601),
+(1302, 'hoat-dong1', 'news', 'group', 'news_group', '5', 'en', 1446279601, 1446279601),
+(1303, 'dong-hanh-cung-solo-cung-bolero', 'news', 'group', 'news_group', '7', 'vi', 1446279627, 1446279627),
+(1304, 'dong-hanh-cung-solo-cung-bolero1', 'news', 'group', 'news_group', '7', 'en', 1446279627, 1446279627),
+(1305, 'dong-hanh-cung-thay-loi-muon-noi', 'news', 'group', 'news_group', '9', 'vi', 1446279645, 1446279645),
+(1306, 'dong-hanh-cung-thay-loi-muon-noi1', 'news', 'group', 'news_group', '9', 'en', 1446279645, 1446279645),
+(1307, 'dong-hanh-cung-su-kien', 'news', 'group', 'news_group', '11', 'vi', 1446279661, 1446279661),
+(1308, 'dong-hanh-cung-su-kien1', 'news', 'group', 'news_group', '11', 'en', 1446279661, 1446279661),
+(1309, 'dong-hanh-cung-dau-an', 'news', 'group', 'news_group', '13', 'vi', 1446279687, 1446279687),
+(1310, 'dong-hanh-cung-dau-an1', 'news', 'group', 'news_group', '13', 'en', 1446279687, 1446279687),
+(1311, 'tien-ich', 'download', 'group', 'download_group', '9', 'vi', 1446279762, 1446279762),
+(1312, 'tien-ich1', 'download', 'group', 'download_group', '9', 'en', 1446279762, 1446279762),
+(1313, 'benh-xuong-khop', 'page', 'group', 'page_group', '7', 'vi', 1446384574, 1446384574),
+(1314, 'benh-xuong-khop1', 'page', 'group', 'page_group', '7', 'en', 1446384574, 1446384574),
+(1315, 'khop-sun-khop-xuong-duoi-sun', 'page', 'detail', 'page', '3', 'vi', 1446384616, 1446384616),
+(1316, 'khop-sun-khop-xuong-duoi-sun1', 'page', 'detail', 'page', '3', 'en', 1446384616, 1446384616),
+(1317, 'peptan-uc-ii', 'page', 'group', 'page_group', '9', 'vi', 1446385055, 1446385055),
+(1318, 'peptan-uc-ii1', 'page', 'group', 'page_group', '9', 'en', 1446385056, 1446385056),
+(1319, 'jex-max', 'page', 'group', 'page_group', '11', 'vi', 1446385104, 1446385104),
+(1320, 'jex-max1', 'page', 'group', 'page_group', '11', 'en', 1446385104, 1446385104);
 
 -- --------------------------------------------------------
 
@@ -1970,7 +2023,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 --
 
 CREATE TABLE IF NOT EXISTS `gallery` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -2008,7 +2061,7 @@ INSERT INTO `gallery` (`id`, `item_id`, `group_nav`, `group_id`, `picture`, `tit
 --
 
 CREATE TABLE IF NOT EXISTS `gallery_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -2044,22 +2097,25 @@ INSERT INTO `gallery_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `gallery_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  `gallery_meta_title` varchar(250) NOT NULL,
+  `gallery_meta_key` text NOT NULL,
+  `gallery_meta_desc` text NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gallery_setting`
 --
 
-INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta_desc`, `num_list`, `num_order_detail`, `lang`) VALUES
-(1, 'Tin tức', '', '', 10, 10, 'vi'),
-(2, 'aboutus', '', '', 10, 10, 'en');
+INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta_desc`, `num_list`, `num_order_detail`, `lang`, `gallery_meta_title`, `gallery_meta_key`, `gallery_meta_desc`) VALUES
+(1, 'Tin tức', '', '', 10, 10, 'vi', '', '', ''),
+(2, 'aboutus', '', '', 10, 10, 'en', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2068,7 +2124,7 @@ INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_m
 --
 
 CREATE TABLE IF NOT EXISTS `home_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `home_meta_title` varchar(250) NOT NULL,
   `home_meta_key` text NOT NULL,
   `home_meta_desc` text NOT NULL,
@@ -2085,8 +2141,8 @@ CREATE TABLE IF NOT EXISTS `home_setting` (
 --
 
 INSERT INTO `home_setting` (`id`, `home_meta_title`, `home_meta_key`, `home_meta_desc`, `num_list`, `num_order_detail`, `lang`, `layout`, `sidebar_left`, `sidebar_right`) VALUES
-(1, 'Trang chủ', '', '', 3, 3, 'vi', 0, 0, 0),
-(2, 'Homepage', '', '', 6, 10, 'en', 0, 0, 0);
+(1, 'Trang chủ', '', '', 3, 3, 'vi', 4, 0, 0),
+(2, 'Homepage', '', '', 3, 3, 'en', 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2095,7 +2151,7 @@ INSERT INTO `home_setting` (`id`, `home_meta_title`, `home_meta_key`, `home_meta
 --
 
 CREATE TABLE IF NOT EXISTS `lang` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL DEFAULT 'vi',
   `title` varchar(250) NOT NULL,
   `is_default` tinyint(4) NOT NULL DEFAULT '0',
@@ -2823,8 +2879,7 @@ INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `pro
 (618, '867', 'c6', 'vi', '87', 'Sa Đéc', 0, 1, 1415954105, 1415954105, 'vi'),
 (619, '868', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi'),
 (620, '869', 'c6', 'vi', '87', 'Tân Hồng', 0, 1, 1415954105, 1415954105, 'vi'),
-(621, '870', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi');
-INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `province_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(621, '870', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi'),
 (622, '871', 'c6', 'vi', '87', 'Tam Nông', 0, 1, 1415954105, 1415954105, 'vi'),
 (623, '872', 'c6', 'vi', '87', 'Tháp Mười', 0, 1, 1415954105, 1415954105, 'vi'),
 (624, '873', 'c6', 'vi', '87', 'Cao Lãnh', 0, 1, 1415954105, 1415954105, 'vi'),
@@ -2843,7 +2898,8 @@ INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `pro
 (637, '892', 'c6', 'vi', '89', 'Châu Thành', 0, 1, 1415954106, 1415954106, 'vi'),
 (638, '893', 'c6', 'vi', '89', 'Chợ Mới', 0, 1, 1415954106, 1415954106, 'vi'),
 (639, '894', 'c6', 'vi', '89', 'Thoại Sơn', 0, 1, 1415954106, 1415954106, 'vi'),
-(640, '899', 'c6', 'vi', '91', 'Rạch Giá', 0, 1, 1415954106, 1415954106, 'vi'),
+(640, '899', 'c6', 'vi', '91', 'Rạch Giá', 0, 1, 1415954106, 1415954106, 'vi');
+INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `province_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (641, '900', 'c6', 'vi', '91', 'Hà Tiên', 0, 1, 1415954106, 1415954106, 'vi'),
 (642, '902', 'c6', 'vi', '91', 'Kiên Lương', 0, 1, 1415954106, 1415954106, 'vi'),
 (643, '903', 'c6', 'vi', '91', 'Hòn Đất', 0, 1, 1415954106, 1415954106, 'vi'),
@@ -3551,8 +3607,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (532, '01549', 'c6', 'vi', '04', '048', 'Kim Loan', 0, 0, 1, 1415954344, 1415954344, 'vi'),
 (533, '01552', 'c6', 'vi', '04', '048', 'Quang Long', 0, 0, 1, 1415954344, 1415954344, 'vi'),
 (534, '01555', 'c6', 'vi', '04', '048', 'An Lạc', 0, 0, 1, 1415954345, 1415954345, 'vi'),
-(535, '01558', 'c6', 'vi', '04', '048', 'Thanh Nhật', 0, 0, 1, 1415954345, 1415954345, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(535, '01558', 'c6', 'vi', '04', '048', 'Thanh Nhật', 0, 0, 1, 1415954345, 1415954345, 'vi'),
 (536, '01561', 'c6', 'vi', '04', '048', 'Vinh Quý', 0, 0, 1, 1415954345, 1415954345, 'vi'),
 (537, '01564', 'c6', 'vi', '04', '048', 'Việt Chu', 0, 0, 1, 1415954345, 1415954345, 'vi'),
 (538, '01567', 'c6', 'vi', '04', '048', 'Cô Ngân', 0, 0, 1, 1415954345, 1415954345, 'vi'),
@@ -3568,7 +3623,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (548, '01597', 'c6', 'vi', '04', '049', 'Cai Bộ', 0, 0, 1, 1415954345, 1415954345, 'vi'),
 (549, '01600', 'c6', 'vi', '04', '049', 'Đoài Khôn', 0, 0, 1, 1415954345, 1415954345, 'vi'),
 (550, '01603', 'c6', 'vi', '04', '049', 'Phúc Sen', 0, 0, 1, 1415954345, 1415954345, 'vi'),
-(551, '01606', 'c6', 'vi', '04', '049', 'Chí Thảo', 0, 0, 1, 1415954346, 1415954346, 'vi'),
+(551, '01606', 'c6', 'vi', '04', '049', 'Chí Thảo', 0, 0, 1, 1415954346, 1415954346, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (552, '01609', 'c6', 'vi', '04', '049', 'Tự Do', 0, 0, 1, 1415954346, 1415954346, 'vi'),
 (553, '01612', 'c6', 'vi', '04', '049', 'Hồng Định', 0, 0, 1, 1415954346, 1415954346, 'vi'),
 (554, '01615', 'c6', 'vi', '04', '049', 'Hồng Quang', 0, 0, 1, 1415954346, 1415954346, 'vi'),
@@ -4086,8 +4142,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1066, '03155', 'c6', 'vi', '11', '096', 'Sen Thượng', 0, 0, 1, 1415954387, 1415954387, 'vi'),
 (1067, '03157', 'c6', 'vi', '11', '096', 'Chung Chải', 0, 0, 1, 1415954387, 1415954387, 'vi'),
 (1068, '03158', 'c6', 'vi', '11', '096', 'Leng Su Sìn', 0, 0, 1, 1415954387, 1415954387, 'vi'),
-(1069, '03159', 'c6', 'vi', '11', '096', 'Pá Mỳ', 0, 0, 1, 1415954387, 1415954387, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(1069, '03159', 'c6', 'vi', '11', '096', 'Pá Mỳ', 0, 0, 1, 1415954387, 1415954387, 'vi'),
 (1070, '03160', 'c6', 'vi', '11', '096', 'Mường Nhé', 0, 0, 1, 1415954387, 1415954387, 'vi'),
 (1071, '03161', 'c6', 'vi', '11', '096', 'Nậm Vì', 0, 0, 1, 1415954387, 1415954387, 'vi'),
 (1072, '03162', 'c6', 'vi', '11', '096', 'Nậm Kè', 0, 0, 1, 1415954387, 1415954387, 'vi'),
@@ -4118,7 +4173,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1097, '03203', 'c6', 'vi', '11', '101', 'Điện Biên Đông', 0, 0, 1, 1415954388, 1415954388, 'vi'),
 (1098, '03205', 'c6', 'vi', '11', '101', 'Na Son', 0, 0, 1, 1415954388, 1415954388, 'vi'),
 (1099, '03208', 'c6', 'vi', '11', '101', 'Phì Nhừ', 0, 0, 1, 1415954388, 1415954388, 'vi'),
-(1100, '03211', 'c6', 'vi', '11', '101', 'Chiềng Sơ', 0, 0, 1, 1415954388, 1415954388, 'vi'),
+(1100, '03211', 'c6', 'vi', '11', '101', 'Chiềng Sơ', 0, 0, 1, 1415954388, 1415954388, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1101, '03214', 'c6', 'vi', '11', '101', 'Mường Luân', 0, 0, 1, 1415954388, 1415954388, 'vi'),
 (1102, '03217', 'c6', 'vi', '11', '098', 'Tủa Chùa', 0, 0, 1, 1415954388, 1415954388, 'vi'),
 (1103, '03220', 'c6', 'vi', '11', '098', 'Huổi Só', 0, 0, 1, 1415954388, 1415954388, 'vi'),
@@ -4616,8 +4672,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1595, '04624', 'c6', 'vi', '15', '140', 'Nông Trường Nghĩa Lộ', 0, 0, 1, 1415954403, 1415954403, 'vi'),
 (1596, '04627', 'c6', 'vi', '15', '140', 'Nông Trường Trần Phú', 0, 0, 1, 1415954403, 1415954403, 'vi'),
 (1597, '04630', 'c6', 'vi', '15', '140', 'Tú Lệ', 0, 0, 1, 1415954403, 1415954403, 'vi'),
-(1598, '04633', 'c6', 'vi', '15', '140', 'Nậm Búng', 0, 0, 1, 1415954403, 1415954403, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(1598, '04633', 'c6', 'vi', '15', '140', 'Nậm Búng', 0, 0, 1, 1415954403, 1415954403, 'vi'),
 (1599, '04636', 'c6', 'vi', '15', '140', 'Gia Hội', 0, 0, 1, 1415954403, 1415954403, 'vi'),
 (1600, '04639', 'c6', 'vi', '15', '140', 'Sùng Đô', 0, 0, 1, 1415954403, 1415954403, 'vi'),
 (1601, '04642', 'c6', 'vi', '15', '140', 'Nậm Mười', 0, 0, 1, 1415954403, 1415954403, 'vi'),
@@ -4663,7 +4718,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1641, '04762', 'c6', 'vi', '15', '141', 'Bạch Hà', 0, 0, 1, 1415954404, 1415954404, 'vi'),
 (1642, '04765', 'c6', 'vi', '15', '141', 'Vũ Linh', 0, 0, 1, 1415954404, 1415954404, 'vi'),
 (1643, '04768', 'c6', 'vi', '15', '141', 'Đại Đồng', 0, 0, 1, 1415954404, 1415954404, 'vi'),
-(1644, '04771', 'c6', 'vi', '15', '141', 'Vĩnh Kiên', 0, 0, 1, 1415954404, 1415954404, 'vi'),
+(1644, '04771', 'c6', 'vi', '15', '141', 'Vĩnh Kiên', 0, 0, 1, 1415954404, 1415954404, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1645, '04774', 'c6', 'vi', '15', '141', 'Yên Bình', 0, 0, 1, 1415954404, 1415954404, 'vi'),
 (1646, '04777', 'c6', 'vi', '15', '141', 'Thịnh Hưng', 0, 0, 1, 1415954404, 1415954404, 'vi'),
 (1647, '04780', 'c6', 'vi', '15', '141', 'Hán Đà', 0, 0, 1, 1415954404, 1415954404, 'vi'),
@@ -5148,8 +5204,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2126, '06217', 'c6', 'vi', '20', '183', 'Bình Trung', 0, 0, 1, 1415954439, 1415954439, 'vi'),
 (2127, '06220', 'c6', 'vi', '20', '183', 'Hải Yến', 0, 0, 1, 1415954439, 1415954439, 'vi'),
 (2128, '06223', 'c6', 'vi', '20', '183', 'Hòa Cư', 0, 0, 1, 1415954439, 1415954439, 'vi'),
-(2129, '06226', 'c6', 'vi', '20', '183', 'Hợp Thành', 0, 0, 1, 1415954439, 1415954439, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(2129, '06226', 'c6', 'vi', '20', '183', 'Hợp Thành', 0, 0, 1, 1415954439, 1415954439, 'vi'),
 (2130, '06229', 'c6', 'vi', '20', '183', 'Song Giáp', 0, 0, 1, 1415954439, 1415954439, 'vi'),
 (2131, '06232', 'c6', 'vi', '20', '183', 'Công Sơn', 0, 0, 1, 1415954439, 1415954439, 'vi'),
 (2132, '06235', 'c6', 'vi', '20', '183', 'Gia Cát', 0, 0, 1, 1415954439, 1415954439, 'vi'),
@@ -5209,7 +5264,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2186, '06397', 'c6', 'vi', '20', '186', 'Hòa Bình', 0, 0, 1, 1415954440, 1415954440, 'vi'),
 (2187, '06400', 'c6', 'vi', '20', '186', 'Yên Thịnh', 0, 0, 1, 1415954440, 1415954440, 'vi'),
 (2188, '06403', 'c6', 'vi', '20', '186', 'Yên Sơn', 0, 0, 1, 1415954440, 1415954440, 'vi'),
-(2189, '06406', 'c6', 'vi', '20', '186', 'Thiện Kỵ', 0, 0, 1, 1415954441, 1415954441, 'vi'),
+(2189, '06406', 'c6', 'vi', '20', '186', 'Thiện Kỵ', 0, 0, 1, 1415954441, 1415954441, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (2190, '06409', 'c6', 'vi', '20', '186', 'Tân Lập', 0, 0, 1, 1415954441, 1415954441, 'vi'),
 (2191, '06412', 'c6', 'vi', '20', '186', 'Yên Vượng', 0, 0, 1, 1415954441, 1415954441, 'vi'),
 (2192, '06415', 'c6', 'vi', '20', '186', 'Minh Tiến', 0, 0, 1, 1415954441, 1415954441, 'vi'),
@@ -5680,8 +5736,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2657, '07801', 'c6', 'vi', '24', '222', 'Vân Trung', 0, 0, 1, 1415954451, 1415954451, 'vi'),
 (2658, '07804', 'c6', 'vi', '24', '222', 'Vân Hà', 0, 0, 1, 1415954452, 1415954452, 'vi'),
 (2659, '07807', 'c6', 'vi', '24', '222', 'Quang Châu', 0, 0, 1, 1415954452, 1415954452, 'vi'),
-(2660, '07810', 'c6', 'vi', '24', '223', 'Thắng', 0, 0, 1, 1415954452, 1415954452, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(2660, '07810', 'c6', 'vi', '24', '223', 'Thắng', 0, 0, 1, 1415954452, 1415954452, 'vi'),
 (2661, '07813', 'c6', 'vi', '24', '223', 'Đồng Tân', 0, 0, 1, 1415954452, 1415954452, 'vi'),
 (2662, '07816', 'c6', 'vi', '24', '223', 'Thanh Vân', 0, 0, 1, 1415954452, 1415954452, 'vi'),
 (2663, '07819', 'c6', 'vi', '24', '223', 'Hoàng Lương', 0, 0, 1, 1415954452, 1415954452, 'vi'),
@@ -5756,7 +5811,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2732, '08026', 'c6', 'vi', '25', '230', 'Yên Kiện', 0, 0, 1, 1415954454, 1415954454, 'vi'),
 (2733, '08029', 'c6', 'vi', '25', '230', 'Hùng Long', 0, 0, 1, 1415954454, 1415954454, 'vi'),
 (2734, '08032', 'c6', 'vi', '25', '230', 'Vụ Quang', 0, 0, 1, 1415954454, 1415954454, 'vi'),
-(2735, '08035', 'c6', 'vi', '25', '230', 'Vân Đồn', 0, 0, 1, 1415954454, 1415954454, 'vi'),
+(2735, '08035', 'c6', 'vi', '25', '230', 'Vân Đồn', 0, 0, 1, 1415954454, 1415954454, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (2736, '08038', 'c6', 'vi', '25', '230', 'Tiêu Sơn', 0, 0, 1, 1415954454, 1415954454, 'vi'),
 (2737, '08041', 'c6', 'vi', '25', '230', 'Minh Tiến', 0, 0, 1, 1415954454, 1415954454, 'vi'),
 (2738, '08044', 'c6', 'vi', '25', '230', 'Minh Phú', 0, 0, 1, 1415954454, 1415954454, 'vi'),
@@ -6212,8 +6268,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3188, '09376', 'c6', 'vi', '27', '261', 'Tương Giang', 0, 0, 1, 1415954483, 1415954483, 'vi'),
 (3189, '09379', 'c6', 'vi', '27', '261', 'Phù Khê', 0, 0, 1, 1415954483, 1415954483, 'vi'),
 (3190, '09382', 'c6', 'vi', '27', '261', 'Đồng Kỵ', 0, 0, 1, 1415954483, 1415954483, 'vi'),
-(3191, '09383', 'c6', 'vi', '27', '261', 'Trang Hạ', 0, 0, 1, 1415954483, 1415954483, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(3191, '09383', 'c6', 'vi', '27', '261', 'Trang Hạ', 0, 0, 1, 1415954483, 1415954483, 'vi'),
 (3192, '09385', 'c6', 'vi', '27', '261', 'Đồng Nguyên', 0, 0, 1, 1415954483, 1415954483, 'vi'),
 (3193, '09388', 'c6', 'vi', '27', '261', 'Châu Khê', 0, 0, 1, 1415954483, 1415954483, 'vi'),
 (3194, '09391', 'c6', 'vi', '27', '261', 'Tân Hồng', 0, 0, 1, 1415954483, 1415954483, 'vi'),
@@ -6303,7 +6358,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3278, '09637', 'c6', 'vi', '01', '271', 'Châu Sơn', 0, 0, 1, 1415954485, 1415954485, 'vi'),
 (3279, '09640', 'c6', 'vi', '01', '271', 'Phong Vân', 0, 0, 1, 1415954486, 1415954486, 'vi'),
 (3280, '09643', 'c6', 'vi', '01', '271', 'Phú Đông', 0, 0, 1, 1415954486, 1415954486, 'vi'),
-(3281, '09646', 'c6', 'vi', '01', '271', 'Phú Phương', 0, 0, 1, 1415954486, 1415954486, 'vi'),
+(3281, '09646', 'c6', 'vi', '01', '271', 'Phú Phương', 0, 0, 1, 1415954486, 1415954486, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (3282, '09649', 'c6', 'vi', '01', '271', 'Phú Châu', 0, 0, 1, 1415954486, 1415954486, 'vi'),
 (3283, '09652', 'c6', 'vi', '01', '271', 'Thái Hòa', 0, 0, 1, 1415954486, 1415954486, 'vi'),
 (3284, '09655', 'c6', 'vi', '01', '271', 'Đồng Thái', 0, 0, 1, 1415954486, 1415954486, 'vi'),
@@ -6742,8 +6798,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3717, '10951', 'c6', 'vi', '30', '296', 'Vĩnh Tuy', 0, 0, 1, 1415954499, 1415954499, 'vi'),
 (3718, '10954', 'c6', 'vi', '30', '296', 'Hùng Thắng', 0, 0, 1, 1415954499, 1415954499, 'vi'),
 (3719, '10957', 'c6', 'vi', '30', '296', 'Tráng Liệt', 0, 0, 1, 1415954499, 1415954499, 'vi'),
-(3720, '10960', 'c6', 'vi', '30', '296', 'Vĩnh Hồng', 0, 0, 1, 1415954499, 1415954499, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(3720, '10960', 'c6', 'vi', '30', '296', 'Vĩnh Hồng', 0, 0, 1, 1415954499, 1415954499, 'vi'),
 (3721, '10963', 'c6', 'vi', '30', '296', 'Long Xuyên', 0, 0, 1, 1415954499, 1415954499, 'vi'),
 (3722, '10966', 'c6', 'vi', '30', '296', 'Tân Việt', 0, 0, 1, 1415954499, 1415954499, 'vi'),
 (3723, '10969', 'c6', 'vi', '30', '296', 'Thúc Kháng', 0, 0, 1, 1415954499, 1415954499, 'vi'),
@@ -6848,7 +6903,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3822, '11266', 'c6', 'vi', '30', '300', 'Lê Hồng', 0, 0, 1, 1415954502, 1415954502, 'vi'),
 (3823, '11269', 'c6', 'vi', '30', '300', 'Tứ Cường', 0, 0, 1, 1415954502, 1415954502, 'vi'),
 (3824, '11272', 'c6', 'vi', '30', '300', 'Hùng Sơn', 0, 0, 1, 1415954502, 1415954502, 'vi'),
-(3825, '11275', 'c6', 'vi', '30', '300', 'Ngũ Hùng', 0, 0, 1, 1415954502, 1415954502, 'vi'),
+(3825, '11275', 'c6', 'vi', '30', '300', 'Ngũ Hùng', 0, 0, 1, 1415954502, 1415954502, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (3826, '11278', 'c6', 'vi', '30', '300', 'Cao Thắng', 0, 0, 1, 1415954502, 1415954502, 'vi'),
 (3827, '11281', 'c6', 'vi', '30', '300', 'Chi Lăng Bắc', 0, 0, 1, 1415954502, 1415954502, 'vi'),
 (3828, '11284', 'c6', 'vi', '30', '300', 'Chi Lăng Nam', 0, 0, 1, 1415954502, 1415954502, 'vi'),
@@ -7271,8 +7327,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4245, '12517', 'c6', 'vi', '34', '338', 'Quỳnh Ngọc', 0, 0, 1, 1415954524, 1415954524, 'vi'),
 (4246, '12520', 'c6', 'vi', '34', '338', 'Quỳnh Hải', 0, 0, 1, 1415954524, 1415954524, 'vi'),
 (4247, '12523', 'c6', 'vi', '34', '338', 'An Bài', 0, 0, 1, 1415954524, 1415954524, 'vi'),
-(4248, '12526', 'c6', 'vi', '34', '338', 'An Ấp', 0, 0, 1, 1415954524, 1415954524, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(4248, '12526', 'c6', 'vi', '34', '338', 'An Ấp', 0, 0, 1, 1415954524, 1415954524, 'vi'),
 (4249, '12529', 'c6', 'vi', '34', '338', 'Quỳnh Hội', 0, 0, 1, 1415954524, 1415954524, 'vi'),
 (4250, '12532', 'c6', 'vi', '34', '338', 'Quỳnh Sơn', 0, 0, 1, 1415954524, 1415954524, 'vi'),
 (4251, '12535', 'c6', 'vi', '34', '338', 'Quỳnh Mỹ', 0, 0, 1, 1415954524, 1415954524, 'vi'),
@@ -7393,7 +7448,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4366, '12877', 'c6', 'vi', '34', '341', 'Thụy Dân', 0, 0, 1, 1415954528, 1415954528, 'vi'),
 (4367, '12880', 'c6', 'vi', '34', '341', 'Thụy Hải', 0, 0, 1, 1415954528, 1415954528, 'vi'),
 (4368, '12883', 'c6', 'vi', '34', '341', 'Thụy Phúc', 0, 0, 1, 1415954528, 1415954528, 'vi'),
-(4369, '12886', 'c6', 'vi', '34', '341', 'Thụy Lương', 0, 0, 1, 1415954528, 1415954528, 'vi'),
+(4369, '12886', 'c6', 'vi', '34', '341', 'Thụy Lương', 0, 0, 1, 1415954528, 1415954528, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (4370, '12889', 'c6', 'vi', '34', '341', 'Thụy Liên', 0, 0, 1, 1415954528, 1415954528, 'vi'),
 (4371, '12892', 'c6', 'vi', '34', '341', 'Thụy Duyên', 0, 0, 1, 1415954528, 1415954528, 'vi'),
 (4372, '12895', 'c6', 'vi', '34', '341', 'Thụy Hà', 0, 0, 1, 1415954528, 1415954528, 'vi'),
@@ -7802,8 +7858,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4775, '14104', 'c6', 'vi', '36', '364', 'Xuân Phong', 0, 0, 1, 1415954542, 1415954542, 'vi'),
 (4776, '14107', 'c6', 'vi', '36', '364', 'Xuân Đài', 0, 0, 1, 1415954542, 1415954542, 'vi'),
 (4777, '14110', 'c6', 'vi', '36', '364', 'Xuân Tân', 0, 0, 1, 1415954542, 1415954542, 'vi'),
-(4778, '14113', 'c6', 'vi', '36', '364', 'Xuân Thủy', 0, 0, 1, 1415954542, 1415954542, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(4778, '14113', 'c6', 'vi', '36', '364', 'Xuân Thủy', 0, 0, 1, 1415954542, 1415954542, 'vi'),
 (4779, '14116', 'c6', 'vi', '36', '364', 'Xuân Ngọc', 0, 0, 1, 1415954542, 1415954542, 'vi'),
 (4780, '14119', 'c6', 'vi', '36', '364', 'Xuân Bắc', 0, 0, 1, 1415954542, 1415954542, 'vi'),
 (4781, '14122', 'c6', 'vi', '36', '364', 'Xuân Phương', 0, 0, 1, 1415954542, 1415954542, 'vi'),
@@ -7938,7 +7993,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4910, '14503', 'c6', 'vi', '37', '373', 'Gia Tân', 0, 0, 1, 1415954546, 1415954546, 'vi'),
 (4911, '14506', 'c6', 'vi', '37', '373', 'Gia Thắng', 0, 0, 1, 1415954546, 1415954546, 'vi'),
 (4912, '14509', 'c6', 'vi', '37', '373', 'Gia Trung', 0, 0, 1, 1415954546, 1415954546, 'vi'),
-(4913, '14512', 'c6', 'vi', '37', '373', 'Gia Minh', 0, 0, 1, 1415954546, 1415954546, 'vi'),
+(4913, '14512', 'c6', 'vi', '37', '373', 'Gia Minh', 0, 0, 1, 1415954546, 1415954546, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `is_extramural`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (4914, '14515', 'c6', 'vi', '37', '373', 'Gia Lạc', 0, 0, 1, 1415954546, 1415954546, 'vi'),
 (4915, '14518', 'c6', 'vi', '37', '373', 'Gia Tiến', 0, 0, 1, 1415954546, 1415954546, 'vi'),
 (4916, '14521', 'c6', 'vi', '37', '373', 'Gia Sinh', 0, 0, 1, 1415954546, 1415954546, 'vi'),
@@ -8108,7 +8164,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `menu_id` int(11) NOT NULL,
   `group_id` varchar(20) NOT NULL DEFAULT 'menu_header',
   `menu_nav` varchar(250) NOT NULL,
@@ -8129,27 +8185,13 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `parent_id`, `name_action`, `target`, `title`, `short`, `link_type`, `link`, `auto_sub`, `lock_title`, `show_mod`, `show_act`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'menu_header', '1', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 0, 0, 1421140615, 1421140615, 'vi'),
-(2, 1, 'menu_header', '1', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 0, 0, 1421140615, 1421140615, 'en'),
-(5, 5, 'menu_header', '5', 1, 0, 'service-group-1', '_self', 'Thiết kế website', '', 'site', 'thiet-ke-website', 'item', 0, '', '', 0, 1, 1421141492, 1421378535, 'vi'),
-(6, 5, 'menu_header', '5', 1, 0, 'service-group-1', '_self', 'Thiết kế website', '', 'site', 'thiet-ke-website-1', 'item', 0, '', '', 0, 1, 1421141492, 1421378535, 'en'),
-(7, 7, 'menu_header', '7', 1, 0, 'service-group-2', '_self', 'Phần mềm', '', 'site', 'phan-mem', 'group', 0, '', '', 0, 1, 1421141590, 1421141590, 'vi'),
-(8, 7, 'menu_header', '7', 1, 0, 'service-group-2', '_self', 'Phần mềm', '', 'site', 'phan-mem-1', 'group', 0, '', '', 0, 1, 1421141590, 1421141590, 'en'),
-(9, 9, 'menu_header', '9', 1, 0, 'service-group-3', '_self', 'Tên miền', '', 'site', 'ten-mien', 'group', 0, '', '', 0, 1, 1421141596, 1421141596, 'vi'),
-(10, 9, 'menu_header', '9', 1, 0, 'service-group-3', '_self', 'Tên miền', '', 'site', 'ten-mien-1', 'group', 0, '', '', 0, 1, 1421141596, 1421141596, 'en'),
-(11, 11, 'menu_header', '11', 1, 0, 'service-group-4', '_self', 'Hosting', '', 'site', 'hosting', 'group', 0, '', '', 0, 1, 1421141603, 1421141603, 'vi'),
-(12, 11, 'menu_header', '11', 1, 0, 'service-group-4', '_self', 'Hosting', '', 'site', 'hosting-1', 'group', 0, '', '', 0, 1, 1421141603, 1421141603, 'en'),
-(13, 13, 'menu_header', '5,13', 2, 5, '1421656049', '_self', 'Thiết kế website', '', 'site', 'thiet-ke-website', '', 0, '', '', 0, 0, 1421642515, 1421656049, 'vi'),
-(14, 13, 'menu_header', '5,13', 2, 5, '1421656049', '_self', 'Thiết kế website', '', 'site', 'thiet-ke-website-1', '', 0, '', '', 0, 0, 1421642515, 1421656049, 'en'),
-(15, 15, 'menu_header', '15', 1, 0, 'service-group-2', '_self', 'Phần mềm', '', 'site', 'phan-mem', '', 0, '', '', 0, 0, 1421642568, 1421642568, 'vi'),
-(16, 15, 'menu_header', '15', 1, 0, 'service-group-2', '_self', 'Phần mềm', '', 'site', 'phan-mem-1', '', 0, '', '', 0, 0, 1421642568, 1421642568, 'en'),
 (17, 17, 'menu_footer', '17', 1, 0, 'service-group-4', '_self', 'Hosting', '', 'site', 'hosting', 'item', 0, '', '', 0, 1, 1421642682, 1421642682, 'vi'),
 (18, 17, 'menu_footer', '17', 1, 0, 'service-group-4', '_self', 'Hosting', '', 'site', 'hosting-1', 'item', 0, '', '', 0, 1, 1421642682, 1421642682, 'en'),
 (19, 19, 'menu_footer', '19', 1, 0, 'service-group-1', '_self', 'Thiết kế website', '', 'site', 'thiet-ke-website', 'item', 0, '', '', 0, 1, 1421642704, 1421642704, 'vi'),
@@ -8162,10 +8204,38 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 (26, 25, 'menu_top', '25', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', '', '', 0, '', '', 0, 1, 1421659174, 1421659174, 'en'),
 (27, 27, 'menu_top', '27', 1, 0, 'about-item-1', '_self', 'Giới thiệu', '', 'site', 'gioi-thieu.html', '', 0, '', '', 0, 1, 1421659530, 1421659530, 'vi'),
 (28, 27, 'menu_top', '27', 1, 0, 'about-item-1', '_self', 'Giới thiệu', '', 'site', 'gioi-thieu-1.html', '', 0, '', '', 0, 1, 1421659530, 1421659530, 'en'),
-(29, 29, 'menu_header', '29', 1, 0, 'project', '_self', 'Dự án', '', 'site', 'du-an', '', 0, '', '', 0, 1, 1421662452, 1421662452, 'vi'),
-(30, 29, 'menu_header', '29', 1, 0, 'project', '_self', 'Dự án', '', 'site', 'du-an', '', 0, '', '', 0, 1, 1421662452, 1421662452, 'en'),
-(31, 31, 'menu_header', '5,31', 2, 5, 'product-brand-1', '_self', 'Shipment', '', 'site', 'shipment', '', 0, '', '', 0, 1, 1425368085, 1425368085, 'vi'),
-(32, 31, 'menu_header', '5,31', 2, 5, 'product-brand-1', '_self', 'Shipment', '', 'site', 'shipment-1', '', 0, '', '', 0, 1, 1425368085, 1425368085, 'en');
+(35, 35, 'menu_header', '35', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 8, 1, 1443858512, 1443858512, 'vi'),
+(36, 35, 'menu_header', '35', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 8, 1, 1443858512, 1443858512, 'en'),
+(37, 37, 'menu_header', '37', 1, 0, 'about-item-7', '_self', 'Giới Thiệu', '', 'site', 'gioi-thieu.html', '', 0, '', '', 0, 0, 1443858588, 1443858588, 'vi'),
+(38, 37, 'menu_header', '37', 1, 0, 'about-item-7', '_self', 'Giới Thiệu', '', 'site', 'gioi-thieu-cong-ty-5.html', '', 0, '', '', 0, 0, 1443858588, 1443858588, 'en'),
+(39, 39, 'menu_header', '39', 1, 0, 'product', '_self', 'Shop Hoa', '', 'site', 'shop-hoa', '', 0, '', '', 0, 0, 1443858757, 1443858757, 'vi'),
+(40, 39, 'menu_header', '39', 1, 0, 'product', '_self', 'Shop Hoa', '', 'site', 'shop-hoa', '', 0, '', '', 0, 0, 1443858757, 1443858757, 'en'),
+(41, 41, 'menu_header', '39,41', 2, 39, 'product-group-5', '_self', 'Hoa Hồng', '', 'site', 'hoa-hong', '', 0, '', '', 0, 0, 1443858866, 1443858903, 'vi'),
+(42, 41, 'menu_header', '39,41', 2, 39, 'product-group-5', '_self', 'Hoa Hồng', '', 'site', '', '', 0, '', '', 0, 0, 1443858866, 1443858903, 'en'),
+(43, 43, 'menu_header', '39,43', 2, 39, 'product-group-7', '_self', 'Hoa Lan', '', 'site', 'hoa-lan', '', 0, '', '', 0, 0, 1443859186, 1443859211, 'vi'),
+(44, 43, 'menu_header', '39,43', 2, 39, 'product-group-7', '_self', 'Hoa Lan', '', 'site', 'hoa-lan', '', 0, '', '', 0, 0, 1443859186, 1443859211, 'en'),
+(45, 45, 'menu_header', '45', 1, 0, 'news', '_self', 'Tin Tức', '', 'site', 'tin-tuc', '', 0, '', '', 4, 1, 1443860078, 1443860078, 'vi'),
+(46, 45, 'menu_header', '45', 1, 0, 'news', '_self', 'Tin Tức', '', 'site', 'tin-tuc', '', 0, '', '', 4, 1, 1443860078, 1443860078, 'en'),
+(47, 47, 'menu_header', '47', 1, 0, 'contact', '_self', 'Liên Hệ', '', 'site', 'lien-he', '', 0, '', '', 1, 1, 1443860256, 1443860256, 'vi'),
+(48, 47, 'menu_header', '47', 1, 0, 'contact', '_self', 'Liên Hệ', '', 'site', 'lien-he', '', 0, '', '', 1, 1, 1443860256, 1443860256, 'en'),
+(49, 49, 'menu_header', '49', 1, 0, 'page-group-3', '_self', 'Não Bộ - Tuyến Yên - Buồng Trứng', '', 'site', 'nao-bo-tuyen-yen-buong-trung1', '', 0, '', '', 7, 0, 1446279421, 1446279421, 'en'),
+(50, 49, 'menu_header', '49', 1, 0, 'page-group-3', '_self', 'Não Bộ - Tuyến Yên - Buồng Trứng', '', 'site', 'nao-bo-tuyen-yen-buong-trung', '', 0, '', '', 7, 0, 1446279421, 1446279421, 'vi'),
+(51, 51, 'menu_header', '51', 1, 0, 'product-item-11', '_self', 'Sâm Angela', '', 'site', 'sam-angela.html', '', 0, '', '', 6, 0, 1446279484, 1446279484, 'vi'),
+(52, 51, 'menu_header', '51', 1, 0, 'product-item-11', '_self', 'Sâm Angela', '', 'site', 'sam-angela1.html', '', 0, '', '', 6, 0, 1446279484, 1446279484, 'en'),
+(53, 53, 'menu_header', '53', 1, 0, 'page-group-5', '_self', 'Kiến thức bệnh học', '', 'site', 'kien-thuc-benh-hoc', '', 0, '', '', 5, 0, 1446279510, 1446279510, 'vi'),
+(54, 53, 'menu_header', '53', 1, 0, 'page-group-5', '_self', 'Kiến thức bệnh học', '', 'site', 'kien-thuc-benh-hoc1', '', 0, '', '', 5, 0, 1446279510, 1446279510, 'en'),
+(55, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', 'tien-ich', '', 0, '', '', 2, 1, 1446279767, 1446279767, 'vi'),
+(56, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', 'tien-ich1', '', 0, '', '', 2, 1, 1446279767, 1446279767, 'en'),
+(57, 57, 'menu_header', '57', 1, 0, 'news-group-5', '_self', 'Hoạt động', '', 'site', 'hoat-dong', 'group', 0, '', '', 3, 0, 1446279888, 1446279888, 'vi'),
+(58, 57, 'menu_header', '57', 1, 0, 'news-group-5', '_self', 'Hoạt động', '', 'site', 'hoat-dong1', 'group', 0, '', '', 3, 0, 1446279888, 1446279888, 'en'),
+(59, 59, 'menu_header', '59', 1, 0, 'page-group-7', '_self', 'Bệnh xương khớp', '', 'site', 'benh-xuong-khop', 'item', 0, '', '', 7, 1, 1446384623, 1446384623, 'vi'),
+(60, 59, 'menu_header', '59', 1, 0, 'page-group-7', '_self', 'Bệnh xương khớp', '', 'site', 'benh-xuong-khop1', 'item', 0, '', '', 7, 1, 1446384623, 1446384623, 'en'),
+(61, 61, 'menu_header', '59,61', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun.html', '', 0, '', '', 0, 0, 1446384778, 1446384778, 'vi'),
+(62, 61, 'menu_header', '59,61', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun1.html', '', 0, '', '', 0, 0, 1446384778, 1446384778, 'en'),
+(63, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii', '', 0, '', '', 6, 1, 1446385064, 1446385064, 'vi'),
+(64, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii1', '', 0, '', '', 6, 1, 1446385064, 1446385064, 'en'),
+(65, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max', '', 0, '', '', 5, 1, 1446385226, 1446385226, 'vi'),
+(66, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max1', '', 0, '', '', 5, 1, 1446385226, 1446385226, 'en');
 
 -- --------------------------------------------------------
 
@@ -8174,13 +8244,13 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
-`mod_id` int(10) unsigned NOT NULL,
+  `mod_id` int(10) unsigned NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `arr_friendly_link` text NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `modules`
@@ -8193,7 +8263,9 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 (4, 'contact', 'a:2:{s:2:"vi";s:10:"Liên hệ";s:2:"en";s:7:"Contact";}', 'a:2:{s:2:"vi";s:7:"lien-he";s:2:"en";s:7:"contact";}', 0, 1),
 (7, 'search', 'a:2:{s:2:"vi";s:11:"Tìm kiếm";s:2:"en";s:6:"Search";}', 'a:2:{s:2:"vi";s:8:"tim-kiem";s:2:"en";s:6:"search";}', 0, 1),
 (9, 'service', 'a:2:{s:2:"vi";s:7:"Service";s:2:"en";s:7:"Service";}', 'a:2:{s:2:"vi";s:7:"dich-vu";s:2:"en";s:7:"service";}', 0, 1),
-(10, 'project', 'a:2:{s:2:"vi";s:8:"Dự án";s:2:"en";s:7:"Project";}', 'a:2:{s:2:"vi";s:5:"du-an";s:2:"en";s:7:"project";}', 0, 1);
+(10, 'project', 'a:2:{s:2:"vi";s:8:"Dự án";s:2:"en";s:7:"Project";}', 'a:2:{s:2:"vi";s:5:"du-an";s:2:"en";s:7:"project";}', 0, 1),
+(11, 'product', 'a:2:{s:2:"vi";s:8:"San Pham";s:2:"en";s:8:"San Pham";}', 'a:2:{s:2:"vi";s:8:"shop-hoa";s:2:"en";s:15:"san-pham-nhom-3";}', 0, 1),
+(12, 'news', 'a:2:{s:2:"vi";s:9:"Tin Tức";s:2:"en";s:9:"Tin Tức";}', 'a:2:{s:2:"vi";s:7:"tin-tuc";s:2:"en";s:8:"tin-tuc2";}', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -8202,7 +8274,7 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8239,7 +8311,7 @@ INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `
 --
 
 CREATE TABLE IF NOT EXISTS `news_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8263,15 +8335,27 @@ CREATE TABLE IF NOT EXISTS `news_group` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `news_group`
 --
 
 INSERT INTO `news_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, '1', 1, 0, '', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Quản lý download', '&lt;p&gt;asda&lt;/p&gt;', '', 'quan-ly-download', 'Quản lý download | Quan ly download', 'Quản lý download, Quan ly download', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425358243, 1425358243, 'vi'),
-(2, 1, '1', 1, 0, '', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Quản lý download', '&lt;p&gt;asda&lt;/p&gt;', '', 'quan-ly-download-1', 'Quản lý download | Quan ly download', 'Quản lý download, Quan ly download', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425358243, 1425358243, 'en');
+(1, 1, '1', 1, 0, '', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Quản lý download', '&lt;p&gt;asda&lt;/p&gt;', '', 'quan-ly-download', 'Quản lý download | Quan ly download', 'Quản lý download, Quan ly download', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425358243, 1425358243, 'vi'),
+(2, 1, '1', 1, 0, '', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Quản lý download', '&lt;p&gt;asda&lt;/p&gt;', '', 'quan-ly-download-1', 'Quản lý download | Quan ly download', 'Quản lý download, Quan ly download', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425358243, 1425358243, 'en'),
+(3, 3, '3', 1, 0, '', '', 'Tin Tức', '', '', 'tin-tuc3', 'Tin Tức | Tin Tuc', 'Tin Tức, Tin Tuc', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279532, 1446279532, 'vi'),
+(4, 3, '3', 1, 0, '', '', 'Tin Tức', '', '', 'tin-tuc4', 'Tin Tức | Tin Tuc', 'Tin Tức, Tin Tuc', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279532, 1446279532, 'en'),
+(5, 5, '5', 1, 0, '', '', 'Hoạt động', '', '', 'hoat-dong', 'Hoạt động | Hoạt dọng', 'Hoạt động, Hoạt dọng', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279601, 1446279601, 'vi'),
+(6, 5, '5', 1, 0, '', '', 'Hoạt động', '', '', 'hoat-dong1', 'Hoạt động | Hoạt dọng', 'Hoạt động, Hoạt dọng', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279601, 1446279601, 'en'),
+(7, 7, '5,7', 2, 5, '', '', 'Đồng hành cùng SOLO CÙNG BOLERO', '', '', 'dong-hanh-cung-solo-cung-bolero', 'Đồng hành cùng SOLO CÙNG BOLERO | Dong hanh cung SOLO CUNG BOLERO', 'Đồng hành cùng SOLO CÙNG BOLERO, Dong hanh cung SOLO CUNG BOLERO', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279627, 1446279627, 'vi'),
+(8, 7, '5,7', 2, 5, '', '', 'Đồng hành cùng SOLO CÙNG BOLERO', '', '', 'dong-hanh-cung-solo-cung-bolero1', 'Đồng hành cùng SOLO CÙNG BOLERO | Dong hanh cung SOLO CUNG BOLERO', 'Đồng hành cùng SOLO CÙNG BOLERO, Dong hanh cung SOLO CUNG BOLERO', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279627, 1446279627, 'en'),
+(9, 9, '5,9', 2, 5, '', '', 'Đồng hành cùng THAY LỜI MUỐN NÓI', '', '', 'dong-hanh-cung-thay-loi-muon-noi', 'Đồng hành cùng THAY LỜI MUỐN NÓI | Dong hanh cung THAY LOI MUON NOI', 'Đồng hành cùng THAY LỜI MUỐN NÓI, Dong hanh cung THAY LOI MUON NOI', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279645, 1446279645, 'vi'),
+(10, 9, '5,9', 2, 5, '', '', 'Đồng hành cùng THAY LỜI MUỐN NÓI', '', '', 'dong-hanh-cung-thay-loi-muon-noi1', 'Đồng hành cùng THAY LỜI MUỐN NÓI | Dong hanh cung THAY LOI MUON NOI', 'Đồng hành cùng THAY LỜI MUỐN NÓI, Dong hanh cung THAY LOI MUON NOI', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279645, 1446279645, 'en'),
+(11, 11, '5,11', 2, 5, '', '', 'Đồng hành cùng SỰ KIỆN', '', '', 'dong-hanh-cung-su-kien', 'Đồng hành cùng SỰ KIỆN | Dong hanh cung SU KIEN', 'Đồng hành cùng SỰ KIỆN, Dong hanh cung SU KIEN', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279661, 1446279661, 'vi'),
+(12, 11, '5,11', 2, 5, '', '', 'Đồng hành cùng SỰ KIỆN', '', '', 'dong-hanh-cung-su-kien1', 'Đồng hành cùng SỰ KIỆN | Dong hanh cung SU KIEN', 'Đồng hành cùng SỰ KIỆN, Dong hanh cung SU KIEN', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279661, 1446279661, 'en'),
+(13, 13, '5,13', 2, 5, '', '', 'Đồng hành cùng DẤU ẤN', '', '', 'dong-hanh-cung-dau-an', 'Đồng hành cùng DẤU ẤN | Dong hanh cung DAU AN', 'Đồng hành cùng DẤU ẤN, Dong hanh cung DAU AN', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279687, 1446279687, 'vi'),
+(14, 13, '5,13', 2, 5, '', '', 'Đồng hành cùng DẤU ẤN', '', '', 'dong-hanh-cung-dau-an1', 'Đồng hành cùng DẤU ẤN | Dong hanh cung DAU AN', 'Đồng hành cùng DẤU ẤN, Dong hanh cung DAU AN', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1446279687, 1446279687, 'en');
 
 -- --------------------------------------------------------
 
@@ -8280,7 +8364,7 @@ INSERT INTO `news_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 --
 
 CREATE TABLE IF NOT EXISTS `news_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
@@ -8306,7 +8390,7 @@ INSERT INTO `news_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta
 --
 
 CREATE TABLE IF NOT EXISTS `order_method` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `method_id` int(10) unsigned NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -8337,7 +8421,7 @@ INSERT INTO `order_method` (`id`, `method_id`, `name_action`, `picture`, `title`
 --
 
 CREATE TABLE IF NOT EXISTS `order_shipping` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `shipping_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `price` float NOT NULL,
@@ -8365,7 +8449,7 @@ INSERT INTO `order_shipping` (`id`, `shipping_id`, `picture`, `price`, `title`, 
 --
 
 CREATE TABLE IF NOT EXISTS `page` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -8387,15 +8471,17 @@ CREATE TABLE IF NOT EXISTS `page` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page`
 --
 
 INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `show_order`, `is_show`, `is_focus`, `is_focus1`, `is_focus2`, `is_focus3`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 1, '1', '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'CPU', '&lt;p&gt;fsfsdfdsfdsf&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;sdf ds fsdf sdf dsfds&lt;/p&gt;', 'cpu', 'CPU | CPU', 'CPU, CPU', '&nbsp;sdf ds fsdf sdf dsfds', 0, 1, 0, 0, 0, 0, 1425366151, 1425366151, 'vi'),
-(2, 1, 1, '1', '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'CPU', '&lt;p&gt;fsfsdfdsfdsf&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;sdf ds fsdf sdf dsfds&lt;/p&gt;', 'cpu-1', 'CPU | CPU', 'CPU, CPU', '&nbsp;sdf ds fsdf sdf dsfds', 0, 1, 0, 0, 0, 0, 1425366151, 1425366151, 'en');
+(1, 1, 1, '1', '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'CPU', '&lt;p&gt;fsfsdfdsfdsf&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;sdf ds fsdf sdf dsfds&lt;/p&gt;', 'cpu', 'CPU | CPU', 'CPU, CPU', '&nbsp;sdf ds fsdf sdf dsfds', 0, 0, 0, 0, 0, 0, 1425366151, 1425366151, 'vi'),
+(2, 1, 1, '1', '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'CPU', '&lt;p&gt;fsfsdfdsfdsf&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;sdf ds fsdf sdf dsfds&lt;/p&gt;', 'cpu-1', 'CPU | CPU', 'CPU, CPU', '&nbsp;sdf ds fsdf sdf dsfds', 0, 0, 0, 0, 0, 0, 1425366151, 1425366151, 'en'),
+(3, 3, 7, '7', '', '', 'Khớp, sụn khớp & xương dưới sụn', '', '&lt;h4&gt;1. Cấu tạo khớp&lt;/h4&gt;\r\n&lt;p&gt;Khớp l&amp;agrave; nơi nối giữa hai đầu xương. Cấu tạo của một khớp cơ bản bao gồm:&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Sụn khớp:&amp;nbsp;l&amp;agrave; lớp m&amp;ocirc; bao lấy đầu xương để ngăn c&amp;aacute;c xương tiếp x&amp;uacute;c trực tiếp với nhau, gi&amp;uacute;p khớp vận động dễ d&amp;agrave;ng.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Xương dưới sụn:&amp;nbsp;L&amp;agrave; phần xương ngay dưới sụn, li&amp;ecirc;n quan chặt chẽ với sụn khớp trong qu&amp;aacute; tr&amp;igrave;nh ph&amp;aacute;t triển v&amp;agrave; tho&amp;aacute;i h&amp;oacute;a.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/cau-tao-khop.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Dịch khớp:&amp;nbsp;l&amp;agrave; dịch trong - c&amp;oacute; độ nhớt cao, c&amp;oacute; t&amp;aacute;c dụng b&amp;ocirc;i trơn, cung cấp c&amp;aacute;c dưỡng chất cho c&amp;aacute;c cấu tr&amp;uacute;c b&amp;ecirc;n trong khớp.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;D&amp;acirc;y chằng:&amp;nbsp;c&amp;oacute; t&amp;aacute;c dụng như những dải băng co gi&amp;atilde;n gắn kết c&amp;aacute;c xương với nhau trong khi cơ thể chuyển động, gi&amp;uacute;p khớp được vững chắc.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Cơ bắp:&amp;nbsp;co duỗi để l&amp;agrave;m khớp chuyển động.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;G&amp;acirc;n:&amp;nbsp;nối xương với cơ để chuyển sức co của cơ v&amp;agrave;o xương.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Bao khớp (l&amp;oacute;t bởi m&amp;agrave;ng hoạt dịch):&amp;nbsp;l&amp;agrave; lớp m&amp;agrave;ng bao bọc quanh khớp, giữ c&amp;aacute;c xương lại với nhau.&lt;/p&gt;\r\n&lt;h4&gt;2. Sụn khớp&lt;/h4&gt;\r\n&lt;p&gt;Sụn khớp l&amp;agrave; lớp m&amp;ocirc; trong suốt, vừa cứng, vừa bền dai nhưng lại đ&amp;agrave;n hồi tốt, được cấu tạo từ hai th&amp;agrave;nh phần ch&amp;iacute;nh l&amp;agrave; tế b&amp;agrave;o sụn v&amp;agrave; chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/sun-khop.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Tế b&amp;agrave;o sụn:&amp;nbsp;chiếm dưới 10% trọng lượng m&amp;ocirc; sụn, chịu tr&amp;aacute;ch nhiệm sản xuất một lượng lớn chất căn bản.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Chất căn bản:&amp;nbsp;c&amp;oacute; c&amp;aacute;c th&amp;agrave;nh phần như Collagen, Proteoglycan (chủ yếu l&amp;agrave; Aggrecan) gi&amp;uacute;p sụn c&amp;oacute; khả năng chịu được sức nặng v&amp;agrave; &amp;aacute;p lực.&lt;/p&gt;\r\n&lt;p&gt;Sụn đ&amp;oacute;ng vai tr&amp;ograve; như lớp đệm bảo vệ, gi&amp;uacute;p giảm chấn động v&amp;agrave; tr&amp;aacute;nh sự cọ x&amp;aacute;t giữa hai đầu xương khi khớp cử động.&lt;/p&gt;\r\n&lt;p&gt;Tuy quan trọng như vậy, sụn lại kh&amp;ocirc;ng chứa mạch m&amp;aacute;u hay d&amp;acirc;y thần kinh n&amp;ecirc;n kh&amp;ocirc;ng được m&amp;aacute;u nu&amp;ocirc;i trực tiếp, chỉ tiếp nhận dinh dưỡng thẩm thấu nhờ tổ chức xương dưới sụn, m&amp;agrave;ng hoạt dịch, dịch khớp. Do vậy, sụn rất dễ bị tho&amp;aacute;i h&amp;oacute;a &amp;acirc;m thầm theo thời gian m&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; dấu hiệu n&amp;agrave;o.&lt;/p&gt;\r\n&lt;h4&gt;3. Xương dưới sụn&lt;/h4&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/xuong-duoi-sun.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;- Vị tr&amp;iacute;:&amp;nbsp;Xương dưới sụn nằm ngay b&amp;ecirc;n dưới sụn khớp, c&amp;oacute; cấu tr&amp;uacute;c chịu lực th&amp;iacute;ch hợp với c&amp;aacute;c lực t&amp;aacute;c động v&amp;agrave;o khớp.&lt;/p&gt;\r\n&lt;p&gt;- Vai tr&amp;ograve;:&amp;nbsp;Xương dưới sụn đ&amp;oacute;ng vai tr&amp;ograve; quan trọng hỗ trợ sụn khớp trong việc chống sốc, giảm &amp;aacute;p lực để khớp vận động b&amp;igrave;nh thường v&amp;agrave; cung cấp một phần dinh dưỡng, th&amp;uacute;c đẩy sự chuyển h&amp;oacute;a nơi sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;Qu&amp;aacute; tr&amp;igrave;nh l&amp;atilde;o h&amp;oacute;a tự nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c t&amp;aacute;c động cơ học (vận động h&amp;agrave;ng ng&amp;agrave;y) l&amp;agrave;m thay đổi c&amp;aacute;c đường viền v&amp;agrave; h&amp;igrave;nh dạng của xương dưới sụn. Trong qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a, xương dưới sụn bị tổn thương, c&amp;oacute; những phản ứng bất thường tạo c&amp;aacute;c v&amp;ugrave;ng xương rỗng, v&amp;ugrave;ng xương d&amp;agrave;y - xơ xen kẽ, đ&amp;ocirc;i khi tạo th&amp;agrave;nh gai xương.&lt;/p&gt;', 'khop-sun-khop-xuong-duoi-sun', 'Khớp, sụn khớp & xương dưới sụn | Khop, sun khop & xuong duoi sun', 'Khớp, sụn khớp & xương dưới sụn, Khop, sun khop & xuong duoi sun', '1. Cấu tạo khớp\r\nKhớp l&agrave; nơi nối giữa hai đầu xương. Cấu tạo của một khớp cơ bản bao gồm:\r\n-&nbsp;Sụn khớp:&nbsp;l&agrave; lớp m&ocirc; bao lấy đầu...', 0, 1, 0, 0, 0, 0, 1446384616, 1446384616, 'vi'),
+(4, 3, 7, '7', '', '', 'Khớp, sụn khớp & xương dưới sụn', '', '&lt;h4&gt;1. Cấu tạo khớp&lt;/h4&gt;\r\n&lt;p&gt;Khớp l&amp;agrave; nơi nối giữa hai đầu xương. Cấu tạo của một khớp cơ bản bao gồm:&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Sụn khớp:&amp;nbsp;l&amp;agrave; lớp m&amp;ocirc; bao lấy đầu xương để ngăn c&amp;aacute;c xương tiếp x&amp;uacute;c trực tiếp với nhau, gi&amp;uacute;p khớp vận động dễ d&amp;agrave;ng.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Xương dưới sụn:&amp;nbsp;L&amp;agrave; phần xương ngay dưới sụn, li&amp;ecirc;n quan chặt chẽ với sụn khớp trong qu&amp;aacute; tr&amp;igrave;nh ph&amp;aacute;t triển v&amp;agrave; tho&amp;aacute;i h&amp;oacute;a.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/cau-tao-khop.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Dịch khớp:&amp;nbsp;l&amp;agrave; dịch trong - c&amp;oacute; độ nhớt cao, c&amp;oacute; t&amp;aacute;c dụng b&amp;ocirc;i trơn, cung cấp c&amp;aacute;c dưỡng chất cho c&amp;aacute;c cấu tr&amp;uacute;c b&amp;ecirc;n trong khớp.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;D&amp;acirc;y chằng:&amp;nbsp;c&amp;oacute; t&amp;aacute;c dụng như những dải băng co gi&amp;atilde;n gắn kết c&amp;aacute;c xương với nhau trong khi cơ thể chuyển động, gi&amp;uacute;p khớp được vững chắc.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Cơ bắp:&amp;nbsp;co duỗi để l&amp;agrave;m khớp chuyển động.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;G&amp;acirc;n:&amp;nbsp;nối xương với cơ để chuyển sức co của cơ v&amp;agrave;o xương.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Bao khớp (l&amp;oacute;t bởi m&amp;agrave;ng hoạt dịch):&amp;nbsp;l&amp;agrave; lớp m&amp;agrave;ng bao bọc quanh khớp, giữ c&amp;aacute;c xương lại với nhau.&lt;/p&gt;\r\n&lt;h4&gt;2. Sụn khớp&lt;/h4&gt;\r\n&lt;p&gt;Sụn khớp l&amp;agrave; lớp m&amp;ocirc; trong suốt, vừa cứng, vừa bền dai nhưng lại đ&amp;agrave;n hồi tốt, được cấu tạo từ hai th&amp;agrave;nh phần ch&amp;iacute;nh l&amp;agrave; tế b&amp;agrave;o sụn v&amp;agrave; chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/sun-khop.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Tế b&amp;agrave;o sụn:&amp;nbsp;chiếm dưới 10% trọng lượng m&amp;ocirc; sụn, chịu tr&amp;aacute;ch nhiệm sản xuất một lượng lớn chất căn bản.&lt;/p&gt;\r\n&lt;p&gt;-&amp;nbsp;Chất căn bản:&amp;nbsp;c&amp;oacute; c&amp;aacute;c th&amp;agrave;nh phần như Collagen, Proteoglycan (chủ yếu l&amp;agrave; Aggrecan) gi&amp;uacute;p sụn c&amp;oacute; khả năng chịu được sức nặng v&amp;agrave; &amp;aacute;p lực.&lt;/p&gt;\r\n&lt;p&gt;Sụn đ&amp;oacute;ng vai tr&amp;ograve; như lớp đệm bảo vệ, gi&amp;uacute;p giảm chấn động v&amp;agrave; tr&amp;aacute;nh sự cọ x&amp;aacute;t giữa hai đầu xương khi khớp cử động.&lt;/p&gt;\r\n&lt;p&gt;Tuy quan trọng như vậy, sụn lại kh&amp;ocirc;ng chứa mạch m&amp;aacute;u hay d&amp;acirc;y thần kinh n&amp;ecirc;n kh&amp;ocirc;ng được m&amp;aacute;u nu&amp;ocirc;i trực tiếp, chỉ tiếp nhận dinh dưỡng thẩm thấu nhờ tổ chức xương dưới sụn, m&amp;agrave;ng hoạt dịch, dịch khớp. Do vậy, sụn rất dễ bị tho&amp;aacute;i h&amp;oacute;a &amp;acirc;m thầm theo thời gian m&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; dấu hiệu n&amp;agrave;o.&lt;/p&gt;\r\n&lt;h4&gt;3. Xương dưới sụn&lt;/h4&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/xuong-duoi-sun.jpg&quot; alt=&quot;vo-chong-minh-hat&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;- Vị tr&amp;iacute;:&amp;nbsp;Xương dưới sụn nằm ngay b&amp;ecirc;n dưới sụn khớp, c&amp;oacute; cấu tr&amp;uacute;c chịu lực th&amp;iacute;ch hợp với c&amp;aacute;c lực t&amp;aacute;c động v&amp;agrave;o khớp.&lt;/p&gt;\r\n&lt;p&gt;- Vai tr&amp;ograve;:&amp;nbsp;Xương dưới sụn đ&amp;oacute;ng vai tr&amp;ograve; quan trọng hỗ trợ sụn khớp trong việc chống sốc, giảm &amp;aacute;p lực để khớp vận động b&amp;igrave;nh thường v&amp;agrave; cung cấp một phần dinh dưỡng, th&amp;uacute;c đẩy sự chuyển h&amp;oacute;a nơi sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;Qu&amp;aacute; tr&amp;igrave;nh l&amp;atilde;o h&amp;oacute;a tự nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c t&amp;aacute;c động cơ học (vận động h&amp;agrave;ng ng&amp;agrave;y) l&amp;agrave;m thay đổi c&amp;aacute;c đường viền v&amp;agrave; h&amp;igrave;nh dạng của xương dưới sụn. Trong qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a, xương dưới sụn bị tổn thương, c&amp;oacute; những phản ứng bất thường tạo c&amp;aacute;c v&amp;ugrave;ng xương rỗng, v&amp;ugrave;ng xương d&amp;agrave;y - xơ xen kẽ, đ&amp;ocirc;i khi tạo th&amp;agrave;nh gai xương.&lt;/p&gt;', 'khop-sun-khop-xuong-duoi-sun1', 'Khớp, sụn khớp & xương dưới sụn | Khop, sun khop & xuong duoi sun', 'Khớp, sụn khớp & xương dưới sụn, Khop, sun khop & xuong duoi sun', '1. Cấu tạo khớp\r\nKhớp l&agrave; nơi nối giữa hai đầu xương. Cấu tạo của một khớp cơ bản bao gồm:\r\n-&nbsp;Sụn khớp:&nbsp;l&agrave; lớp m&ocirc; bao lấy đầu...', 0, 1, 0, 0, 0, 0, 1446384616, 1446384616, 'en');
 
 -- --------------------------------------------------------
 
@@ -8404,7 +8490,7 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 --
 
 CREATE TABLE IF NOT EXISTS `page_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8428,15 +8514,23 @@ CREATE TABLE IF NOT EXISTS `page_group` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page_group`
 --
 
 INSERT INTO `page_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, '1', 1, 0, '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Banner', '&lt;p&gt;asdasdasd&lt;/p&gt;', '&lt;p&gt;a sd adsasd as&lt;/p&gt;', 'banner-2', 'Banner | Banner', 'Banner, Banner', 'a sd adsasd as', 'grid', 'list_item', 1, 0, 0, 0, 1, 1425365552, 1425365552, 'vi'),
-(2, 1, '1', 1, 0, '', 'page/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Banner', '&lt;p&gt;asdasdasd&lt;/p&gt;', '&lt;p&gt;a sd adsasd as&lt;/p&gt;', 'banner-3', 'Banner | Banner', 'Banner, Banner', 'a sd adsasd as', 'grid', 'list_item', 1, 0, 0, 0, 1, 1425365552, 1425365552, 'en');
+(4, 3, '3', 1, 0, '', '', 'Não Bộ - Tuyến Yên - Buồng Trứng', '', '', 'nao-bo-tuyen-yen-buong-trung1', 'Não Bộ - Tuyến Yên - Buồng Trứng | Nao Bo - Tuyen Yen - Buong Trung', 'Não Bộ - Tuyến Yên - Buồng Trứng, Nao Bo - Tuyen Yen - Buong Trung', '', 'grid', '', 0, 0, 0, 0, 0, 1446279384, 1446279384, 'en'),
+(3, 3, '3', 1, 0, '', '', 'Não Bộ - Tuyến Yên - Buồng Trứng', '', '', 'nao-bo-tuyen-yen-buong-trung', 'Não Bộ - Tuyến Yên - Buồng Trứng | Nao Bo - Tuyen Yen - Buong Trung', 'Não Bộ - Tuyến Yên - Buồng Trứng, Nao Bo - Tuyen Yen - Buong Trung', '', 'grid', '', 0, 0, 0, 0, 0, 1446279384, 1446279384, 'vi'),
+(5, 5, '5', 1, 0, '', '', 'Kiến thức bệnh học', '', '', 'kien-thuc-benh-hoc', 'Kiến thức bệnh học | Kien thuc benh hoc', 'Kiến thức bệnh học, Kien thuc benh hoc', '', 'grid', '', 0, 0, 0, 0, 0, 1446279504, 1446279504, 'vi'),
+(6, 5, '5', 1, 0, '', '', 'Kiến thức bệnh học', '', '', 'kien-thuc-benh-hoc1', 'Kiến thức bệnh học | Kien thuc benh hoc', 'Kiến thức bệnh học, Kien thuc benh hoc', '', 'grid', '', 0, 0, 0, 0, 0, 1446279504, 1446279504, 'en'),
+(7, 7, '7', 1, 0, '', '', 'Bệnh xương khớp', '', '', 'benh-xuong-khop', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1446384574, 'vi'),
+(8, 7, '7', 1, 0, '', '', 'Bệnh xương khớp', '', '', 'benh-xuong-khop1', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1446384574, 'en'),
+(9, 9, '9', 1, 0, '', '', 'Peptan & UC-II', '', '&lt;h1 class=&quot;head_title&quot;&gt;PEPTAN &amp;amp; UC-II&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;/div&gt;', 'peptan-uc-ii', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'PEPTAN &amp; UC-II\r\n&nbsp;\r\n\r\nI. PEPTAN\r\n1. Peptan l&agrave; g&igrave;?\r\nPEPTAN&nbsp;l&agrave; ph&aacute;t minh vượt trội mang lại giải ph&aacute;p hữu hiệu, gi&uacute;p ph&ograve;ng...', 'grid', '', 0, 0, 0, 0, 1, 1446385055, 1446385055, 'vi'),
+(10, 9, '9', 1, 0, '', '', 'Peptan & UC-II', '', '&lt;h1 class=&quot;head_title&quot;&gt;PEPTAN &amp;amp; UC-II&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;/div&gt;', 'peptan-uc-ii1', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'PEPTAN &amp; UC-II\r\n&nbsp;\r\n\r\nI. PEPTAN\r\n1. Peptan l&agrave; g&igrave;?\r\nPEPTAN&nbsp;l&agrave; ph&aacute;t minh vượt trội mang lại giải ph&aacute;p hữu hiệu, gi&uacute;p ph&ograve;ng...', 'grid', '', 0, 0, 0, 0, 1, 1446385055, 1446385055, 'en'),
+(11, 11, '11', 1, 0, '', '', 'Jex Max', '', '&lt;h1 class=&quot;head_title&quot;&gt;Jex Max&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;div&gt;\r\n&lt;p&gt;Tiến bộ khoa học hiện đại gi&amp;uacute;p ch&amp;uacute;ng ta c&amp;oacute; thể chủ động ph&amp;ograve;ng ngừa, l&amp;agrave;m chậm v&amp;agrave; hỗ trợ điều trị c&amp;aacute;c bệnh l&amp;yacute; xương khớp từ gốc l&amp;agrave; sụn khớp v&amp;agrave; xương dưới sụn.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX, bước tiến vượt trội từ JEX, bổ sung th&amp;ecirc;m tinh chất&amp;nbsp;PEPTAN&amp;nbsp;thi&amp;ecirc;n nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c thảo dược qu&amp;yacute;, gi&amp;uacute;p giảm đau, k&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o tạo xương sản sinh xương mới, đẩy nhanh qu&amp;aacute; tr&amp;igrave;nh phục hồi m&amp;ocirc; sụn tại c&amp;aacute;c khớp.&lt;/p&gt;\r\n&lt;h4&gt;1. C&amp;ocirc;ng dụng&lt;/h4&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;PEPTAN&amp;nbsp;v&amp;agrave; c&amp;aacute;c tinh chất qu&amp;yacute; từ thi&amp;ecirc;n nhi&amp;ecirc;n, gi&amp;uacute;p giảm đau, tăng cường t&amp;aacute;i tạo&amp;nbsp;sụn khớp v&amp;agrave; xương dưới sụn, tăng độ bền v&amp;agrave; dẻo dai cho khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Giảm đau xương khớp cấp t&amp;iacute;nh v&amp;agrave; m&amp;atilde;n t&amp;iacute;nh.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị vi&amp;ecirc;m khớp: vi&amp;ecirc;m xương khớp, vi&amp;ecirc;m đa khớp dạng thấp.&lt;/p&gt;\r\n&lt;p&gt;+ Gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; l&amp;agrave;m chậm qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a xương khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị v&amp;agrave; ph&amp;ograve;ng ngừa lo&amp;atilde;ng xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/jex-max-x.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;h4&gt;2. Th&amp;ocirc;ng tin sản phẩm :&lt;/h4&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-4 pull-right noleft noright&quot;&gt;&lt;img src=&quot;http://jexmax.com.vn/files/image/2436-BOTTLE_JEXMAX.jpg&quot; alt=&quot;JEX&quot; /&gt;&lt;/div&gt;\r\n&lt;p&gt;2.1. Th&amp;agrave;nh phần&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-8 noleft &quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-striped&quot; border=&quot;1&quot; width=&quot;500&quot; cellspacing=&quot;1&quot; cellpadding=&quot;1&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;PEPTAN&lt;/td&gt;\r\n&lt;td&gt;200 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Undenatured Type II Collagen (UC-II)&lt;/td&gt;\r\n&lt;td&gt;40 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;White Willow Bark 15%&lt;/td&gt;\r\n&lt;td&gt;250 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Chondroitin Sulfate 90%&lt;/td&gt;\r\n&lt;td&gt;100 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Turmeric Extract 8:1 (contains Curcumin)&lt;/td&gt;\r\n&lt;td&gt;50 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Alcolec F-100 (Phosphatidylcholine 24%)&lt;/td&gt;\r\n&lt;td&gt;20 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Bromelain 2400 GDU&lt;/td&gt;\r\n&lt;td&gt;60 GDU&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&lt;br /&gt;2.2. C&amp;aacute;ch d&amp;ugrave;ng &amp;amp; liều d&amp;ugrave;ng:&lt;/p&gt;\r\n&lt;p&gt;+ Ng&amp;agrave;y uống 2 lần (s&amp;aacute;ng, chiều), mỗi lần 01 vi&amp;ecirc;n. Uống sau bữa ăn.&lt;/p&gt;\r\n&lt;p&gt;+ C&amp;oacute; thể uống 03 vi&amp;ecirc;n/ ng&amp;agrave;y trong trường hợp bệnh nặng.&lt;/p&gt;\r\n&lt;p&gt;+ N&amp;ecirc;n d&amp;ugrave;ng thường xuy&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;2.3. Đối tượng sử dụng:&amp;nbsp;Người tr&amp;ecirc;n 18 tuổi.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;', 'jex-max', 'Jex Max | Jex Max', 'Jex Max, Jex Max', 'Jex Max\r\n&nbsp;\r\n\r\n\r\nTiến bộ khoa học hiện đại gi&uacute;p ch&uacute;ng ta c&oacute; thể chủ động ph&ograve;ng ngừa, l&agrave;m chậm v&agrave; hỗ trợ điều trị...', 'grid', '', 0, 0, 0, 0, 1, 1446385104, 1446385104, 'vi'),
+(12, 11, '11', 1, 0, '', '', 'Jex Max', '', '&lt;h1 class=&quot;head_title&quot;&gt;Jex Max&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;div&gt;\r\n&lt;p&gt;Tiến bộ khoa học hiện đại gi&amp;uacute;p ch&amp;uacute;ng ta c&amp;oacute; thể chủ động ph&amp;ograve;ng ngừa, l&amp;agrave;m chậm v&amp;agrave; hỗ trợ điều trị c&amp;aacute;c bệnh l&amp;yacute; xương khớp từ gốc l&amp;agrave; sụn khớp v&amp;agrave; xương dưới sụn.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX, bước tiến vượt trội từ JEX, bổ sung th&amp;ecirc;m tinh chất&amp;nbsp;PEPTAN&amp;nbsp;thi&amp;ecirc;n nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c thảo dược qu&amp;yacute;, gi&amp;uacute;p giảm đau, k&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o tạo xương sản sinh xương mới, đẩy nhanh qu&amp;aacute; tr&amp;igrave;nh phục hồi m&amp;ocirc; sụn tại c&amp;aacute;c khớp.&lt;/p&gt;\r\n&lt;h4&gt;1. C&amp;ocirc;ng dụng&lt;/h4&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;PEPTAN&amp;nbsp;v&amp;agrave; c&amp;aacute;c tinh chất qu&amp;yacute; từ thi&amp;ecirc;n nhi&amp;ecirc;n, gi&amp;uacute;p giảm đau, tăng cường t&amp;aacute;i tạo&amp;nbsp;sụn khớp v&amp;agrave; xương dưới sụn, tăng độ bền v&amp;agrave; dẻo dai cho khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Giảm đau xương khớp cấp t&amp;iacute;nh v&amp;agrave; m&amp;atilde;n t&amp;iacute;nh.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị vi&amp;ecirc;m khớp: vi&amp;ecirc;m xương khớp, vi&amp;ecirc;m đa khớp dạng thấp.&lt;/p&gt;\r\n&lt;p&gt;+ Gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; l&amp;agrave;m chậm qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a xương khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị v&amp;agrave; ph&amp;ograve;ng ngừa lo&amp;atilde;ng xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/jex-max-x.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;h4&gt;2. Th&amp;ocirc;ng tin sản phẩm :&lt;/h4&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-4 pull-right noleft noright&quot;&gt;&lt;img src=&quot;http://jexmax.com.vn/files/image/2436-BOTTLE_JEXMAX.jpg&quot; alt=&quot;JEX&quot; /&gt;&lt;/div&gt;\r\n&lt;p&gt;2.1. Th&amp;agrave;nh phần&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-8 noleft &quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-striped&quot; border=&quot;1&quot; width=&quot;500&quot; cellspacing=&quot;1&quot; cellpadding=&quot;1&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;PEPTAN&lt;/td&gt;\r\n&lt;td&gt;200 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Undenatured Type II Collagen (UC-II)&lt;/td&gt;\r\n&lt;td&gt;40 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;White Willow Bark 15%&lt;/td&gt;\r\n&lt;td&gt;250 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Chondroitin Sulfate 90%&lt;/td&gt;\r\n&lt;td&gt;100 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Turmeric Extract 8:1 (contains Curcumin)&lt;/td&gt;\r\n&lt;td&gt;50 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Alcolec F-100 (Phosphatidylcholine 24%)&lt;/td&gt;\r\n&lt;td&gt;20 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Bromelain 2400 GDU&lt;/td&gt;\r\n&lt;td&gt;60 GDU&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&lt;br /&gt;2.2. C&amp;aacute;ch d&amp;ugrave;ng &amp;amp; liều d&amp;ugrave;ng:&lt;/p&gt;\r\n&lt;p&gt;+ Ng&amp;agrave;y uống 2 lần (s&amp;aacute;ng, chiều), mỗi lần 01 vi&amp;ecirc;n. Uống sau bữa ăn.&lt;/p&gt;\r\n&lt;p&gt;+ C&amp;oacute; thể uống 03 vi&amp;ecirc;n/ ng&amp;agrave;y trong trường hợp bệnh nặng.&lt;/p&gt;\r\n&lt;p&gt;+ N&amp;ecirc;n d&amp;ugrave;ng thường xuy&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;2.3. Đối tượng sử dụng:&amp;nbsp;Người tr&amp;ecirc;n 18 tuổi.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;', 'jex-max1', 'Jex Max | Jex Max', 'Jex Max, Jex Max', 'Jex Max\r\n&nbsp;\r\n\r\n\r\nTiến bộ khoa học hiện đại gi&uacute;p ch&uacute;ng ta c&oacute; thể chủ động ph&ograve;ng ngừa, l&agrave;m chậm v&agrave; hỗ trợ điều trị...', 'grid', '', 0, 0, 0, 0, 1, 1446385104, 1446385104, 'en');
 
 -- --------------------------------------------------------
 
@@ -8445,7 +8539,7 @@ INSERT INTO `page_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 --
 
 CREATE TABLE IF NOT EXISTS `page_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `page_meta_title` varchar(250) NOT NULL,
   `page_meta_key` text NOT NULL,
   `page_meta_desc` text NOT NULL,
@@ -8469,7 +8563,7 @@ INSERT INTO `page_setting` (`id`, `page_meta_title`, `page_meta_key`, `page_meta
 --
 
 CREATE TABLE IF NOT EXISTS `partner` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8507,7 +8601,7 @@ INSERT INTO `partner` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `partner_comment` (
-`cid` int(10) unsigned NOT NULL,
+  `cid` int(10) unsigned NOT NULL,
   `type` varchar(50) NOT NULL DEFAULT 'partner',
   `type_id` int(11) NOT NULL DEFAULT '0',
   `link_page` varchar(250) NOT NULL,
@@ -8531,7 +8625,7 @@ CREATE TABLE IF NOT EXISTS `partner_comment` (
 --
 
 CREATE TABLE IF NOT EXISTS `partner_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8567,7 +8661,7 @@ INSERT INTO `partner_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `partner_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `partner_meta_title` varchar(250) NOT NULL,
   `partner_meta_key` text NOT NULL,
   `partner_meta_desc` text NOT NULL,
@@ -8593,7 +8687,7 @@ INSERT INTO `partner_setting` (`id`, `partner_meta_title`, `partner_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8628,19 +8722,25 @@ CREATE TABLE IF NOT EXISTS `product` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `group_related`, `brand_id`, `item_code`, `picture`, `file`, `title`, `pic_show`, `price_import`, `price`, `percent_discount`, `price_buy`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `in_stock`, `out_stock`, `list_color`, `list_size`, `list_code_pic`, `list_status`, `num_view`, `show_order`, `is_show`, `is_focus`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425435159, 1425435183, 'vi'),
-(2, 1, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425435159, 1425435183, 'en'),
-(3, 3, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4-1', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425436879, 1425436879, 'vi'),
-(4, 3, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5-1', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425435159, 1425435183, 'en'),
-(5, 5, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4-2', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425437155, 1425437155, 'vi'),
-(6, 5, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5-2', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 1, 1, 1425435159, 1425435183, 'en');
+(1, 1, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425435159, 1425435183, 'vi'),
+(2, 1, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425435159, 1425435183, 'en'),
+(3, 3, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4-1', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425436879, 1425436879, 'vi'),
+(4, 3, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5-1', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425435159, 1425435183, 'en'),
+(5, 5, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test 1', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-4-2', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425437155, 1425437155, 'vi'),
+(6, 5, '1', 1, '', '1', 0, 'EGTPKE', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', '', 'test', 'slide', 0, 500000, 40, 300000, '&lt;p&gt;dadasd&lt;/p&gt;', '&lt;p&gt;asd&lt;/p&gt;', 'test-5-2', 'test | test', 'test, test', 'asd', 0, 0, '', '', '', '', 0, 0, 0, 1, 1425435159, 1425435183, 'en'),
+(7, 7, '5', 5, 's:4:"s:5:";', '', 0, '6PPCSN', 'product/2014_11/spct1.jpg', '', 'Áo sơ mi', 'slide', 0, 1000000, 0, 1000000, '&lt;p&gt;&amp;Aacute;o sơ mi Nam&lt;/p&gt;', '&lt;p&gt;B&amp;aacute;n h&amp;agrave;ng online trực tuyến&lt;/p&gt;', 'ao-so-mi', 'Áo sơ mi | Ao so mi', 'Áo sơ mi, Ao so mi', 'Bán hàng online trực tuyến', 0, 0, '', '', '', '', 0, 0, 0, 0, 1443854466, 1443859143, 'vi'),
+(8, 7, '5', 5, 'a:1:{i:1;s:4:"aaaa";}', '', 0, '6PPCSN', 'product/2014_11/spct1.jpg', '', 'Áo sơ mi', 'slide', 0, 1000000, 0, 1000000, '&lt;p&gt;&amp;Aacute;o sơ mi Nam&lt;/p&gt;', '&lt;p&gt;B&amp;aacute;n h&amp;agrave;ng online trực tuyến&lt;/p&gt;', 'ao-so-mi1', 'Áo sơ mi | Ao so mi', 'Áo sơ mi, Ao so mi', 'B&aacute;n h&agrave;ng online trực tuyến', 0, 0, '', '', '', '', 0, 0, 0, 0, 1443854466, 1443859143, 'en'),
+(9, 9, '7', 7, 's:4:"s:4:";', '', 0, '8GATPK', 'product/2015_10/Chrysanthemum.jpg', '', 'Hoa Lan', 'slide', 0, 100000, 0, 100000, '', '&lt;p&gt;Hoa Lan gi&amp;aacute; cực rẻ!!!&lt;/p&gt;', 'hoa-lan2', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', 'Hoa Lan giá cực rẻ!!!', 0, 0, '', '', '', '', 0, 0, 0, 1, 1443859285, 1443948181, 'vi'),
+(10, 9, '7', 7, 's:0:"";', '', 0, '8GATPK', 'product/2015_10/Chrysanthemum.jpg', '', 'Hoa Lan', 'slide', 0, 100000, 0, 100000, '', '&lt;p&gt;Hoa Lan gi&amp;aacute; cực rẻ!!!&lt;/p&gt;', 'hoa-lan3', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', 'Hoa Lan gi&aacute; cực rẻ!!!', 0, 0, '', '', '', '', 0, 0, 0, 1, 1443859285, 1443948181, 'en'),
+(11, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446279474, 1446279474, 'vi'),
+(12, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela1', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446279474, 1446279474, 'en');
 
 -- --------------------------------------------------------
 
@@ -8649,7 +8749,7 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_brand` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `brand_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -8680,7 +8780,7 @@ INSERT INTO `product_brand` (`id`, `brand_id`, `picture`, `title`, `content`, `f
 --
 
 CREATE TABLE IF NOT EXISTS `product_code_pic` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `code_pic_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -8707,7 +8807,7 @@ INSERT INTO `product_code_pic` (`id`, `code_pic_id`, `picture`, `title`, `conten
 --
 
 CREATE TABLE IF NOT EXISTS `product_color` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `color_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `color` varchar(7) NOT NULL,
@@ -8742,7 +8842,7 @@ INSERT INTO `product_color` (`id`, `color_id`, `picture`, `color`, `title`, `sho
 --
 
 CREATE TABLE IF NOT EXISTS `product_combine` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL,
   `type` varchar(50) NOT NULL DEFAULT 'product',
   `type_id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
@@ -8762,7 +8862,7 @@ CREATE TABLE IF NOT EXISTS `product_combine` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8786,15 +8886,21 @@ CREATE TABLE IF NOT EXISTS `product_group` (
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_group`
 --
 
 INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, '1', 1, 0, '', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', 'Nhóm 1', '&lt;p&gt;fsdfsdfd&lt;/p&gt;', '&lt;p&gt;dsfsdfsfds&lt;/p&gt;', 'nhom-1-2', 'Nhóm 1 | Nhom 1', 'Nhóm 1, Nhom 1', 'dsfsdfsfds', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425373716, 1425373716, 'vi'),
-(2, 1, '1', 1, 0, '', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', 'Nhóm 1', '&lt;p&gt;fsdfsdfd&lt;/p&gt;', '&lt;p&gt;dsfsdfsfds&lt;/p&gt;', 'nhom-1-3', 'Nhóm 1 | Nhom 1', 'Nhóm 1, Nhom 1', 'dsfsdfsfds', 'grid', 'list_item', 0, 0, 0, 0, 1, 1425373716, 1425373716, 'en');
+(1, 1, '1', 1, 0, '', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', 'Nhóm 1', '&lt;p&gt;fsdfsdfd&lt;/p&gt;', '&lt;p&gt;dsfsdfsfds&lt;/p&gt;', 'nhom-1-2', 'Nhóm 1 | Nhom 1', 'Nhóm 1, Nhom 1', 'dsfsdfsfds', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425373716, 1425373716, 'vi'),
+(2, 1, '1', 1, 0, '', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', 'Nhóm 1', '&lt;p&gt;fsdfsdfd&lt;/p&gt;', '&lt;p&gt;dsfsdfsfds&lt;/p&gt;', 'nhom-1-3', 'Nhóm 1 | Nhom 1', 'Nhóm 1, Nhom 1', 'dsfsdfsfds', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425373716, 1425373716, 'en'),
+(3, 3, '1,3', 2, 1, '', 'product/2014_11/sp1.png', 'San Pham nhom 1', '&lt;p&gt;test&lt;/p&gt;', '&lt;p&gt;test&lt;/p&gt;', 'san-pham-nhom-1', 'test them moi nhom san pham', 'San Pham nhom 1, San Pham nhom 1', 'test', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443854264, 1443854264, 'vi'),
+(4, 3, '1,3', 2, 1, '', 'product/2014_11/sp1.png', 'San Pham nhom 1', '&lt;p&gt;test&lt;/p&gt;', '&lt;p&gt;test&lt;/p&gt;', 'san-pham-nhom-2', 'test them moi nhom san pham', 'San Pham nhom 1, San Pham nhom 1', 'test', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443854264, 1443854264, 'en'),
+(5, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858820, 1443858820, 'vi'),
+(6, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong1', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858820, 1443858820, 'en'),
+(7, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858828, 1443858828, 'vi'),
+(8, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan1', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858828, 1443858828, 'en');
 
 -- --------------------------------------------------------
 
@@ -8803,7 +8909,7 @@ INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `product_option` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `option_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -8819,8 +8925,8 @@ CREATE TABLE IF NOT EXISTS `product_option` (
 --
 
 INSERT INTO `product_option` (`id`, `option_id`, `picture`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, '', 'Menu item 2', 0, 1, 1425374235, 1425374235, 'vi'),
-(2, 1, '', 'Menu item 2', 0, 1, 1425374235, 1425374235, 'en');
+(1, 1, '', 'Áo mặc', 0, 1, 1425374235, 1443854438, 'vi'),
+(2, 1, '', 'Menu item 2', 0, 1, 1425374235, 1443854438, 'en');
 
 -- --------------------------------------------------------
 
@@ -8829,7 +8935,7 @@ INSERT INTO `product_option` (`id`, `option_id`, `picture`, `title`, `show_order
 --
 
 CREATE TABLE IF NOT EXISTS `product_order` (
-`order_id` int(10) unsigned NOT NULL,
+  `order_id` int(10) unsigned NOT NULL,
   `order_code` varchar(20) NOT NULL,
   `o_full_name` varchar(250) NOT NULL,
   `o_email` varchar(250) NOT NULL,
@@ -8884,7 +8990,7 @@ INSERT INTO `product_order` (`order_id`, `order_code`, `o_full_name`, `o_email`,
 --
 
 CREATE TABLE IF NOT EXISTS `product_order_detail` (
-`detail_id` int(10) unsigned NOT NULL,
+  `detail_id` int(10) unsigned NOT NULL,
   `order_id` int(10) unsigned NOT NULL,
   `type` varchar(20) NOT NULL DEFAULT 'product',
   `type_id` int(10) unsigned NOT NULL,
@@ -8912,7 +9018,7 @@ INSERT INTO `product_order_detail` (`detail_id`, `order_id`, `type`, `type_id`, 
 --
 
 CREATE TABLE IF NOT EXISTS `product_pic` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `pic_id` int(11) NOT NULL,
   `type` varchar(250) NOT NULL DEFAULT 'item',
   `type_id` int(10) unsigned NOT NULL,
@@ -8943,7 +9049,7 @@ INSERT INTO `product_pic` (`id`, `pic_id`, `type`, `type_id`, `picture`, `title`
 --
 
 CREATE TABLE IF NOT EXISTS `product_receipt` (
-`receipt_id` int(10) unsigned NOT NULL,
+  `receipt_id` int(10) unsigned NOT NULL,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -8961,7 +9067,7 @@ CREATE TABLE IF NOT EXISTS `product_receipt` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -8982,7 +9088,7 @@ CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `product_meta_title` varchar(250) NOT NULL,
   `product_meta_key` text NOT NULL,
   `product_meta_desc` text NOT NULL,
@@ -9032,7 +9138,7 @@ INSERT INTO `product_setting` (`id`, `product_meta_title`, `product_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_size` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `size_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9071,7 +9177,7 @@ INSERT INTO `product_size` (`id`, `size_id`, `picture`, `title`, `show_order`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_status` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `status_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9097,7 +9203,7 @@ INSERT INTO `product_status` (`id`, `status_id`, `picture`, `title`, `show_order
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -9136,7 +9242,7 @@ INSERT INTO `project` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `project_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -9177,7 +9283,7 @@ INSERT INTO `project_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `project_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `project_meta_title` varchar(250) NOT NULL,
   `project_meta_key` text NOT NULL,
   `project_meta_desc` text NOT NULL,
@@ -9221,7 +9327,7 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9242,7 +9348,7 @@ CREATE TABLE IF NOT EXISTS `repository` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_method` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `method_id` int(10) unsigned NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `method_type` varchar(20) NOT NULL DEFAULT 'import',
@@ -9265,7 +9371,7 @@ CREATE TABLE IF NOT EXISTS `repository_method` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_method_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9286,7 +9392,7 @@ CREATE TABLE IF NOT EXISTS `repository_method_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt` (
-`receipt_id` int(10) unsigned NOT NULL,
+  `receipt_id` int(10) unsigned NOT NULL,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -9309,7 +9415,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -9329,7 +9435,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -9349,7 +9455,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
 --
 
 CREATE TABLE IF NOT EXISTS `service` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -9388,7 +9494,7 @@ INSERT INTO `service` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `service_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -9429,7 +9535,7 @@ INSERT INTO `service_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `service_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `service_meta_title` varchar(250) NOT NULL,
   `service_meta_key` text NOT NULL,
   `service_meta_desc` text NOT NULL,
@@ -9442,16 +9548,18 @@ CREATE TABLE IF NOT EXISTS `service_setting` (
   `sidebar_group_left` int(11) NOT NULL,
   `sidebar_group_right` int(11) NOT NULL,
   `sidebar_item_left` int(11) NOT NULL,
-  `sidebar_item_right` int(11) NOT NULL
+  `sidebar_item_right` int(11) NOT NULL,
+  `weight_min` varchar(250) NOT NULL,
+  `weight_each` varchar(250) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `service_setting`
 --
 
-INSERT INTO `service_setting` (`id`, `service_meta_title`, `service_meta_key`, `service_meta_desc`, `num_list`, `num_order_detail`, `lang`, `background`, `sidebar_left`, `sidebar_right`, `sidebar_group_left`, `sidebar_group_right`, `sidebar_item_left`, `sidebar_item_right`) VALUES
-(1, 'Dịch vụ', '', '', 10, 5, 'vi', '', 0, 0, 0, 0, 0, 0),
-(2, 'Service', '', '', 10, 10, 'en', '', 0, 0, 0, 0, 0, 0);
+INSERT INTO `service_setting` (`id`, `service_meta_title`, `service_meta_key`, `service_meta_desc`, `num_list`, `num_order_detail`, `lang`, `background`, `sidebar_left`, `sidebar_right`, `sidebar_group_left`, `sidebar_group_right`, `sidebar_item_left`, `sidebar_item_right`, `weight_min`, `weight_each`) VALUES
+(1, 'Dịch vụ', '', '', 10, 5, 'vi', '', 0, 0, 0, 0, 0, 0, '', ''),
+(2, 'Service', '', '', 10, 10, 'en', '', 0, 0, 0, 0, 0, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -9460,7 +9568,7 @@ INSERT INTO `service_setting` (`id`, `service_meta_title`, `service_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sidebar` (
-`sidebar_id` int(10) unsigned NOT NULL,
+  `sidebar_id` int(10) unsigned NOT NULL,
   `title` varchar(250) NOT NULL,
   `list_widget` text NOT NULL,
   `show_order` int(11) NOT NULL,
@@ -9486,7 +9594,7 @@ INSERT INTO `sidebar` (`sidebar_id`, `title`, `list_widget`, `show_order`, `is_s
 --
 
 CREATE TABLE IF NOT EXISTS `statistic` (
-`id` double NOT NULL,
+  `id` double NOT NULL,
   `session` varchar(32) NOT NULL,
   `date_log` varchar(150) NOT NULL DEFAULT '01-01-2000',
   `domain` varchar(250) NOT NULL,
@@ -9502,7 +9610,7 @@ CREATE TABLE IF NOT EXISTS `statistic` (
   `date_time` int(11) NOT NULL DEFAULT '0',
   `date_update` int(11) NOT NULL,
   `time_stay` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=250 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `statistic`
@@ -9719,7 +9827,46 @@ INSERT INTO `statistic` (`id`, `session`, `date_log`, `domain`, `web_link`, `ref
 (207, 'f2b1618d2714bae2e29c9eeb772e2383', '05/03/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0', 'Firefox', '::1', 'Windows 7', 1024, 768, 1425520430, 1425522888, 2458),
 (208, '35f82114b167da4fa04e35eb04e661c5', '06/03/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0', 'Firefox', '::1', 'Windows 7', 1024, 768, 1425610330, 1425611287, 957),
 (209, 'd348d592f925e0893f81993e7505d80a', '27/06/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1366, 768, 1435406772, 1435407282, 510),
-(210, 'f0dda06993451aa91c61a437c249af86', '30/06/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1366, 768, 1435667054, 1435667121, 67);
+(210, 'f0dda06993451aa91c61a437c249af86', '30/06/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1366, 768, 1435667054, 1435667121, 67),
+(211, '0929049f9709df14a0c73139372dc369', '01/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443714936, 1443716022, 1086),
+(212, '0929049f9709df14a0c73139372dc369', '01/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443716029, 1443716164, 135),
+(213, '0929049f9709df14a0c73139372dc369', '01/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443716171, 1443719227, 3056),
+(214, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443853762, 1443854537, 775),
+(215, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0', 'http://localhost/CMS_ver1.0/', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443854546, 1443854822, 276),
+(216, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0', 'http://localhost/CMS_ver1.0/', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443854829, 1443854849, 20),
+(217, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443854859, 1443857613, 2754),
+(218, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443857633, 1443857906, 273),
+(219, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/san-pham', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443857975, 1443858333, 358),
+(220, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/ao-so-mi.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443858355, 1443860083, 1728),
+(221, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443860090, 1443860097, 7),
+(222, 'c6848a0b903c752051c182dbdccb0bc0', '03/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443860150, 1443866245, 6095),
+(223, 'c63d3bf00508c4041104bdc23586a336', '03/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443883569, 1443884168, 599),
+(224, 'c63d3bf00508c4041104bdc23586a336', '03/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443884804, 1443885533, 729),
+(225, 'e2d5a78e7ba1e802ec953b24e505411d', '04/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443924249, 1443938929, 14680),
+(226, 'e2d5a78e7ba1e802ec953b24e505411d', '04/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443947029, 1443948059, 1030),
+(227, 'e2d5a78e7ba1e802ec953b24e505411d', '04/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443948071, 1443949726, 1655),
+(228, 'e2d5a78e7ba1e802ec953b24e505411d', '04/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/trang-chu', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1443949809, 1443955876, 6067),
+(229, 'e2d5a78e7ba1e802ec953b24e505411d', '05/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444052131, 1444052139, 8),
+(230, 'e2d5a78e7ba1e802ec953b24e505411d', '05/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444052150, 1444060727, 8577),
+(231, 'ccf6f9798158fb2c288170ffc7663cdc', '06/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444150685, 1444150685, 0),
+(232, 'a3b43dbf69abfd4aba923acb4ec7a0f0', '07/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444221883, 1444221883, 0),
+(233, '150559b0449824ddfa16a345aa2d6ce4', '13/10/2015', 'localhost', 'localhost', '', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444749813, 1444751432, 1619),
+(234, '150559b0449824ddfa16a345aa2d6ce4', '13/10/2015', 'localhost', 'localhost', 'localhost_CMS_ver1.0_new', 'http://localhost/CMS_ver1.0_new/hoa-lan2.html', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 'Chrome', '::1', 'Windows 7', 1600, 900, 1444751439, 1444755613, 4174),
+(235, '0147840060d97f59a13911aa492f3c6e', '27/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1445947011, 1445947615, 604),
+(236, '0147840060d97f59a13911aa492f3c6e', '27/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1445947622, 1445948356, 734),
+(237, 'cdb297c8859b91ec26cebefa9fc3450e', '30/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446215386, 1446220617, 5231),
+(238, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446269467, 1446269471, 4),
+(239, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446269730, 1446269730, 0),
+(240, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', 'localhost_CMS_ver1.0_new', 'http://localhost:8090/CMS_ver1.0_new/hoa-hong', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446270123, 1446270176, 53),
+(241, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446270581, 1446271493, 912),
+(242, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446271640, 1446272003, 363),
+(243, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', 'localhost_CMS_ver1.0_new', 'http://localhost:8090/CMS_ver1.0_new/hoa-hong', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446272041, 1446273147, 1106),
+(244, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446274401, 1446275317, 916),
+(245, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446275606, 1446275783, 177),
+(246, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446275790, 1446276502, 712),
+(247, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', 'localhost_project_news', 'http://localhost:8090/project_news/', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446276509, 1446276566, 57),
+(248, 'e9d7153915a236c1bfec63fa060d2159', '31/10/2015', 'localhost', 'localhost:8090', 'localhost_project_news', 'http://localhost:8090/project_news/', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446276573, 1446276864, 291),
+(249, '3d77f2b8a8d3691f5f8e9bcd206d05dc', '01/11/2015', 'localhost', 'localhost:8090', '', '', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36', 'Chrome', '::1', 'UnKnown', 1600, 900, 1446376246, 1446376387, 141);
 
 -- --------------------------------------------------------
 
@@ -9728,7 +9875,7 @@ INSERT INTO `statistic` (`id`, `session`, `date_log`, `domain`, `web_link`, `ref
 --
 
 CREATE TABLE IF NOT EXISTS `support` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `yahoo` varchar(250) NOT NULL,
@@ -9749,7 +9896,7 @@ CREATE TABLE IF NOT EXISTS `support` (
 --
 
 CREATE TABLE IF NOT EXISTS `template_email` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `template_id` varchar(50) NOT NULL,
   `title` varchar(250) NOT NULL,
   `subject` varchar(250) NOT NULL,
@@ -9781,7 +9928,7 @@ INSERT INTO `template_email` (`id`, `template_id`, `title`, `subject`, `content`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `username` varchar(150) NOT NULL,
   `password` varchar(50) NOT NULL,
   `session` varchar(50) NOT NULL,
@@ -9814,7 +9961,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `welcome` text NOT NULL,
   `user_meta_title` varchar(250) NOT NULL,
   `user_meta_key` text NOT NULL,
@@ -9878,7 +10025,7 @@ INSERT INTO `user_setting` (`id`, `welcome`, `user_meta_title`, `user_meta_key`,
 --
 
 CREATE TABLE IF NOT EXISTS `video` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -9918,7 +10065,7 @@ INSERT INTO `video` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, 
 --
 
 CREATE TABLE IF NOT EXISTS `video_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -9957,21 +10104,22 @@ INSERT INTO `video_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent
 --
 
 CREATE TABLE IF NOT EXISTS `video_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `video_meta_title` varchar(250) NOT NULL,
   `video_meta_key` text NOT NULL,
   `video_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  `background` varchar(250) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `video_setting`
 --
 
-INSERT INTO `video_setting` (`id`, `video_meta_title`, `video_meta_key`, `video_meta_desc`, `num_list`, `num_order_detail`, `lang`) VALUES
-(1, 'Video', '', '', 9, 10, 'vi');
+INSERT INTO `video_setting` (`id`, `video_meta_title`, `video_meta_key`, `video_meta_desc`, `num_list`, `num_order_detail`, `lang`, `background`) VALUES
+(1, 'Video', '', '', 9, 10, 'vi', '');
 
 -- --------------------------------------------------------
 
@@ -10000,7 +10148,7 @@ CREATE TABLE IF NOT EXISTS `voucher` (
 --
 
 CREATE TABLE IF NOT EXISTS `voucher_history` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `voucher_id` varchar(50) NOT NULL,
   `order_code` varchar(50) NOT NULL,
   `amount_type` varchar(20) NOT NULL DEFAULT 'buy_product',
@@ -10045,7 +10193,7 @@ CREATE TABLE IF NOT EXISTS `voucher_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `voucher_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `voucher_meta_title` varchar(250) NOT NULL,
   `voucher_meta_key` text NOT NULL,
   `voucher_meta_desc` text NOT NULL,
@@ -10074,7 +10222,7 @@ INSERT INTO `voucher_setting` (`id`, `voucher_meta_title`, `voucher_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `widget` (
-`widget_id` int(10) unsigned NOT NULL,
+  `widget_id` int(10) unsigned NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `show_order` int(11) NOT NULL,
@@ -10096,475 +10244,478 @@ INSERT INTO `widget` (`widget_id`, `name_action`, `arr_title`, `show_order`, `is
 -- Indexes for table `about`
 --
 ALTER TABLE `about`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `about_setting`
 --
 ALTER TABLE `about_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin_group`
 --
 ALTER TABLE `admin_group`
- ADD PRIMARY KEY (`group_id`);
+  ADD PRIMARY KEY (`group_id`);
 
 --
 -- Indexes for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
- ADD PRIMARY KEY (`menu_id`), ADD KEY `menu_id` (`menu_id`);
+  ADD PRIMARY KEY (`menu_id`),
+  ADD KEY `menu_id` (`menu_id`);
 
 --
 -- Indexes for table `banner`
 --
 ALTER TABLE `banner`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `banner_group`
 --
 ALTER TABLE `banner_group`
- ADD PRIMARY KEY (`group_id`);
+  ADD PRIMARY KEY (`group_id`);
 
 --
 -- Indexes for table `config`
 --
 ALTER TABLE `config`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
- ADD PRIMARY KEY (`contact_id`);
+  ADD PRIMARY KEY (`contact_id`);
 
 --
 -- Indexes for table `contact_map`
 --
 ALTER TABLE `contact_map`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact_setting`
 --
 ALTER TABLE `contact_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dealer`
 --
 ALTER TABLE `dealer`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dealer_group`
 --
 ALTER TABLE `dealer_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dealer_setting`
 --
 ALTER TABLE `dealer_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `download`
 --
 ALTER TABLE `download`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `download_group`
 --
 ALTER TABLE `download_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `download_setting`
 --
 ALTER TABLE `download_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `friendly_link`
 --
 ALTER TABLE `friendly_link`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gallery_group`
 --
 ALTER TABLE `gallery_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gallery_setting`
 --
 ALTER TABLE `gallery_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `home_setting`
 --
 ALTER TABLE `home_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lang`
 --
 ALTER TABLE `lang`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `modules`
 --
 ALTER TABLE `modules`
- ADD PRIMARY KEY (`mod_id`);
+  ADD PRIMARY KEY (`mod_id`);
 
 --
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `news_group`
 --
 ALTER TABLE `news_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `news_setting`
 --
 ALTER TABLE `news_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order_method`
 --
 ALTER TABLE `order_method`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order_shipping`
 --
 ALTER TABLE `order_shipping`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page`
 --
 ALTER TABLE `page`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_group`
 --
 ALTER TABLE `page_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_setting`
 --
 ALTER TABLE `page_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `partner`
 --
 ALTER TABLE `partner`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `partner_comment`
 --
 ALTER TABLE `partner_comment`
- ADD PRIMARY KEY (`cid`);
+  ADD PRIMARY KEY (`cid`);
 
 --
 -- Indexes for table `partner_group`
 --
 ALTER TABLE `partner_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `partner_setting`
 --
 ALTER TABLE `partner_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_brand`
 --
 ALTER TABLE `product_brand`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_code_pic`
 --
 ALTER TABLE `product_code_pic`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_color`
 --
 ALTER TABLE `product_color`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_combine`
 --
 ALTER TABLE `product_combine`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_group`
 --
 ALTER TABLE `product_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_option`
 --
 ALTER TABLE `product_option`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_order`
 --
 ALTER TABLE `product_order`
- ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `product_order_detail`
 --
 ALTER TABLE `product_order_detail`
- ADD PRIMARY KEY (`detail_id`);
+  ADD PRIMARY KEY (`detail_id`);
 
 --
 -- Indexes for table `product_pic`
 --
 ALTER TABLE `product_pic`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_receipt`
 --
 ALTER TABLE `product_receipt`
- ADD PRIMARY KEY (`receipt_id`);
+  ADD PRIMARY KEY (`receipt_id`);
 
 --
 -- Indexes for table `product_receipt_detail`
 --
 ALTER TABLE `product_receipt_detail`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_setting`
 --
 ALTER TABLE `product_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_size`
 --
 ALTER TABLE `product_size`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_status`
 --
 ALTER TABLE `product_status`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project_group`
 --
 ALTER TABLE `project_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project_setting`
 --
 ALTER TABLE `project_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `promotion`
 --
 ALTER TABLE `promotion`
- ADD PRIMARY KEY (`promotion_id`);
+  ADD PRIMARY KEY (`promotion_id`);
 
 --
 -- Indexes for table `repository`
 --
 ALTER TABLE `repository`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `repository_method`
 --
 ALTER TABLE `repository_method`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `repository_method_group`
 --
 ALTER TABLE `repository_method_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `repository_receipt`
 --
 ALTER TABLE `repository_receipt`
- ADD PRIMARY KEY (`receipt_id`);
+  ADD PRIMARY KEY (`receipt_id`);
 
 --
 -- Indexes for table `repository_receipt_detail`
 --
 ALTER TABLE `repository_receipt_detail`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `repository_receipt_import`
 --
 ALTER TABLE `repository_receipt_import`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service`
 --
 ALTER TABLE `service`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_group`
 --
 ALTER TABLE `service_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_setting`
 --
 ALTER TABLE `service_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sidebar`
 --
 ALTER TABLE `sidebar`
- ADD PRIMARY KEY (`sidebar_id`);
+  ADD PRIMARY KEY (`sidebar_id`);
 
 --
 -- Indexes for table `statistic`
 --
 ALTER TABLE `statistic`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `support`
 --
 ALTER TABLE `support`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `template_email`
 --
 ALTER TABLE `template_email`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`user_id`), ADD KEY `username` (`username`), ADD KEY `email` (`email`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `user_setting`
 --
 ALTER TABLE `user_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `video`
 --
 ALTER TABLE `video`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `video_group`
 --
 ALTER TABLE `video_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `video_setting`
 --
 ALTER TABLE `video_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `voucher`
 --
 ALTER TABLE `voucher`
- ADD PRIMARY KEY (`voucher_id`);
+  ADD PRIMARY KEY (`voucher_id`);
 
 --
 -- Indexes for table `voucher_history`
 --
 ALTER TABLE `voucher_history`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `voucher_order`
 --
 ALTER TABLE `voucher_order`
- ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `voucher_setting`
 --
 ALTER TABLE `voucher_setting`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `widget`
 --
 ALTER TABLE `widget`
- ADD PRIMARY KEY (`widget_id`);
+  ADD PRIMARY KEY (`widget_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -10574,377 +10725,377 @@ ALTER TABLE `widget`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `about_setting`
 --
 ALTER TABLE `about_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `admin_group`
 --
 ALTER TABLE `admin_group`
-MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-MODIFY `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
+  MODIFY `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
 --
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-MODIFY `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `contact_map`
 --
 ALTER TABLE `contact_map`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `contact_setting`
 --
 ALTER TABLE `contact_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `dealer`
 --
 ALTER TABLE `dealer`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `dealer_group`
 --
 ALTER TABLE `dealer_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `dealer_setting`
 --
 ALTER TABLE `dealer_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `download`
 --
 ALTER TABLE `download`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `download_group`
 --
 ALTER TABLE `download_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `download_setting`
 --
 ALTER TABLE `download_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `friendly_link`
 --
 ALTER TABLE `friendly_link`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1277;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1321;
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `gallery_group`
 --
 ALTER TABLE `gallery_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `gallery_setting`
 --
 ALTER TABLE `gallery_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `home_setting`
 --
 ALTER TABLE `home_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lang`
 --
 ALTER TABLE `lang`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-MODIFY `mod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `mod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `news_group`
 --
 ALTER TABLE `news_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `news_setting`
 --
 ALTER TABLE `news_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `order_method`
 --
 ALTER TABLE `order_method`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `order_shipping`
 --
 ALTER TABLE `order_shipping`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `page_group`
 --
 ALTER TABLE `page_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `page_setting`
 --
 ALTER TABLE `page_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `partner`
 --
 ALTER TABLE `partner`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `partner_comment`
 --
 ALTER TABLE `partner_comment`
-MODIFY `cid` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `cid` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `partner_group`
 --
 ALTER TABLE `partner_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `partner_setting`
 --
 ALTER TABLE `partner_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `product_brand`
 --
 ALTER TABLE `product_brand`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product_code_pic`
 --
 ALTER TABLE `product_code_pic`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product_color`
 --
 ALTER TABLE `product_color`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `product_combine`
 --
 ALTER TABLE `product_combine`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product_group`
 --
 ALTER TABLE `product_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `product_option`
 --
 ALTER TABLE `product_option`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product_order`
 --
 ALTER TABLE `product_order`
-MODIFY `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `product_order_detail`
 --
 ALTER TABLE `product_order_detail`
-MODIFY `detail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `detail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `product_pic`
 --
 ALTER TABLE `product_pic`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_receipt`
 --
 ALTER TABLE `product_receipt`
-MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product_receipt_detail`
 --
 ALTER TABLE `product_receipt_detail`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product_setting`
 --
 ALTER TABLE `product_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `product_size`
 --
 ALTER TABLE `product_size`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `product_status`
 --
 ALTER TABLE `product_status`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `project_group`
 --
 ALTER TABLE `project_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `project_setting`
 --
 ALTER TABLE `project_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `repository`
 --
 ALTER TABLE `repository`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `repository_method`
 --
 ALTER TABLE `repository_method`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `repository_method_group`
 --
 ALTER TABLE `repository_method_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `repository_receipt`
 --
 ALTER TABLE `repository_receipt`
-MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `repository_receipt_detail`
 --
 ALTER TABLE `repository_receipt_detail`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `repository_receipt_import`
 --
 ALTER TABLE `repository_receipt_import`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service_group`
 --
 ALTER TABLE `service_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service_setting`
 --
 ALTER TABLE `service_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `sidebar`
 --
 ALTER TABLE `sidebar`
-MODIFY `sidebar_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `sidebar_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `statistic`
 --
 ALTER TABLE `statistic`
-MODIFY `id` double NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=211;
+  MODIFY `id` double NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=250;
 --
 -- AUTO_INCREMENT for table `support`
 --
 ALTER TABLE `support`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `template_email`
 --
 ALTER TABLE `template_email`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_setting`
 --
 ALTER TABLE `user_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `video`
 --
 ALTER TABLE `video`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `video_group`
 --
 ALTER TABLE `video_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `video_setting`
 --
 ALTER TABLE `video_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `voucher_history`
 --
 ALTER TABLE `voucher_history`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `voucher_setting`
 --
 ALTER TABLE `voucher_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `widget`
 --
 ALTER TABLE `widget`
-MODIFY `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
