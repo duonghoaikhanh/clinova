@@ -9,5 +9,6 @@ $lang = array (
 	'product_new' => 'Sản phẩm mới',
 	'product_focus' => 'Sản phẩm hot',
 	'no_have_item' => 'no have item',
+	'no_have_item1' => 'no have item1',
 ); 
 ?>
