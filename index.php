@@ -13,7 +13,7 @@ require_once ($ttH->conf["rootpath"]."inc/inc.php");
 
 $ttH->navigation = '';
 $ttH->output = '';
-dsa;
+
 // main	 
 $ttH->conf['cur_mod'] = (isset($ttH->conf['cur_mod'])) ? $ttH->conf['cur_mod'] : "home";
 $ttH->conf['cur_act'] = (isset($ttH->conf['cur_act'])) ? $ttH->conf['cur_act'] : "home";
