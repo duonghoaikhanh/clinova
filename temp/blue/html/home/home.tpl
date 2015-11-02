@@ -5,9 +5,9 @@
     <div class="row" >
       <div class="xs12 col-xs-6 col-sm-4">
         <div class="box_tuvan">
-          <h3><span><a href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">Hỏi đáp - Tư vấn</a></span></h3>
+          <h3><span><a href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">{LANG.home.faq}</a></span></h3>
           <div class="content"><p>
-              <img alt="hoat-dong-nhan-hang" class="nvo-image" src="mod_tu_van.jpg" tppabs="http://jexmax.com.vn/img/mod_tu_van.jpg" style="max-width:100%;" /><br />
+              {data.banner_faq_home}<br />
               Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…</p></div>
           <a class="view_all" href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">Xem tiếp</a>
           <div class="box_b"><span></span></div>

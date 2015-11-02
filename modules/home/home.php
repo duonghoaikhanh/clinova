@@ -55,6 +55,7 @@ class sMain
 		//$data['content'] = 'Nội dung trang chủ';
 		$data['content'] = $this->do_list ();
 		$data['content_focus'] = $this->do_list ('focus');
+		$data['banner_faq_home'] = $ttH->site-> get_banner('banner-home-faq');
 		// Why use .= in method error
 
 		$ttH->temp_act->assign('data', $data);

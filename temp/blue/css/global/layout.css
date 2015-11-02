@@ -2865,3 +2865,7 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
         margin: 0 -2px;
     }
 }
+
+#menu_desk li:hover ul{
+    display: block !important;
+}
