@@ -95,6 +95,10 @@
         <label>Fanpage Facebook</label>
         <input name="fanpage_facebook" id="fanpage_facebook" type="text" size="50" maxlength="150" value="{data.fanpage_facebook}" class="form-control">
       </div>
+        <div class="form-group">
+            <label>Link Youtube company</label>
+            <input name="link_youtube_company" id="link_youtube_company" type="text" size="50" maxlength="255" value="{data.link_youtube_company}" class="form-control">
+        </div>
     </div>
   </div>
   <div class="row" align="center">

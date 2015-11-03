@@ -1,5 +1,16 @@
 <!-- BEGIN: main -->
-{data.content}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-9 noleft">
+            <div class="box_w">
+                {data.navigation}
+                {data.content}
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- END: main --> 
 
 <!-- BEGIN: focus -->
@@ -40,9 +51,72 @@
   {row_group.hr}
   <!-- END: row_empty --> 
 </div>
-<!-- END: list_group --> 
+<!-- END: list_group -->
 
 <!-- BEGIN: list_item -->
+<div class="blog_box">
+
+    <div class="box_mod_news">
+        <!-- BEGIN: item_1 -->
+        <div class="col-xs-12 col-sm-12 col-md-7 pull-left noleft noright">
+            <div class="news1">
+                <a class="tit_mod_news " href="{item.link}" title="{item.title}">
+                    <img class="thumb" src="{item.picture}" alt="{item.title}">
+                </a>
+                <a href="{item.link}" title="{item.title}" class="title">
+                    <h3>{item.title}</h3>
+                </a>
+                <div class="intro">{item.short}</div>
+                <a href="{item.link}"><span class="mores">{LANG.news.view_next}</span></a>
+            </div>
+        </div>
+        <!-- END: item_1 -->
+        <div class="col-xs-12 col-sm-12 col-md-5 noright">
+            <!-- BEGIN: item_2 -->
+                <div class="col-xs-12 noleft noright margin15">
+                    <a class="tit_mod_news " href="{item.link}" title="{item.title}">
+                        <img class="thumb" src="{item.picture}">
+                    </a>
+                    <a href="{item.link}" title="{item.title}" class="title">
+                        <h3>{item.title}</h3>
+                    </a>
+                    <div class="intro">{item.short}</div>
+                    <a class="box_lsnews" href="{item.link}" title="{item.title}"><span class="mores">{LANG.news.view_next}</span></a>
+                </div>
+            <!-- END: item_2 -->
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!-- BEGIN: item -->
+        <div class="item ">
+            <div class="col-xs-12 col-sm-3 col-md-2 noleft noright">
+                <a class="thumb" href="{item.link}">
+                    <img src="{item.picture}">
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-10 noright">
+                <a class="title" href="{item.link}"> <h3>{item.title}</h3></a>
+                <div class="news_intro">{item.short}</div>
+                <a href="{item.link}"><span class="mores">{LANG.news.view_next}</span></a>
+            </div>
+            <br clear="all"><div class="lines_h"></div>
+        </div>
+    <!-- END: item -->
+
+
+    <div class="clear"></div>
+    <div style="clear:both; text-align:center; ">
+        {data.nav}
+        <div class="paginate">
+            <div class="pagination"><ul class="pagination pagination-md"><li class="first"><a href="javascript:void(0);">&lt;&lt;</a></li><li class="prev"><a href="javascript:void(0);">&nbsp;</a></li><li class="active"><a href="javascript:void(0);">1</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/5.html">2</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/10.html">3</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/15">4</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/20">5</a></li><li class="next"><a href="http://jexmax.com.vn/tin-tuc-c1/5.html">&nbsp;</a></li><li class="last"><a href="http://jexmax.com.vn/tin-tuc-c1/510.html">&gt;&gt;</a></li></ul></div>            </div>
+    </div>
+
+</div>
+
+<!-- END: list_item -->
+
+<!-- BEGIN: list_item1 -->
 <div class="list_item">
   <!-- BEGIN: row_item -->
   <div class="row_item {row.class}">
@@ -64,22 +138,43 @@
   <!-- END: row_empty --> 
 </div>
 {data.nav}
-<!-- END: list_item --> 
+<!-- END: list_item1 -->
 
 <!-- BEGIN: html_title_more -->
-<div class="tool_page">
-  <a href="javascript:print();" class="icon_print">{LANG.news.print}</a>
-</div>
+
 <!-- END: html_title_more --> 
 
 <!-- BEGIN: list_other -->
+<div class="blog_others">
+    <!-- BEGIN: row -->
+        <div class="col-xs-12 noleft noright items">
+            <div class="col-xs-12 col-sm-3 noleft">
+                <a class="link_img" href="{item.link}" title="{item.title}">
+                    <img class="thumb" src="{item.picture}">
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-9 noleft noright">
+                <a class="title" href="{item.link}" title="{item.title}">{item.title}</a>
+                <div class="intro">{item.short}</div>
+                <a href="{item.link}" title="{item.title}">
+                    <span class="readmore">{LANG.news.detail}</span>
+                </a>
+            </div>
+        </div>
+    <!-- END: row -->
+
+</div>
+<br clear="all">
+<!-- END: list_other -->
+
+<!-- BEGIN: list_other1 -->
 <div class="hr"></div>
 <div class="list_other">
-  <div class="list_other-title">{LANG.news.other_news}</div>
-	<ul>
-  	<!-- BEGIN: row -->
-  	<li><a href="{row.link}" title="{row.title}">{row.title}</a> <span class="date">({row.date_update})</span></li>
-    <!-- END: row --> 
-  </ul>
+    <div class="list_other-title">{LANG.news.other_news}</div>
+    <ul>
+        <!-- BEGIN: row -->
+        <li><a href="{row.link}" title="{row.title}">{row.title}</a> <span class="date">({row.date_update})</span></li>
+        <!-- END: row -->
+    </ul>
 </div>
-<!-- END: list_other --> 
+<!-- END: list_other1 -->

@@ -9,7 +9,7 @@
     </ol>
   </div>
 </div>
-{data.main} 
+{data.main}
 <!-- END: main --> 
 
 <!-- BEGIN: edit -->

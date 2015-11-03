@@ -2872,3 +2872,6 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
 #menu_desk li:hover ul{
     display: block !important;
 }
+.breadcrumb li.active a {
+    color: #777;
+}

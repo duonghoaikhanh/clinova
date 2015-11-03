@@ -2,7 +2,7 @@
 <div class="box_mid css_bo">
 	<div class="box_mid-title">
   	<div class="mid_title-line"></div>
-  	<span><h1 class="mid_title_l">{data.title}</h1></span>
+  	<span><h1 class="mid_title_l head_title">{data.title}</h1></span>
     <div class="mid_title_r">{data.more_title}</div>
     <div class="clear"></div>
   </div>
@@ -344,38 +344,45 @@
 <!-- END: form_signup_user -->
 
 <!-- BEGIN: html_navigation -->
-<div class="tth_navigation">
-  <ul>
+<ol class="breadcrumb">
     <!-- BEGIN: row -->
-    <li {row.class_li}><a href="{row.link}" {row.class}>{row.title}</a></li>
+        <li {row.class}><a href="{row.link}" {row.class}>{row.title}</a></li>
     <!-- END: row -->
-  </ul>
-  <div class="clear"></div>
-</div>
+
+</ol>
 <!-- END: html_navigation -->
 
-<!-- BEGIN: html_list_share -->
-<div class="list_share">
-	<iframe src="//www.facebook.com/plugins/like.php?href={data.link_share}&amp;width=90px&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21;width=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
-  
-  <!-- Đặt thẻ này vào nơi bạn muốn Nút +1 kết xuất. -->
-  <div class="g-plusone" data-size="medium" data-href="{data.link_share}"></div>
-  
-  <!-- Đặt thẻ này sau thẻ Nút +1 cuối cùng. -->
-  <script type="text/javascript">
-    window.___gcfg = {lang: 'vi'};
-  
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/platform.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-  
-  <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!-- BEGIN: html_navigation1 -->
+<div class="tth_navigation">
+    <ul>
+        <!-- BEGIN: row -->
+        <li {row.class_li}><a href="{row.link}" {row.class}>{row.title}</a></li>
+        <!-- END: row -->
+    </ul>
+    <div class="clear"></div>
 </div>
+<!-- END: html_navigation1 -->
+
+<!-- BEGIN: html_list_share -->
+<div class="inner_content_news share_news" style="float: right; display:inline-block;">
+    <br class="clear">
+    <div class="share">
+        <div class="list_share">
+            <div class='addthis_toolbox addthis_default_style '>
+                <span style="float:left;font-weight: bold;margin-right: 20px;">{LANG.page.share}</span>
+                <a class='addthis_button_facebook_like' fb:like:layout='button_count'></a>
+                <a class='addthis_button_tweet'></a>
+                <a class='addthis_button_google_plusone' g:plusone:size='medium'></a>
+                <a class='addthis_counter addthis_pill_style'></a>
+            </div>
+            <script src='http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f57432236fb4dee' type='text/javascript'>
+            </script>
+            <div class="clear" style="clear: both"></div>
+
+        </div>
+    </div>
+</div>
+<br clear="all">
 <!-- END: html_list_share -->
 
 <!-- BEGIN: html_alert_info -->

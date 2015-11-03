@@ -17,6 +17,8 @@ $lang = array(
 	'print' => 'In trang',
 	'send_email' => 'Gởi bạn bè',
 	'other_news' => 'Các tin khác',
-	'view_detail' => 'Chi tiết'
+	'view_detail' => 'Chi tiết',
+    'view_next'=>'Xem tiếp',
+    'detail' => 'Chi tiết'
 	);
 ?>

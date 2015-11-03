@@ -767,7 +767,7 @@ class Site
 			{
 				$i++;
 				$row['class_li'] = ($i == 1) ? ' class="first"' : '';
-				$row['class'] = ($i == $num) ? ' class="current"' : '';
+				$row['class'] = ($i == $num) ? ' class="active"' : '';
 				$ttH->temp_box->assign('row', $row);
 				$ttH->temp_box->parse("html_navigation.row");
 			}

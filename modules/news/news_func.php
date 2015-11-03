@@ -52,8 +52,8 @@ function html_list_item ($arr_in = array())
 	$link_action = (isset($arr_in['link_action'])) ? $arr_in['link_action'] : $ttH->site->get_link ('news');
 	$temp = (isset($arr_in['temp'])) ? $arr_in['temp'] : 'list_item';
 	$p = (isset($ttH->input["p"])) ? $ttH->input["p"] : 1;
-	$pic_w = (isset($ttH->setting['news']["img_list_w"])) ? $ttH->setting['news']["img_list_w"] : 150;
-	$pic_h = (isset($ttH->setting['news']["img_list_h"])) ? $ttH->setting['news']["img_list_h"] : 100;
+	$pic_w = (isset($ttH->setting['news']["img_list_w"])) ? $ttH->setting['news']["img_list_w"] : 115;
+	$pic_h = (isset($ttH->setting['news']["img_list_h"])) ? $ttH->setting['news']["img_list_h"] : 108;
 	$num_row = 3;
 	
 	$ext = '';
@@ -76,7 +76,7 @@ function html_list_item ($arr_in = array())
 	
 	$where .= " order by show_order desc, date_update desc";
 	
-	$sql = "select item_id,group_id,picture,title,content,friendly_link,date_update  
+	$sql = "select *
 					from news 
 					where is_show=1 
 					and lang='".$ttH->conf["lang_cur"]."' 
@@ -99,19 +99,30 @@ function html_list_item ($arr_in = array())
 			$row['pic_w'] = $pic_w;
 			$row['pic_h'] = $pic_h;
 			$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
-			$row["picture"] = $ttH->func->get_src_mod('news/'.$row["picture"], $pic_w, $pic_h, 1, 0, array('fix_min' => 1));
-			$row['short'] = $ttH->func->short ($row['content'], 400);
+
+
 			$row['date_update'] = date('d/m/Y',$row['date_update']);
-			
+
 			$row['class'] = ($i%$num_row == 0 || $i == $num) ? ' last' : '';
-			
-			$ttH->temp_act->assign('col', $row);
-			$ttH->temp_act->parse($temp.".row_item.col_item");
-			
-			if($i%$num_row == 0 || $i == $num){
-				$ttH->temp_act->assign('row', array('hr' => ($i < $num) ? '<div class="hr"></div>' : ''));
-				$ttH->temp_act->parse($temp.".row_item");
-			}
+
+			if ($i ==1){
+                $row['short'] = $ttH->func->short ($row['short'], 400);
+                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 457, 229, 1, 1);
+                $ttH->temp_act->assign('item', $row);
+                $ttH->temp_act->parse($temp.".item_1");
+            }
+            else if($i>1 && $i <5){
+                $row['short'] = $ttH->func->short ($row['short'], 130);
+                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 115, 108, 1, 1);
+                $ttH->temp_act->assign('item', $row);
+                $ttH->temp_act->parse($temp.".item_2");
+            }else{
+                $row['short'] = $ttH->func->short ($row['short'], 400);
+                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 115, 108, 1, 1);
+                $ttH->temp_act->assign('item', $row);
+                $ttH->temp_act->parse($temp.".item");
+            }
+
 		}
 	}
 	else
@@ -232,8 +243,7 @@ function get_navigation ()
 {
 	global $ttH;
 	
-	return '';
-	
+
 	$arr_nav = array(
 		array(
 			'title' => $ttH->lang['global']['homepage'],
@@ -242,7 +252,6 @@ function get_navigation ()
 	);
 	
 	$arr_group = ($ttH->conf['cur_group'] > 0 && isset($ttH->conf["cur_group_nav"])) ? explode(',',$ttH->conf["cur_group_nav"]) : array();
-	
 	foreach($arr_group as $group_id) {
 		if(isset($ttH->data["news_group"][$group_id])) {
 			$arr_nav[] = array(
@@ -267,15 +276,16 @@ function list_other ($where='')
 	global $ttH;	
 	
 	$output = '';
-	
-	$sql = "select item_id,title,friendly_link,date_update  
+
+	$sql = "select *
 			from news 
 			where is_show=1 
 			and lang='".$ttH->conf["lang_cur"]."' 
 			".$where."
-			order by show_order desc, date_update desc";
-	//echo $sql;
-	
+			order by show_order desc, date_update desc
+			limit 0,10";
+
+
 	$result = $ttH->db->query($sql);
 	$html_row = '';
 	if ($num = $ttH->db->num_rows($result))
@@ -286,8 +296,10 @@ function list_other ($where='')
 			$i++;
 			$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
 			$row['date_update'] = date('d/m/Y',$row['date_update']);
-			
-			$ttH->temp_act->assign('row', $row);
+            $row['short'] = $ttH->func->short ($row['short'], 130);
+            $row["picture"] = $ttH->func->get_src_mod($row["picture"], 115, 108, 1, 1);
+
+			$ttH->temp_act->assign('item', $row);
 			$ttH->temp_act->parse("list_other.row");
 		}
 	

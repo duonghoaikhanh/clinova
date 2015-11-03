@@ -67,12 +67,13 @@ class sMain
 				//SEO
 				$ttH->site->get_seo ($ttH->data['cur_group']);
 				
-				$ttH->conf["cur_group_nav"] = $row["group_nav"];			
-				$ttH->navigation = get_navigation ();	
+				$ttH->conf["cur_group_nav"] = $row["group_nav"];
+
 				$data = array(
 					"content" => $this->do_list_group($row, $ttH->data['cur_group']),
 					"box_column" => box_column ()
 				);
+                $data['navigation'] = get_navigation ();
 			}else{
 				$ttH->html->redirect_rel($ttH->site->get_link ($this->modules));
 			}
@@ -103,13 +104,14 @@ class sMain
 				}
 				$ttH->conf['menu_action'][] = $this->modules.'-item-'.$ttH->conf['cur_item'];
 				//End current menu
-				
-				$ttH->navigation = get_navigation ();
+
+
 				
 				$data = array(
 					"content" => $this->do_detail($row, $ttH->data['cur_item']),
 					"box_column" => box_column ()
 				);
+                $data['navigation'] = get_navigation ();
 			}else{
 				$ttH->html->redirect_rel($ttH->site->get_link ($this->modules));
 			}
@@ -127,15 +129,16 @@ class sMain
 				'meta_desc' => (isset($ttH->setting['news']["news_meta_desc"])) ? $ttH->setting['news']["news_meta_desc"] : ''
 			));
 			$ttH->conf["cur_group"] = 0;
-			
-			$ttH->navigation = get_navigation ();
+
+
 			
 			$data = array(
 				"content" => $this->do_list(),
 				"box_column" => box_column ()
 			);
+            $data['navigation'] = get_navigation ();
 		}
-	
+
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");
@@ -310,8 +313,8 @@ class sMain
 		$ttH->temp_box->assign('data', array('link_share' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]));
 		$ttH->temp_box->parse("html_list_share");
 		$data['content'] .= $ttH->temp_box->text("html_list_share");
-		$data['content'] .= list_other (" and a.item_id!='".$data['item_id']."'");
-		
+		$data['content'] .= list_other (" and item_id!='".$data['item_id']."' and group_id = '".$info['group_id']."'");
+
 		$ttH->temp_act->assign('data', array(
 			'title' => urlencode($data['title']),
 			'link' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]
