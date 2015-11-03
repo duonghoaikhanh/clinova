@@ -2,7 +2,7 @@
 $conf = array();
 $conf['host']='localhost';
 $conf['dbuser']='root';
-$conf['dbpass']='root';
+$conf['dbpass']='';
 $conf['dbname']='clinova';
 $conf['rooturl']='http://'.$_SERVER['HTTP_HOST'].'/clinova/';
 $conf['rootpath']=$_SERVER['DOCUMENT_ROOT'].'/clinova/';
