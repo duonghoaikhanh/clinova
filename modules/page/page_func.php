@@ -169,7 +169,7 @@ function html_list_item ($arr_in = array())
 			$row['class'] = ($i%$num_row == 0 || $i == $num) ? ' last' : '';
 			
 			$row['link_share'] = $row['link'];
-			
+			$row['active'] = ($i==1) ? 'active' : '';
 			$row['num_comment'] = 0;
 			if($temp == 'list_item_detail') {
 				$string = file_get_contents('http://graph.facebook.com/'.$row['link_share'], FILE_USE_INCLUDE_PATH);
@@ -181,12 +181,12 @@ function html_list_item ($arr_in = array())
 			}
 			
 			$ttH->temp_act->assign('col', $row);
-			$ttH->temp_act->parse($temp.".row_item.col_item");
+			$ttH->temp_act->parse($temp.".col_item");
 			
-			if($i%$num_row == 0 || $i == $num){
+			/*if($i%$num_row == 0 || $i == $num){
 				$ttH->temp_act->assign('row', array('hr' => ($i < $num) ? '<div class="hr"></div>' : ''));
 				$ttH->temp_act->parse($temp.".row_item");
-			}
+			}*/
 		}
 	}
 	else
@@ -237,6 +237,43 @@ function list_other ($where='')
 		$ttH->temp_act->parse("list_other");
 		return $ttH->temp_act->text("list_other");
 	}
+}
+
+
+function menu_page ($info = array())
+{
+    global $ttH;
+
+    $output = '';
+
+    $sql = "select *
+			from page
+			where is_show=1
+			and lang='".$ttH->conf["lang_cur"]."'
+			and group_id = ".$info['group_id']."
+			order by show_order desc, date_create desc
+			limit 0,3";
+    //echo $sql;
+
+    $result = $ttH->db->query($sql);
+    $html_row = '';
+    if ($num = $ttH->db->num_rows($result))
+    {
+        $i = 0;
+        while ($row = $ttH->db->fetch_row($result))
+        {
+            $i++;
+            $row['link'] = $ttH->site->get_link ('page','',$row['friendly_link']);
+            $row['date_update'] = date('d/m/Y',$row['date_update']);
+            $row['active'] = ($ttH->conf['cur_act_id'] == $row['id']) ? 'active' : '';
+
+            $ttH->temp_act->assign('item', $row);
+            $ttH->temp_act->parse("menu_page.item");
+        }
+
+        $ttH->temp_act->parse("menu_page");
+        return $ttH->temp_act->text("menu_page");
+    }
 }
 
 //=================box_column===============

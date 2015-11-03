@@ -498,7 +498,10 @@ div#footer, div#footer p {
     display: table-cell;
     padding-left: 5px;
 }
-
+.share_box .banner_item {
+    display: table-cell;
+    padding-left: 5px;
+}
 .head_title {
     color: #0A5193;
     font-family: "UTM Bebas";

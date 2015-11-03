@@ -215,23 +215,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col-xs-12 col-sm-6 pull-right noright share_logo">
             <div style="text-align:right;"><a style="color:#fff;" class="csbm" href="javascript:if(confirm(%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html%27" tppabs="http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật thông tin</a><br clear="all"></div>
             <div class="col-xs-12 col-sm-6 noright">
-              <div class="textright linkhot"><a href="tel:+84838112777">
-                  {data.banner_header_phone}</a>
+              <div class="textright linkhot">
+                  <a href="tel:+84838112777">
+                    {data.banner_header_phone}
+                  </a>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 pull-right share_box">
               <div class="box">
+                  <div class="banner_item">
+                      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={CONF.rooturl}">
+                          <img alt="Share facebook" class="nvo-image" src="{CONF.rooturl}thumbs_size/banner/2015_11/share_png/200x200_fw_share.png" style="float: none;" width="107px" height="auto">
+                      </a>
+                  </div>
                 {data.share}
+              </div>
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-6 noleft noright">
-            <div class="col-xs-12 copyright noleft noright"><p>
-                CHI NHÁNH CÔNG TY CỔ PHẦN DƯỢC PHẨM ECO (TP.Hà Nội)<br />
-                Giấy chứng nhận ĐKKD số 0102637020 do Sở Kế Hoạch và Đầu Tư Hà Nội cấp ngày 01/02/2008.<br />
-                Địa chỉ: 148 Hoàng Hoa Thám, Phường 12, Quận Tân Bình, TP.HCM<br />
-                Điện thoại: <a href="tel:+84862936629" style="color:#fff;">(84 8) 62936629</a> - <a href="tel:+84862936630" style="color:#fff;">62936630</a> - Email: tuvanykhoa@jexmax.com.vn<br />
-                Bản quyền © 2014 thuộc về ECO PHARMA.</p></div>
+            <div class="col-xs-12 copyright noleft noright">
+                {data.footer}
+            </div>
           </div>
 
         </div>

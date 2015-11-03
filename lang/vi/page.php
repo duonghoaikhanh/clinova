@@ -17,6 +17,8 @@ $lang = array(
 	'comments_title' => 'Bình luận',
 	'comments' => 'Bình luận',
 	'other_page' => 'Bài viết khác',
-	'no_have_item' => 'Chưa có dữ liệu'
+	'no_have_item' => 'Chưa có dữ liệu',
+    'comeback'=>'Quay lại trang trước',
+    'share'=>'Chia sẽ'
 	);
 ?>

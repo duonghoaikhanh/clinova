@@ -25,7 +25,7 @@ class sMain
 	function sMain ()
 	{
 		global $ttH;
-		
+
 		$ttH->func->load_language($this->modules);
 		$ttH->temp_act = new XTemplate($ttH->path_html.$this->modules.DS.$this->action.".tpl");
 		$ttH->temp_act->assign('CONF', $ttH->conf);
@@ -36,7 +36,7 @@ class sMain
 		
 		$ttH->conf['menu_action'] = array($this->modules);
 		$ttH->data['link_lang'] = (isset($ttH->data['link_lang'])) ? $ttH->data['link_lang'] : array();
-		
+
 		include ($this->modules."_func.php");
 		
 		$data = array();
@@ -47,7 +47,7 @@ class sMain
 										and is_show=1 
 										limit 0,1");
 			if($row = $ttH->db->fetch_row($result)){
-				
+
 				//Current menu
 				$arr_group_nav = (!empty($row["group_nav"])) ? explode(',',$row["group_nav"]) : array();
 				foreach($arr_group_nav as $v) {
@@ -77,17 +77,35 @@ class sMain
 						'link' => $ttH->site->get_link ('page',$ttH->data['page_group'][$ttH->conf['cur_group']]['friendly_link'])
 					)
 				));
-				
+
 				$data = array();
 				$data['main_search'] = $ttH->site->main_search ($ttH->data['cur_group']['title']);
 				$data['content'] = $this->do_list_group($row, $ttH->data['cur_group']);
+                $result_redirect = $ttH->db->query("select *
+                                                from page
+                                                where is_show=1
+                                                and group_id = ".$ttH->conf['cur_group']."
+                                                and lang='".$ttH->conf["lang_cur"]."'
+                                                order by show_order desc, date_create desc
+                                                limit 0,3");
+                if($num = $ttH->db->num_rows($result)) {
+                    while($row = $ttH->db->fetch_row($result_redirect)){
+
+                        $ttH->html->redirect_rel( $ttH->site->get_link ('page','',$row['friendly_link']));
+                        break;
+                    }
+                }
+                //$data['list_menu_page'] = $data['content'];
+
+
+
 				$data['box_left'] = box_left();
 				$data['box_column'] = box_column();
 			}else{
 				$ttH->html->redirect_rel($ttH->site->get_link ($this->modules));
 			}
 		}elseif(isset($ttH->conf['cur_item'])){
-			
+
 			$where = " and item_id='".$ttH->conf['cur_item']."' ";
 			
 			$result = $ttH->db->query("select * 
@@ -115,6 +133,7 @@ class sMain
 				$ttH->conf['menu_action'][] = $this->modules.'-group-'.$ttH->conf['cur_group'];
 				$ttH->conf['menu_action'][] = $this->modules.'-item-'.$ttH->conf['cur_item'];
 				$data = array();
+
 				$data['content'] = $this->do_detail ($ttH->data['cur_item']);
 			}else{
 				$ttH->html->redirect_rel($ttH->site->get_link ('home'));
@@ -122,7 +141,7 @@ class sMain
 		}else{
 			$ttH->html->redirect_rel($ttH->site->get_link ('home'));
 		}
-	
+
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");
@@ -131,9 +150,9 @@ class sMain
 	function do_list_group ($info = array(), $info_lang = array())
 	{
 		global $ttH;	
-		
+
 		$data = array(
-			'title' => $info_lang['title']
+			//'title' => $info_lang['title']
 		);
 		
 		$arr_in = array(
@@ -183,7 +202,7 @@ class sMain
 	function do_detail ($info = array())
 	{
 		global $ttH;	
-		
+
 		if($info['picture']) {
 			$info['pic_w'] = 210;
 			$info['pic_h'] = 210; 
@@ -191,7 +210,7 @@ class sMain
 			$ttH->temp_act->assign('data', $info);
 			$ttH->temp_act->parse("item_detail.img");
 		}
-		
+
 		$info['link_share'] = $ttH->data['link_lang'][$ttH->conf['lang_cur']];
 		
 		/*$string = file_get_contents('http://graph.facebook.com/'.$info['link_share'], FILE_USE_INCLUDE_PATH);
@@ -204,10 +223,13 @@ class sMain
 		$info['date_update'] = date('d/m/Y',$info['date_update']);
 		
 		$info['list_other'] = list_other (" and a.item_id!='".$info['item_id']."'");
-		
+
+        $info['list_menu_page'] = menu_page($info);
+
+		//print_arr($info);die;
 		$ttH->temp_act->assign('data', $info);
 		$ttH->temp_act->parse("item_detail");
-		//return $ttH->temp_act->text("item_detail");
+		return $ttH->temp_act->text("item_detail");
 		$data = array(
 			'content' => $ttH->temp_act->text("item_detail"),
 			'title' => $info['title']
