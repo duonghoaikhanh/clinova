@@ -72,6 +72,8 @@ $data['banner_header_phone'] = $ttH->site->get_banner ('banner-header-phone');
 $data['header_menu'] = $ttH->site->menu_single ('menu_top');
 $data['list_menu'] = $ttH->site->list_menu ('menu_header');
 $data['footer'] = $ttH->site->get_banner ('footer');
+$data['logo_footer'] = $ttH->site->get_banner ('logo-footer');
+$data['slide_website_footer'] = $ttH->site->get_banner ('slide-website-footer', 0);
 $data['footer_menu'] = $ttH->site->list_menu ('menu_footer', 'menu_footer');
 $data['footer_bank'] = $ttH->site->get_banner_slide ('bank', 'bank_scroll');
 

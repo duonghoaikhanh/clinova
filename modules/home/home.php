@@ -56,13 +56,154 @@ class sMain
 		$data['content'] = $this->do_list ();
 		$data['content_focus'] = $this->do_list ('focus');
 		$data['banner_faq_home'] = $ttH->site-> get_banner('banner-home-faq');
+		$data['banner_get_news_focus'] = $this->banner_get_news_focus();
+		$data['get_news'] = $this->get_news();
 		// Why use .= in method error
 
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");
 	}
-	
+
+	//=================sget_news===============
+	function get_news (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 116;
+		$pic_h = 60;
+
+		$sql = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus=0
+						and group_level = 1
+						order by show_order desc, date_update desc
+						limit 0,1";
+		//echo $sql;
+
+		$result = $ttH->db->query($sql);
+		$html_row = "";
+		$dt = array();
+		if ($num = $ttH->db->num_rows($result))
+		{
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$dt = $row;
+			}
+		}
+
+		$sql2 = "select *
+						from news
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and group_id= ".$dt['group_id']."
+						order by show_order desc, date_update desc
+						limit 0,6";
+		//echo $sql;
+
+		$result2 = $ttH->db->query($sql2);
+		if ($num = $ttH->db->num_rows($result2))
+		{
+			$i =0;
+			while ($row = $ttH->db->fetch_row($result2))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+
+				if ($i % 2 != 0) {
+					$item_old = $row;
+					$ttH->temp_act->assign('item_old', $item_old);
+					$ttH->temp_act->parse("group_news.row.item_old");
+				}
+				$ttH->temp_act->assign('row', $row);
+				$ttH->temp_act->parse("group_news.row.item");
+				if($i%2 == 0 || $i == $num) {
+					$ttH->temp_act->parse("group_news.row");
+				}
+
+			}
+		}
+		$ttH->temp_act->parse("group_news");
+		$output = $ttH->temp_act->text("group_news");
+
+
+		return $output;
+	}
+
+	//=================banner_get_news_focus===============
+	function banner_get_news_focus (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 349;
+		$pic_h = 175;
+
+		$sql = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus=1
+						and group_level = 1
+						order by show_order desc, date_update desc
+						limit 0,1";
+		//echo $sql;
+
+		$result = $ttH->db->query($sql);
+		$html_row = "";
+		$dt = array();
+		if ($num = $ttH->db->num_rows($result))
+		{
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$dt = $row;
+			}
+		}
+
+		$sql2 = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and parent_id= ".$dt['group_id']."
+						order by show_order desc, date_update desc
+						limit 0,3";
+		//echo $sql;
+
+		$result2 = $ttH->db->query($sql2);
+		if ($num = $ttH->db->num_rows($result2))
+		{
+			$i =0;
+			while ($row = $ttH->db->fetch_row($result2))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $ttH->site->get_link ('news',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+
+				$ttH->temp_act->assign('row', $row);
+				$ttH->temp_act->parse("group_news_focus.row");
+			}
+		}
+		$ttH->temp_act->parse("group_news_focus");
+		$output = $ttH->temp_act->text("group_news_focus");
+
+
+		return $output;
+	}
+
 	//=================get_banner_slide===============
 	function get_banner_slide (){
 		global $ttH;

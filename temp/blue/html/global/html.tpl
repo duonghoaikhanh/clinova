@@ -203,38 +203,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="container">
         <div class="rowss" >
           <div class="col-xs-12 col-sm-12 noleft noright">
-            <div class="col12 col-xs-3 col-sm-2 eco-green pull-left noleft "><img src="ecogreen.png" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/ecogreen.png" width="auto" height="auto" alt="ecogreen" /></div>
+            <div class="col12 col-xs-3 col-sm-2 eco-green pull-left noleft ">
+              {data.logo_footer}
+            </div>
             <div class="col12 col-xs-9 col-sm-10 noleft noright slide_logo">
               <div id="owl-custome">
-                <div class="item"><a href="javascript:if(confirm(%27http://alipasplatinum.com.vn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://alipasplatinum.com.vn/%27" tppabs="http://alipasplatinum.com.vn/" title="Sâm Alipas tăng cường và phục hồi sinh lực phái mạnh" target="_blank">
-                    <img src="alipas.jpg" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/logo/alipas.jpg" width="auto" height="auto" alt="Sâm Alipas phục hồi sinh lực phái mạnh, trị rối loạn cương dương, giảm ham muốn, lãnh cảm ở nam giới, yếu sinh lý" /></a></div>
-                <div class="item"><a href="javascript:if(confirm(%27http://angela.com.vn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://angela.com.vn/%27" tppabs="http://angela.com.vn/" title="Sâm Angela sức khỏe sắc đẹp và sinh lý nữ" target="_blank">
-                    <img src="angela.jpg" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/logo/angela.jpg" width="auto" height="auto" alt="Sâm angela sức khỏe sắc đẹp sinh lý nữ trị giảm ham muốn khô âm đạo mãn kinh phụ nữ" /></a></div>
-                <div class="item"><a href="javascript:if(confirm(%27http://otiv.com.vn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://otiv.com.vn/%27" tppabs="http://otiv.com.vn/" title="Otiv Trị đau nửa đầu, mất ngủ, suy giảm trí nhớ" target="_blank">
-                    <img src="otiv.jpg" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/logo/otiv.jpg" width="auto" height="auto" alt="Otiv thuốc trị đau nửa đầu mất ngủ suy giảm trí nhớ hiệu quả" /></a></div>
-                <div class="item"><a href="javascript:if(confirm(%27http://faz.com.vn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://faz.com.vn/%27" tppabs="http://faz.com.vn/" title="Faz điều hòa cholesterol, kiểm soát mỡ máu"  target="_blank">
-                    <img src="faz.jpg" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/logo/faz.jpg" width="auto" height="auto" alt="Faz điều hòa cholesterol kiểm soát mỡ máu cao huyết áp hiệu quả" /></a></div>
-                <div class="item"><a href="javascript:if(confirm(%27http://www.lic-ecogreen.com.vn/vn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.lic-ecogreen.com.vn/vn/%27" tppabs="http://www.lic-ecogreen.com.vn/vn/" title="Lic giảm cân an toàn hiệu quả"  target="_blank">
-                    <img src="lic.jpg" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/logo/lic.jpg" width="auto" height="auto" alt="Lic thuốc giảm cân an toàn hiệu quả tốt nhất hiện nay" /></a></div>
+                {data.slide_website_footer}
               </div><div class="text-right noright box-note"style="font-family:'Times New Roman'; margin-top:2px; font-size:12px; opacity:0.4;"><i>Sản phẩm này không phải là thuốc và không thay thế thuốc chữa bệnh</i></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 pull-right noright share_logo">
             <div style="text-align:right;"><a style="color:#fff;" class="csbm" href="javascript:if(confirm(%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html%27" tppabs="http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật thông tin</a><br clear="all"></div>
             <div class="col-xs-12 col-sm-6 noright">
-              <div class="textright linkhot"><a href="tel:+84838112777"><img src="hotline_b.png" tppabs="http://jexmax.com.vn/system/cms/themes/default/img/hotline_b.png" width="auto" height="auto" alt="hotline_b" /></a></div>
+              <div class="textright linkhot"><a href="tel:+84838112777">
+                  {data.banner_header_phone}</a>
+              </div>
             </div>
             <div class="col-xs-12 col-sm-6 pull-right share_box">
               <div class="box">
-                <div class="item">
-                  <a target="_blank" href="javascript:if(confirm(%27https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjexmax.com.vn  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjexmax.com.vn%27" tppabs="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjexmax.com.vn"><img alt="Tên" class="nvo-image" src="share.png" tppabs="http://jexmax.com.vn/img/share.png" style="float: none;" width="auto" height="auto" /></a></div>
-                <div class="item">
-                  <a href="javascript:if(confirm(%27https://www.facebook.com/JexMax.EcoGreen  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.facebook.com/JexMax.EcoGreen%27" tppabs="https://www.facebook.com/JexMax.EcoGreen"  target="_blank" title="Đến trang facebook Jex"><img alt="Tên" class="nvo-image" src="facebook.png" tppabs="http://jexmax.com.vn/img/facebook.png" style="float: none;" width="auto" height="auto" /></a></div>
-                <div class="item">
-                  <a href="javascript:if(confirm(%27https://plus.google.com/u/0/112240483754718670056/posts  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://plus.google.com/u/0/112240483754718670056/posts%27" tppabs="https://plus.google.com/u/0/112240483754718670056/posts"  target="_blank"  title="Đến trang Google Plus - Jex"><img alt="Tên" class="nvo-image" src="plus.png" tppabs="http://jexmax.com.vn/img/plus.png" style="float: none;"  width="auto" height="auto"/></a></div>
-                <div class="item">
-                  <a href="javascript:if(confirm(%27https://www.youtube.com/channel/UCr-Wg_PPD96O3EYuL8XFQmA  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://www.youtube.com/channel/UCr-Wg_PPD96O3EYuL8XFQmA%27" tppabs="https://www.youtube.com/channel/UCr-Wg_PPD96O3EYuL8XFQmA"  target="_blank" title="Đến trang Youtube - Jex"><img alt="Tên" class="nvo-image" src="youtube.png" tppabs="http://jexmax.com.vn/img/youtube.png" style="float: none;" width="auto" height="auto" /></a></div>
-              </div>
+                {data.share}
             </div>
           </div>
 
