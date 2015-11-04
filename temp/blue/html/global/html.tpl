@@ -51,15 +51,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{DIR_JS}jalert/js/jquery.alerts.js"></script>
     <script src="{DIR_JS}jquery.scrollTo.min.js"></script>
 
+
     {CONF.include_js}
     {CONF.include_css}
     {CONF.include_js_content}
 
-    <script type="text/javascript" src="http://jexmax.com.vn/system/cms/themes/default/js/xjs/jquery.js"></script>
+
     <script type="text/javascript" src="http://jexmax.com.vn/system/cms/themes/default/js/xjs/bootstrap.js"></script>
     <script type="text/javascript" src="http://jexmax.com.vn/system/cms/themes/default/js/xjs/owl.carousel.js"></script>
-    <script type="text/javascript"> jQuery(document).ready(function() { document.title = 'JEX MAX - Giúp giảm đau, tái tạo sụn khớp, xương dưới sụn'; }); </script>
 
+    <script src="{DIR_JS}javascript.js"></script>
     <!--[if lt IE 9]>
     	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
