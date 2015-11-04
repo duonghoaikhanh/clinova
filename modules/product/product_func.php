@@ -41,10 +41,15 @@ function get_navigation ()
 	}
 	
 	if(isset($ttH->conf['cur_item']) && $ttH->conf['cur_item'] > 0) {
-		$arr_nav[] = array(
-			'title' => $ttH->data["cur_item"]['title'],
-			'link' => $ttH->site->get_link ('product', '', $ttH->data["product_group"][$group_id]['friendly_link'])
-		);
+		if (!empty($ttH->data["product_group"])) {
+			if(isset($ttH->data["product_group"][$group_id])) {
+				$arr_nav[] = array(
+					'title' => $ttH->data["cur_item"]['title'],
+					'link' => $ttH->site->get_link ('product', '', $ttH->data["product_group"][$group_id]['friendly_link'])
+				);
+			}
+		}
+
 	}
 	
 	return $ttH->site->html_arr_navigation($arr_nav);

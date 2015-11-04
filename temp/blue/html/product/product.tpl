@@ -1,7 +1,31 @@
 <!-- BEGIN: main -->
-{data.content}
-{data.content_focus}
-<!-- END: main --> 
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-9 noleft">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <ol class="breadcrumb  show mobile">
+        <li class="mod_back"><a href="http://jexmax.com.vn/">Quay lại trang trước</a></li>
+      </ol>
+      {data.content}
+      <br clear="all">
+      <div class="hide_640 container">
+        <div id="video">
+          <div id="myVideo">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="//www.youtube.com/embed/3bsb7_0Z5_Y?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+            <!--
+            <img src="/system/cms/themes/default/img/video.jpg" width="auto" height="auto" alt="video" />
+            -->
+            <h2 style="margin:5px 0 15px;">JEX MAX - GIÚP GIẢM ĐAU<br> TÁI TẠO SỤN KHỚP VÀ XƯƠNG DƯỚI SỤN</h2>                    </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- END: main -->
 
 <!-- BEGIN: list_item -->
 <div class="list_item {data.class}">
@@ -75,151 +99,57 @@
 <!-- END: img_detail --> 
 
 <!-- BEGIN: detail -->
-{data.navigation}
-<div id="item_detail">
-  {data.img_detail}
-  <div id="item_info">
-  	<div class="info_row">
-      <span class="info_col-num_view">
-      	<span class="col-title">{LANG.product.num_view}</span>
-      	<span class="col-mid">:</span>
-      	<span class="col-content">{data.num_view}</span>
-      </span>      
-      <span class="info_col-mid">|</span>
-      <span class="info_col-date_update">
-      	<span class="col-title">{LANG.product.date_update}</span>
-      	<span class="col-mid">:</span>
-      	<span class="col-content">{data.date_update}</span>
-      </span>
-    </div>
-    <h1>{data.title}</h1>
-  	<div class="info_row">
-    	<span class="info_col-series">
-      	<span class="col-title">{LANG.product.series}</span>
-      	<span class="col-mid">:</span>
-      	<span class="col-content">{data.item_code}</span>
-      </span>
-    	<span class="info_col-like"><iframe src="//www.facebook.com/plugins/like.php?href={data.link_action}%2F&amp;width=120&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=1448360858753522" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width:120px;" allowTransparency="true"></iframe></span>
-      <div class="clear"></div>
-    </div>
-  	<div class="info_row">
-      <div class="info_row-short">{data.short}</div>
-      <div class="clear"></div>
-    </div>
-  	<!-- BEGIN: info_row_price -->
-  	<div class="info_row">
-      <div class="info_row_title">{LANG.product.price}</div>
-      <div class="info_row_mid">:</div>
-      <div class="info_row_content price">{price}</div>
-      <div class="clear"></div>
-    </div>
-    <!-- END: info_row_price --> 
-  	<div id="info_row-price_buy" class="info_row price_buy">
-      <span>{LANG.product.price_buy}: </span>
-      <span>{data.price_buy}</span>
-      <div class="clear"></div>
-    </div>
-    <form id="form_add_cart" action="{data.link_cart}" method="post" class="form_add_cart">
-  	<!-- BEGIN: info_row -->
-  	<div class="info_row {row.info_row_class}">
-      <div class="info_row_title">{row.title}: </div>
-      <div class="info_row_content">{row.content}</div>
-      <div class="clear"></div>
-    </div>
-    <!-- END: info_row --> 
-  	<div class="info_row">
-      <div class="info_row_title">{LANG.product.quantity}: </div>
-      <div class="info_row_content"><input type="text" value="1" class="auto_quantity quantity" maxlength="3" /><input name="quantity" type="hidden" value="1" class="auto_quantity_input" /></div>
-      <div class="clear"></div>
-    </div>
-  	<div class="info_row">
-      <div class="info_row_title">{LANG.product.total}: </div>
-      <div class="info_row_content price_buy" id="detail-total"><span>{data.price_buy}</span></div>
-      <div class="clear"></div>
-    </div>
-  	<div id="info_row-shipping" class="info_row">
-      <div class="info_row_title">{LANG.product.shipping}: </div>
-      <div class="info_row_content"><span>{LANG.product.shipping_content}</span></div>
-      <div class="clear"></div>
-    </div>
-  	<!-- BEGIN: btn_add_cart -->
-  	<div class="info_row info_row_btn">
-      <input name="item_id" type="hidden" value="{data.item_id}" />
-      <input class="btn_add_cart_show css_bo" type="submit" value="{LANG.product.btn_add_cart_show}">
-      <input class="btn_add_cart css_bo" type="submit" value="{LANG.product.btn_add_cart}">
-      <div class="clear"></div>
-    </div>
-    <!-- END: btn_add_cart --> 
-    </form>
-    <script language="javascript">
-			detail_quantity();
-			var is_popup = 0;
-			$('.btn_add_cart_show').click(function() {
-				is_popup = 1;
-			});
-			$('.btn_add_cart').click(function() {
-				is_popup = 0;
-			});
-			
-			$('form.form_add_cart').submit(function(){
-				loading('show');
-				var fData = $(this).serializeArray();
-				
-				var form = $(this);
-				$.ajax({
-					type: "POST",
-					url: $(this).attr('action'),
-					data: { "data" : fData }
-				}).done(function( data ) {
-					loading('hide');
-					if(is_popup == 1) {
-						$.fancybox({
-							"width"	: 880,
-							"height"	: 570,
-							'type'   : 'iframe',
-							"autoScale"   : false,
-							'padding': 10,
-							'href': form.attr('action')						
-							//'data': fData
-						});
-					} else {
-						jAlert('Thêm vào giỏ hàng thành công!', lang_js['aleft_title'], null, 'success');
-					}
-				});
-				
-				return false;
-			});
-    </script>
-  	<span class="info_row-share">
-    	<span class="info_row-share-title">{LANG.global.share_page}</span>
-    	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-      <div class="addthis_sharing_toolbox"></div>      
-    	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5461905c1fc78f9b" async="async"></script>
-      <div class="clear"></div>
-    </span>
+<div class="content_blog page_box box_w">
+  <div class="okshow_b"></div>
+  <div class="sub_menu">
   </div>
+  <h1 class="head_title">{data.title}</h1>
   <div class="clear"></div>
-  
-  <!-- BEGIN: tab -->
-  <div id="tab-detail">
-    <ul id="tab-detail-nav" class="list_none">
-    	<!-- BEGIN: title -->
-      <li style="z-index:{tab.index};"><a href="#tab-{tab.key}">{tab.title}</a></li>
-      <!-- END: title --> 
-    </ul>
-    <div class="clear"></div>
-    <!-- BEGIN: content -->
-    <div class="tab tab-content detail-content css_bo" id="tab-{tab.key}"><div>{tab.content}</div></div>
-    <!-- END: content --> 
-  </div>
-  
-  <script type="text/javascript">
-  var tabber1 = new Yetii({
-    id: 'tab-detail'
-  });
-  </script>
-  <!-- END: tab -->
+  <div class="inner_content_news">
+    {data.content}
+    <p style="text-align: justify;">
+      &nbsp;</p>
+    <br clear="all">
+
+    <br class="clear">
+    <div class="text-right item-info" itemscope="" itemtype="http://data-vocabulary.org/Review-aggregate">
+      <div id="box_rate" class="box_rate">
+              <span class="rate_1">
+                  <span class="rate_2">
+                      <span class="rate_3">
+                          <span class="rate_4">
+                              <span class="rate_5"></span>
+                          </span>
+                      </span>
+                  </span>
+              </span>
+      </div>
+
+    </div>
+    <div class="inner_content_news share_news" style="float: right; display:inline-block;">
+      <br class="clear">
+      <div class="share">
+
+        <div class="list_share">
+          <div class='addthis_toolbox addthis_default_style '>
+            <span style="float:left;font-weight: bold;margin-right: 20px;">{LANG.product.share}</span>
+            <a class='addthis_button_facebook_like' fb:like:layout='button_count'></a>
+            <a class='addthis_button_tweet'></a>
+            <a class='addthis_button_google_plusone' g:plusone:size='medium'></a>
+            <a class='addthis_counter addthis_pill_style'></a>
+          </div>
+          <script src='http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f57432236fb4dee' type='text/javascript'>
+          </script>
+          <div class="clear" style="clear: both"></div>
+
+        </div>
+      </div><!--end .share-->
+
+
+      <style>.sharethis{display:none}.share{position:relative}.st_like_fb{position:absolute;top:1px;left:80px}</style></div>
+    <br clear="all">
+  </div><!--end .inner_content_news-->
+  <br clear="all">
 </div>
 <!-- END: detail --> 
 

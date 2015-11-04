@@ -197,7 +197,7 @@ class sMain
 			$ttH->temp_act->parse("detail.tab");
 		}
 		
-		
+
 		$data['navigation'] = $ttH->navigation;
 		$data['date_update'] = date('d-m-Y',$data['date_update']);
 				

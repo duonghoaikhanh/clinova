@@ -71,6 +71,7 @@ $lang = array (
 	'phone' => 'Điện thoại',
 	'address' => 'Địa chỉ cụ thể',
 	'request_more' => 'Yêu cầu khác',
-	'facebook_commtent' => 'BÌNH LUẬN CỦA BẠN'
+	'facebook_commtent' => 'BÌNH LUẬN CỦA BẠN',
+	'share' => 'Chia sẻ : '
 ); 
 ?>
