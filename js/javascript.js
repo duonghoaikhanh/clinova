@@ -51,6 +51,54 @@ ttHGlobal = {
 			}
 		});
 	},
+
+	add_question:function (form_id) {
+		$.validator.setDefaults({
+			submitHandler: function() {
+				var fData = $("#"+form_id).serializeArray();
+
+				$.ajax({
+					type: "POST",
+					url: ROOT+"ajax.php",
+					data: { "m" : "faq", "f" : "add_question", "data" : fData }
+				}).done(function( string ) {
+					var data = JSON.parse(string);
+					if(data.ok == 1) {
+						$('#'+form_id)[0].reset();
+						alert(data.mess);
+					} else {
+						alert(data.mess);
+					}
+				});
+				//e.preventDefault(); //STOP default action
+				//e.unbind(); //unbind. to stop multiple form submit.
+				return false;
+			}
+		});
+		$("#"+form_id).validate({
+			rules: {
+				name: {
+					required: true
+				},
+				title: {
+					required: true
+				},
+
+				email: {
+					required: true,
+					email: true
+				},
+
+				content: "required"
+			},
+			messages: {
+				name: lang_js['err_valid_input'],
+				title: lang_js['err_valid_input'],
+				email: lang_js['err_invalid_email'],
+				content: lang_js['err_valid_input']
+			}
+		});
+	},
 	
 	emaillist:function (form_id) {
 		//this.__emaillist_ajax(form_id);
