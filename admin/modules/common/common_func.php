@@ -90,6 +90,7 @@ class commonFunc extends sMain
 			$html_before = '';
 			$form_col = 6;
 			$use_title = true;
+
 			switch ($form_type) {
 				case "picture":
 					$data_out[$k] = $ttH->admin->get_form_pic ($k, (isset($data[$k]) ? $data[$k] : ''), $this->folder_upload, $this->dir);
@@ -176,6 +177,8 @@ class commonFunc extends sMain
 						array("folder_up" => $this->folder_upload, "fldr" => $this->dir)
 					);					
 					break;
+
+
 				case "friendly_link":
 					$tmp = ($k != 'friendly_link') ? str_replace('_link','',$k) : $k;
 					$tmp_title = $ttH->lang['global']['orientation_search_engine'];
@@ -270,7 +273,7 @@ class commonFunc extends sMain
 			if(isset($v['col_title'])) {
 				$col_title = (isset($ttH->lang[$this->modules][$v['col_title']]) ?$ttH->lang[$this->modules][$v['col_title']] : (isset($ttH->lang['global'][$v['col_title']]) ? $ttH->lang['global'][$v['col_title']] : $v['col_title']));
 			}			
-			
+			//print_arr($data_out['admin_reply']);die;
 			if(isset($data_out[$k])) {
 				$ttH->temp_act->assign('row', array(
 					'before' => $html_before,

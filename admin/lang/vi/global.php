@@ -165,5 +165,6 @@ $lang = array (
 	'are_you_sure_continue' => 'Bạn có chắc muốn thực hiện thao tác này không?',
 	'mess_redirect' => 'Đang xử lý . Xin vui lòng đợi hoặc click vào đây',
 	'copyright' => '.::[Tạo bởi: Trần Thanh Hiệp - MSSV: 0751120025]::.',
+	'status' =>'Trạng thái'
 ); 
 ?>

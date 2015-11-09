@@ -10,7 +10,7 @@
   </div>
 </div>
 {data.main}
-<!-- END: main --> 
+<!-- END: main -->
 
 <!-- BEGIN: edit -->
 <form action="{data.link_action}" method="post" enctype="multipart/form-data" name="myForm" id="myForm" role="form">
@@ -42,7 +42,7 @@
         {data.html_content} </div>
     </div>
   </div>
-  <!-- BEGIN: input_option --> 
+  <!-- BEGIN: input_option -->
   <div class="row">
     <div class="col-lg-12">
       <div class="form-group">
@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-  <!-- END: input_option --> 
+  <!-- END: input_option -->
   <h2>{LANG.global.orientation_search_engine}</h2>
   <div class="row">
     <div class="col-lg-6">
@@ -89,9 +89,9 @@
     <button type="reset" class="btn btn-default">{LANG.global.btn_reset}</button>
   </div>
 </form>
-<!-- END: edit --> 
+<!-- END: edit -->
 
-<!-- BEGIN: manage --> 
+<!-- BEGIN: manage -->
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">{LANG.global.box_search}</h3>
@@ -103,7 +103,7 @@
           <div class="col_search"><label>{LANG.news.news_group}:</label> {data.list_group_search}</div>
           <div class="col_search"><label>{LANG.global.date_begin}:</label> <input name="search_date_begin" type="text" size="20" maxlength="150" value="{data.search_date_begin}" class="form-control datepicker"></div>
           <div class="col_search"><label>{LANG.global.date_end}:</label> <input name="search_date_end" type="text" size="20" maxlength="150" value="{data.search_date_end}" class="form-control datepicker"></div>
-          <div class="col_search"><label>{LANG.global.text_search}:</label> 
+          <div class="col_search"><label>{LANG.global.text_search}:</label>
             <div class="form-group input-group">
               <input name="search_title" type="text" size="20" maxlength="150" value="{data.search_title}" class="form-control">
               <span class="input-group-btn">
@@ -132,11 +132,11 @@
         <button type="button" class="btn btn-default" onclick="do_submit('do_edit')" value="{LANG.global.btn_update}" name="btnEdit">{LANG.global.btn_update}</button>
         <!-- BEGIN: button_trash -->
         <button type="button" class="btn btn-default" onclick="do_submit_alert('do_trash', '{LANG.global.are_you_sure_trash}')" value="{LANG.global.btn_trash}" name="btnTrash">{LANG.global.btn_trash}</button>
-        <!-- END: button_trash --> 
+        <!-- END: button_trash -->
         <!-- BEGIN: button_manage -->
         <button type="button" class="btn btn-default" onclick="do_submit_alert('do_restore', '{LANG.global.are_you_sure_restore}')" value="{LANG.global.btn_restore}" name="btnRestore">{LANG.global.btn_restore}</button>
         <button type="button" class="btn btn-default" onclick="do_submit_alert('do_del', '{LANG.global.are_you_sure_del}')" value="{LANG.global.btn_del}" name="btnDel">{LANG.global.btn_del}</button>
-        <!-- END: button_manage --> 
+        <!-- END: button_manage -->
         <div class="clear"></div>
       </div>
       <div class="table-responsive">
@@ -172,19 +172,19 @@
                 <a href="{row.link_edit}" ><img src="{DIR_IMAGE}icon_edit.png" atl="{LANG.global.edit}" title="{LANG.global.edit}"/></a>
                 <!-- BEGIN: row_button_trash -->
                 <a href="javascript:action_item('{row.link_trash}','{LANG.global.are_you_sure_trash}')" ><img src="{DIR_IMAGE}icon_trash.png" atl="{LANG.global.trash}" title="{LANG.global.trash}"/></a>
-                <!-- END: row_button_trash --> 
+                <!-- END: row_button_trash -->
                 <!-- BEGIN: row_button_manage -->
                 <a href="javascript:action_item('{row.link_restore}','{LANG.global.are_you_sure_restore}')" ><img src="{DIR_IMAGE}icon_restore.png" atl="{LANG.global.restore}" title="{LANG.global.restore}"/></a>
                 <a href="javascript:action_item('{row.link_del}','{LANG.global.are_you_sure_del}')" ><img src="{DIR_IMAGE}icon_del.png" atl="{LANG.global.del}" title="{LANG.global.del}"/></a>
                 <!-- END: row_button_manage -->
               </td>
             </tr>
-            <!-- END: row_item --> 
+            <!-- END: row_item -->
           	<!-- BEGIN: row_empty -->
             <tr class="warning">
               <td align="center" colspan="9">{row.mess}</td>
             </tr>
-            <!-- END: row_empty --> 
+            <!-- END: row_empty -->
           </tbody>
         </table>
       </div>
@@ -192,9 +192,9 @@
         <img class="icon_arrow" src="{DIR_IMAGE}arrow_up.png" />
         <button type="button" class="btn btn-default" onclick="do_submit('do_edit')" value="{LANG.global.btn_update}" name="btnEdit">{LANG.global.btn_update}</button>
         <!-- BEGIN: button_trash -->
-        <!-- END: button_trash --> 
+        <!-- END: button_trash -->
         <!-- BEGIN: button_manage -->
-        <!-- END: button_manage --> 
+        <!-- END: button_manage -->
         <div class="clear"></div>
       </div>
       <div class="table_nav">{data.nav}</div>
@@ -202,4 +202,4 @@
     </div>
   </div>
 </form>
-<!-- END: manage --> 
+<!-- END: manage -->

@@ -40,7 +40,7 @@ class sMain_sub extends sMain {
 		if(!isset($this->path_tbl)) {
 			$this->path_tbl = $ttH->path_html.$this->modules_include.DS.$this->tbl_name.".tpl";
 		}
-		
+
 		$ttH->func->load_language_admin($this->modules);
 		$ttH->temp_act = new XTemplate($this->path_tbl);
 		$ttH->temp_act->assign('LANG', $ttH->lang);
