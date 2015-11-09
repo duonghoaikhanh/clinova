@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    {data.block_column}
 
   </div>
 </div>

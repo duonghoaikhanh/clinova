@@ -71,7 +71,6 @@ class sMain
 
 				$data = array(
 					"content" => $this->do_list_group($row, $ttH->data['cur_group']),
-					"box_column" => box_column ()
 				);
                 $data['navigation'] = get_navigation ();
 			}else{
@@ -109,7 +108,6 @@ class sMain
 				
 				$data = array(
 					"content" => $this->do_detail($row, $ttH->data['cur_item']),
-					"box_column" => box_column ()
 				);
                 $data['navigation'] = get_navigation ();
 			}else{
@@ -134,10 +132,10 @@ class sMain
 			
 			$data = array(
 				"content" => $this->do_list(),
-				"box_column" => box_column ()
 			);
             $data['navigation'] = get_navigation ();
 		}
+		$data['block_column'] = $ttH->site->block_left();
 
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");

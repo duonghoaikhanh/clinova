@@ -92,8 +92,10 @@ class sMain
 		
 		$ttH->navigation = get_navigation ();	
 		
-		$data['box_left'] = box_left();
-		$data['box_column'] = box_column();
+		//$data['box_left'] = box_left();
+		$data['block_column'] = $ttH->site->block_left();
+		echo $data['block_column'];die;
+		//$data['box_column'] = box_column();
 
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");

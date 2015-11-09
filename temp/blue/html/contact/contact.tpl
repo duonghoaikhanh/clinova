@@ -2,6 +2,7 @@
 <div class="container">
     <div class="row">
         {data.content}
+        {data.block_column}
     </div>
 </div>
 <!-- END: main --> 

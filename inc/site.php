@@ -1306,8 +1306,24 @@ class Site
   function block_left ()
   {
     global $ttH;
-		$output = '';
-		$output .= $this->auto_sidebar ('left');
+		$output = '<div class="hidden-xs col-sm-3 mod_right noright noleft" id="home_box">';
+			$output .= '<div class="col-xs-12 col-sm-12 noleft noright"><div class="box_tuvan">
+						  <h3><span><a href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">'.$ttH->lang['global']['faq'].'</a></span></h3>
+						  <div class="content"><p>
+							  '.$this->get_banner("banner-home-faq").'<br />
+							  	'.$ttH->lang['global']['short_faq'].'</p></div>
+						  <a class="view_all" href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">Xem tiếp</a>
+						  <div class="box_b"><span></span></div>
+						</div></div>';
+	  		$output .= '<div class="col-xs-12 col-sm-12 noleft noright">
+							'.$this->banner_get_news_focus().'
+						</div>';
+	  		$output .= '<div class="col-xs-12 col-sm-12 noleft noright">
+							'.$this->get_news().'
+						</div>';
+
+
+	  	$output .= '</div>';
 		
 		return $output;
   }
@@ -1749,6 +1765,150 @@ class Site
     $nd['content'] = $ttH->temp_html->text("footer_contact");
     return $ttH->temp_html->text("footer_contact");
   }
+
+
+	//=================banner_get_news_focus===============
+	function banner_get_news_focus (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 349;
+		$pic_h = 175;
+
+		$sql = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus=1
+						and group_level = 1
+						order by show_order desc, date_update desc
+						limit 0,1";
+		//echo $sql;
+
+		$result = $ttH->db->query($sql);
+		$html_row = "";
+		$dt = array();
+		if ($num = $ttH->db->num_rows($result))
+		{
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$dt = $row;
+			}
+		}
+
+		$sql2 = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and parent_id= ".$dt['group_id']."
+						order by show_order desc, date_update desc
+						limit 0,3";
+		//echo $sql;
+
+		$result2 = $ttH->db->query($sql2);
+		if ($num = $ttH->db->num_rows($result2))
+		{
+			$i =0;
+			while ($row = $ttH->db->fetch_row($result2))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $this->get_link ('news',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+
+				$ttH->temp_box->assign('row', $row);
+				$ttH->temp_box->parse("group_news_focus.row");
+			}
+		}
+
+		$ttH->temp_box->parse("group_news_focus");
+		$output = $ttH->temp_box->text("group_news_focus");
+
+
+		return $output;
+	}
+
+
+	//=================sget_news===============
+	function get_news (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 116;
+		$pic_h = 60;
+
+		$sql = "select *
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus=0
+						and group_level = 1
+						order by show_order desc, date_update desc
+						limit 0,1";
+		//echo $sql;
+
+		$result = $ttH->db->query($sql);
+		$html_row = "";
+		$dt = array();
+		if ($num = $ttH->db->num_rows($result))
+		{
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$dt = $row;
+			}
+		}
+
+		$sql2 = "select *
+						from news
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and group_id= ".$dt['group_id']."
+						order by show_order desc, date_update desc
+						limit 0,6";
+		//echo $sql;
+
+		$result2 = $ttH->db->query($sql2);
+		if ($num = $ttH->db->num_rows($result2))
+		{
+			$i =0;
+			while ($row = $ttH->db->fetch_row($result2))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+
+				if ($i % 2 != 0) {
+					$item_old = $row;
+					$ttH->temp_box->assign('item_old', $item_old);
+					$ttH->temp_box->parse("group_news.row.item_old");
+				}
+				$ttH->temp_box->assign('row', $row);
+				$ttH->temp_box->parse("group_news.row.item");
+				if($i%2 == 0 || $i == $num) {
+					$row['line'] = ($i<$num) ? "<div class='line_news'></div>":"";
+					$ttH->temp_box->assign('row', $row);
+					$ttH->temp_box->parse("group_news.row");
+				}
+
+			}
+		}
+		$ttH->temp_box->parse("group_news");
+		$output = $ttH->temp_box->text("group_news");
+
+
+		return $output;
+	}
 	
 	// copyright
   function copyright ()

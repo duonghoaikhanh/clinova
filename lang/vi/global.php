@@ -80,6 +80,8 @@ $lang = array (
 	'footer_share' => 'Kết nối với IMS',
 	'footer_bank' => 'Đối tác thanh toán',
 	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved',
-	'brand_company' => 'Sản xuất tại công ty St-Paul Brands, Mỹ'
+	'brand_company' => 'Sản xuất tại công ty St-Paul Brands, Mỹ',
+	'faq' => 'Hỏi đáp tư vấn',
+	'short_faq' =>'Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…'
 ); 
 ?>

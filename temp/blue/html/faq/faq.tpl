@@ -8,6 +8,7 @@
             </div>
 
         </div>
+        {data.block_column}
     </div>
 </div>
 
@@ -73,260 +74,28 @@
         <div>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
+                <!-- BEGIN: item -->
                 <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head1">
+                    <div class="panel-heading" role="tab" id="head{item.stt}">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi1" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">1.</span>
-                                Tôi đang dùng JEX và thấy hài lòng với sản phẩm này. Vì sao nên dùng JEX MAX? Nếu dùng JEX MAX tôi có cần thay đổi liều lượng và cách dùng không?<span class="view_all">Chi tiết</span>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi{item.stt}" aria-expanded="true" aria-controls="collapse{item.stt}">
+                                <span class="stt pull-left">{item.stt}.</span>
+                                {item.content}<span class="view_all">Chi tiết</span>
                             </a>
                         </h4>
                     </div>
-                    <div id="cauhoi1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="head1">
+                    <div id="cauhoi{item.stt}" class="panel-collapse collapse {item.in}" role="tabpanel" aria-labelledby="head{item.stt}">
                         <div class="panel-body">
                             <div class="answer_ques">
-
                                 <a class="avatar" title="Ưu điểm của JEX MAX so với JEX?" href="http://jexmax.com.vn/hoi-dap/uu-diem-cua-jex-max-so-voi-jex-a5820.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        <strong>JEX </strong>giúp giảm đau, tái tạo và nuôi dưỡng sụn khớp. Nay <strong>JEX MAX </strong>với tinh chất <strong>PEPTAN </strong>thiên nhiên, là bước tiến mới của <strong>JEX</strong>, giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. <strong>JEX MAX</strong> giúp giảm đau xương khớp cấp tính và mạn tính, hỗ trợ điều trị viêm khớp, viêm đa khớp dạng thấp, giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ điều trị và phòng ngừa loãng xương. Vì vậy, dùng <strong>JEX MAX</strong> là sự lựa chọn tối ưu cho người muốn dự phòng hoặc hỗ trợ điều trị các bệnh xương khớp.</p>
-                                    <p>
-                                        Liều dùng của <strong>JEX MAX </strong>là 2 viên (sáng, chiều) / 1 ngày, uống sau bữa ăn.</p>
+                                <b>{LANG.faq.admin_replace}</b>
+                                <div class="answer"><p>{item.admin_reply}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head2">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi2" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">2.</span>
-                                Dùng JEX MAX bao lâu sẽ có tác dụng ?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi2" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head2">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Dùng JEX MAX bao lâu sẽ có tác dụng ?" href="http://jexmax.com.vn/hoi-dap/dung-jex-max-bao-lau-se-co-tac-dung--a5819.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Hiệu quả của <strong>JEX MAX </strong>sẽ cảm nhận được sau vài ngày đến 1 tuần sử dụng. Tùy thuộc vào loại bệnh lý và tình trạng bệnh xương khớp nặng hay nhẹ mà hiệu quả điều trị sẽ đến nhanh hay chậm hơn.<br>
-                                        Nên dùng <strong>JEX MAX</strong> mỗi ngày để có kết quả tốt nhất.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head3">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi3" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">3.</span>
-                                Tôi bị đau nhức khớp và đang sử dụng JEX MAX. Hiện tại tình trạng đau nhức của tôi đã đỡ hẳn, tôi có nên ngưng uống JEX MAX không? Bệnh tôi có bị tái đi, tái lại không?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi3" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head3">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Có nên ngưng uống JEX MAX khi đã đỡ đau nhức?" href="http://jexmax.com.vn/hoi-dap/co-nen-ngung-uong-jex-max-khi-da-do-dau-nhuc-a5818.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Sau tuổi 30, quá trình lão hóa tự nhiên diễn ra làm tổn thương sụn khớp và xương dưới sụn, dẫn đến tình trạng thoái hóa khớp. Do vậy, khi bạn ngưng sử dụng<strong> JEX MAX</strong>, cơ thể bản vẫn âm thầm xảy ra quá trình lão hóa và gây ra thoái hóa khớp ngày càng nặng hơn.<br>
-                                        <strong>JEX MAX</strong> chứa <strong>PEPTAN </strong>và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Đặc biệt, <strong>JEX MAX</strong> giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp.<br>
-                                        <strong>JEX MAX</strong> an toàn và phù hợp với sự chuyển hóa tự nhiên của cơ thể nên được khuyến khích dùng thường xuyên để không phải đối diện với các bệnh xương khớp.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head4">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi4" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">4.</span>
-                                Dùng JEX MAX lâu dài có bị tác dụng phụ không ?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi4" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head4">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Dùng JEX MAX lâu dài có bị tác dụng phụ không ?" href="http://jexmax.com.vn/hoi-dap/dung-jex-max-lau-dai-co-bi-tac-dung-phu-khong--a5817.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        <strong>JEX MAX</strong> chứa <strong>PEPTAN </strong>và các tinh chất quý từ thiên nhiên nên bạn có thể yên tâm về tính an toàn khi sử dụng lâu dài. Các nghiên cứu lâm sàng không ghi nhận tác dụng phụ đáng kể khi sử dụng <strong>JEX MAX</strong>.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head5">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi5" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">5.</span>
-                                Tôi bị thoái hóa khớp, đồng thời đau dạ dày nhiều năm nay. Tôi muốn dùng JEX MAX để phòng ngừa bệnh thoái hóa khớp. Tôi uống JEX MAX được không? JEX MAX có gây ảnh hưởng đến dạ dày của tôi không?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi5" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head5">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Uống JEX MAX có ảnh hưởng đến dạ dày không?" href="http://jexmax.com.vn/hoi-dap/uong-jex-max-co-anh-huong-den-da-day-khong-a5816.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        <strong>JEX MAX</strong> chứa <strong>Peptan </strong>và các tinh chất quý từ thiên nhiên, đồng thời có bổ sung tinh chất <strong>Turmeric</strong>&nbsp;(chứa Curcumin) có trong nghệ với chiết xuất cao<strong> 8:1</strong>, giúp bảo vệ niêm mạc dạ dày. Do vậy, <strong>JEX MAX</strong> không gây ảnh hưởng với người đau dạ dày. Bạn có thể yên tâm dùng <strong>JEX MAX</strong> lâu dài để phòng ngừa bệnh thoái hóa khớp.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head6">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi6" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">6.</span>
-                                Bố tôi 58 tuổi, đi khám bệnh thì kết quả là thoái hóa khớp, phải uống thuốc theo phác đồ điều trị của bác sĩ. Vậy bố tôi uống thêm JEX MAX được không?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi6" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head6">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Dùng JEX MAX hỗ trợ điều trị thoái hóa khớp?" href="http://jexmax.com.vn/hoi-dap/dung-jex-max-ho-tro-dieu-tri-thoai-hoa-khop-a5815.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Trường hợp của bố bạn, bên cạnh việc tuân thủ phác đồ điều trị của bác sĩ thì vẫn có thể dùng thêm <strong>JEX MAX</strong>.<br>
-                                        Vì <strong>JEX MAX</strong> chứa <strong>PEPTAN </strong>và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Do vậy, khi sử dụng thêm <strong>JEX MAX</strong> sẽ giúp hỗ trợ quá trình điều trị được tốt hơn.<br>
-                                        Hơn nữa, <strong>JEX MAX</strong> giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ phòng ngừa và điều trị loãng xương.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head7">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi7" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">7.</span>
-                                Bà nội tôi đã ngoài 70 tuổi nhưng sức khỏe vẫn tốt, ngoại trừ bà tôi hay đau nhức xương khớp, đặc biệt là khớp gối. Dân gian thường gọi là bệnh người già. Mỗi lần bà tôi lên xuống cầu thang thường đau gối và có tiếng kêu lục cục. Bà tôi có uống JEX MAX được không?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi7" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head7">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Khớp gối đau và kêu lục cục có nên uống JEX MAX?" href="http://jexmax.com.vn/hoi-dap/khop-goi-dau-va-keu-luc-cuc-co-nen-uong-jex-max-a5814.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Bệnh lý xương khớp là bệnh lý rất phổ biến ở người già. Nguyên nhân chính là do quá trình thoái hóa sụn khớp và tổn thương xương dưới sụn.</p>
-                                    <p>
-                                        <strong>JEX MAX</strong> chứa <strong>PEPTAN </strong>và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Bên cạnh đó, <strong>JEX MAX</strong> còn giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ điều trị và phòng ngừa loãng xương. Vì vậy, <strong>JEX MAX</strong> hỗ trợ rất tốt cho tình trạng của bà nội bạn.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head8">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi8" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">8.</span>
-                                Tôi năm nay 32 tuổi, cơ thể khỏe mạnh, không có dấu hiệu gì về xương khớp. Tuy nhiên, tôi muốn chăm sóc xương khớp mình tốt hơn. Như vậy, tuổi nào thì nên bắt đầu phòng ngừa sự thoái hóa xương khớp?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi8" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head8">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Nên phòng ngừa thoái hóa xương khớp lúc bao nhiêu tuổi?" href="http://jexmax.com.vn/hoi-dap/nen-phong-ngua-thoai-hoa-xuong-khop-luc-bao-nhieu-tuoi-a5813.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Sau tuổi 30, cả sụn và xương dưới sụn đều lão hóa, tổn thương. Lâu ngày, sự tổn thương ngày gây nên các bệnh xương khớp, mà đặc biệt là <a href="http://jexmax.com.vn/tin-tuc/phuong-phap-nao-hieu-qua-cho-benh-nhan-thoai-hoa-khop-c1a134.html">thoái hóa khớp</a>.</p>
-                                    <p>
-                                        Tuy không nguy hiểm hay ảnh hưởng trực tiếp đến tính mạng, nhưng lại diễn tiến âm thầm từ nhẹ đến nặng dần, có thể gây ra tàn phế.</p>
-                                    <p>
-                                        Bạn có thể sử dụng <strong>JEX MAX </strong>từ sau tuổi 30, ngay cả khi chưa có triệu chứng. <strong>JEX MAX </strong>chứa <strong>PEPTAN </strong>và các tinh chất quý từ thiên nhiên giúp sớm tái tạo sụn khớp và xương dưới sụn, được chứng minh giúp phòng ngừa các <a href="http://jexmax.com.vn">bệnh xương khớp</a> một cách hiệu quả, an toàn nên có thể sử dụng dài lâu.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- <span class="date_ques">14/07/2015</span> -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="head9">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#cauhoi9" aria-expanded="true" aria-controls="collapse1">
-                                <span class="stt pull-left">9.</span>
-                                Tôi làm việc văn phòng và tiếp xúc với máy vi tính hơn 8 tiếng 1 ngày. Tôi thường đau gáy, vai, cổ, đôi khi buốt xuống cánh tay. Vậy, tôi dùng JEX MAX phòng ngừa thoái hóa cột sống được không?<span class="view_all">Chi tiết</span>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="cauhoi9" class="panel-collapse collapse " role="tabpanel" aria-labelledby="head9">
-                        <div class="panel-body">
-                            <div class="answer_ques">
-
-                                <a class="avatar" title="Uống JEX MAX phòng ngừa thoái hóa cột sống?" href="http://jexmax.com.vn/hoi-dap/uong-jex-max-phong-ngua-thoai-hoa-cot-song-a5812.html"><img src="http://jexmax.com.vn/uploads/nopic_question.png" style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;"></a>
-                                <b>Trung Tâm Tư Vấn Y Khoa Công Ty CPDP ECO :</b>
-                                <div class="answer"><p>
-                                        Trước đây, bệnh lý về thoái hóa cột sống thường gặp ở bệnh nhân lứa tuổi trung niên trở lên, nhưng hiện nay bệnh này bắt đầu phổ biến ở giới trẻ, đặc biệt những người làm nhân viên văn phòng như bạn. Nguyên nhân do thói quen làm việc thường ngồi một chỗ, không hoặc ít thay đổi tư thế.</p>
-                                    <p>
-                                        Bạn nên thăm khám bác sĩ chuyên khoa cơ-xương-khớp để biết rõ nguyên nhân bệnh đau gáy, vai, cổ và ê buốt cánh tay của mình. Bên cạnh đó, bạn nên chủ động phòng các bệnh lý về xương khớp ngay khi còn trẻ như:</p>
-                                    <p>
-                                        - Năng vận động, thường xuyên thay đổi tư thế làm việc tạo điều kiện cho các khớp cử động nhẹ nhàng.</p>
-                                    <p>
-                                        - Sử dụng các sản phẩm có nguồn gốc từ thiên nhiên giúp tăng cường dưỡng chất tốt cho xương khớp.</p>
-                                    <p>
-                                        <strong>JEX MAX</strong> là một lựa chọn phù hợp cho việc chủ động phòng ngừa các bệnh lý xương khớp. Vì <strong>JEX MAX</strong> giúp tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp, giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- END: item -->
 
             </div>
         </div>
@@ -334,6 +103,14 @@
             <div class="paginate">
                 <div class="pagination"><ul class="pagination pagination-md"><li class="first"><a href="javascript:void(0);">&lt;&lt;</a></li><li class="prev"><a href="javascript:void(0);">&nbsp;</a></li><li class="active"><a href="javascript:void(0);">1</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/hoi-dap/9.html">2</a></li><li class="next"><a href="http://jexmax.com.vn/hoi-dap/9.html">&nbsp;</a></li><li class="last"><a href="http://jexmax.com.vn/hoi-dap/9.html">&gt;&gt;</a></li></ul></div>                </div>
         </div>
+
+        <!-- <div style="clear:both; text-align:center; ">
+            <div class="paginate">
+                <div class="pagination">
+                    {data.nav}
+               </div>
+            </div>
+        </div> !-->
 
     </div>
 </div>

@@ -56,8 +56,8 @@ class sMain
 		$data['content'] = $this->do_list ();
 		$data['content_focus'] = $this->do_list ('focus');
 		$data['banner_faq_home'] = $ttH->site-> get_banner('banner-home-faq');
-		$data['banner_get_news_focus'] = $this->banner_get_news_focus();
-		$data['get_news'] = $this->get_news();
+		$data['banner_get_news_focus'] = $ttH->site->banner_get_news_focus();
+		$data['get_news'] = $ttH->site->get_news();
 		// Why use .= in method error
 
 		$ttH->temp_act->assign('data', $data);

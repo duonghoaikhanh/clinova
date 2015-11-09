@@ -7,6 +7,7 @@
                 <li class="mod_back"><a href="{CONF.rooturl}">{LANG.page.comeback}</a></li>
             </ol>
             {data.content}
+
             <br clear="all">
             <div class="hide_640 container">
                 <div id="video">
@@ -21,6 +22,7 @@
                 </div>
             </div>
         </div>
+        {data.block_column}
     </div>
 </div>
 

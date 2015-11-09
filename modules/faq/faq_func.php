@@ -104,24 +104,14 @@ function html_list_item ($arr_in = array())
 			$row['date_update'] = date('d/m/Y',$row['date_update']);
 
 			$row['class'] = ($i%$num_row == 0 || $i == $num) ? ' last' : '';
+			$row['in'] = ($i == 1) ? 'in' : '';
 
-			if ($i ==1){
-                $row['short'] = $ttH->func->short ($row['short'], 400);
-                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 457, 229, 1, 1);
-                $ttH->temp_act->assign('item', $row);
-                $ttH->temp_act->parse($temp.".item_1");
-            }
-            else if($i>1 && $i <5){
-                $row['short'] = $ttH->func->short ($row['short'], 130);
-                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 115, 108, 1, 1);
-                $ttH->temp_act->assign('item', $row);
-                $ttH->temp_act->parse($temp.".item_2");
-            }else{
-                $row['short'] = $ttH->func->short ($row['short'], 400);
-                $row["picture"] = $ttH->func->get_src_mod($row["picture"], 115, 108, 1, 1);
-                $ttH->temp_act->assign('item', $row);
-                $ttH->temp_act->parse($temp.".item");
-            }
+
+			$row['short'] = $ttH->func->short ($row['short'], 400);
+			$row["picture"] = $ttH->func->get_src_mod($row["picture"], 457, 229, 1, 1);
+			$ttH->temp_act->assign('item', $row);
+			$ttH->temp_act->parse($temp.".item");
+
 
 		}
 	}

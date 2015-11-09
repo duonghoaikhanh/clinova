@@ -141,7 +141,7 @@ class sMain
 		}else{
 			$ttH->html->redirect_rel($ttH->site->get_link ('home'));
 		}
-
+		$data['block_column'] = $ttH->site->block_left();
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");

@@ -52,7 +52,8 @@ class sMain
 
 		$data = array();
 		$data['content'] = $this->do_Contact();
-		$data['box_left'] = box_left();
+		//$data['box_left'] = box_left();
+		$data['block_column'] = $ttH->site->block_left();
 		$data['box_column'] = box_column();
 	
 		$ttH->temp_act->assign('data', $data);

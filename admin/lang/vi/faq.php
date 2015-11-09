@@ -10,7 +10,7 @@ Copyright © 2015  by Phan Van Lien
 if ( !defined('IN_ttH') )	{ die('Access denied');	}
 $lang = array(
     'setting' => 'Cấu hình',
-    'setting_news' => 'Cấu hình tin',
+    'setting_faq' => 'Cấu hình tin',
     'setting_brand' => 'Cấu hình thương hiệu',
     'setting_ordering' => 'Cấu hình đặt hàng',
     'ordering_cart_link' => 'Đường dẫn giỏ hàng',
@@ -18,21 +18,20 @@ $lang = array(
     'ordering_shipping_link' => 'Đường dẫn phương thức vận chuyển',
     'ordering_method_link' => 'Đường dẫn phương thức thanh toán',
 
-    'news_add' => 'Thêm tin mới',
-    'news_edit' => 'Cập nhật tin',
-    'news_del' => 'Xóa tin',
-    'news_manage_trash' => 'Quản lý thùng rác tin',
-    'news_manage' => 'Quản lý tin',
+    'faq_add' => 'Thêm câu hỏi mới',
+    'faq_edit' => 'Cập nhật câu hỏi',
+    'faq_del' => 'Xóa câu hỏi',
+    'faq_manage_trash' => 'Quản lý thùng rác câu hỏi',
+    'faq_manage' => 'Quản lý câu hỏi',
 
-    'news_group' => 'Nhóm tin',
-    'news_group_add' => 'Thêm nhóm tin mới',
-    'news_group_edit' => 'Cập nhật nhóm tin',
-    'news_group_del' => 'Xóa nhóm tin',
-    'news_group_manage_trash' => 'Quản lý thùng rác nhóm tin',
-    'news_group_manage' => 'Quản lý nhóm tin',
+    'faq_group' => 'Nhóm câu hỏi',
+    'faq_group_add' => 'Thêm nhóm câu hỏi mới',
+    'faq_group_edit' => 'Cập nhật nhóm câu hỏi',
+    'faq_group_del' => 'Xóa nhóm câu hỏi',
+    'faq_group_manage_trash' => 'Quản lý thùng rác nhóm câu hỏi',
+    'faq_group_manage' => 'Quản lý nhóm câu hỏi',
 
     'focus_group' => 'Nổi bật nhóm',
-    'faq_manage' => 'Quản lí tư vấn hỏi đáp'
 
 );
 ?>

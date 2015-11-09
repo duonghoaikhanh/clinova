@@ -69,6 +69,59 @@
 </div>
 <!-- END: box_menu -->
 
+<!-- BEGIN: group_news -->
+<div class="box_tintuc">
+  <h3><span><a href="tin-tuc-c1.html" tppabs="http://jexmax.com.vn/tin-tuc-c1.html">Tin tức</a></span></h3>
+  <div class="content">
+    <!-- BEGIN: row -->
+    <div class="box_news">
+      <div class="col-xs-3 col-md-4 pull-left noleft noright">
+        <!-- BEGIN: item_old -->
+        <a  class="img" href="{row.link}" title="{row.title}">
+          <div class="img_lbl new"><span></span>
+            <img  src="{row.picture}"  alt="{row.title}" />
+          </div>
+        </a>
+        <!-- END: item_old -->
+      </div>
+
+      <div class="col-xs-9 col-md-8 pull-right noright ">
+        <!-- BEGIN: item -->
+        <a class="item" title="{row.title}" href="{row.link}" >{row.title}</a>
+        <!-- END: item -->
+      </div>
+
+    </div>
+    {row.line}
+    <!-- END: row -->
+  </div>
+
+  <a class="view_all" href="tin-tuc-c1.html">Xem tiếp</a>
+  <div class="box_b"><span></span></div>
+</div>
+<!-- END: group_news -->
+
+<!-- BEGIN: group_news_focus -->
+<div class="box_chamsoc">
+  <h3><span><a href="hoat-dong-nhan-hang.html" >Hoạt động của JEX MAX</a></span></h3>
+  <div class="content">
+    <div id="owl-hdnh" class="owl-carousel">
+
+      <!-- BEGIN: row -->
+      <div class="item skyBlue">
+        <a  href="{row.link}" ><img  style="max-width:100%;" class="img1" src="{row.picture}" /></a>
+        <a class="box_title"  href="{row.link}">{row.title}</a>
+        {row.short}
+      </div>
+      <!-- END: row -->
+
+    </div>
+  </div>
+  <a class="view_all" href="hoat-dong-nhan-hang.html">Chi tiết</a>
+  <div class="box_b"><span></span></div>
+</div>
+<!-- END: group_news_focus -->
+
 <!-- BEGIN: box_search -->
 <div class="box_search">
   <form action="{data.link_search}" method="post">
