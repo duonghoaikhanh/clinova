@@ -1,4 +1,4 @@
-<!-- BEGIN: box_main -->
+﻿<!-- BEGIN: box_main -->
 <div class="box_mid css_bo">
 	<div class="box_mid-title">
   	<div class="mid_title-line"></div>
@@ -103,7 +103,7 @@
 
 <!-- BEGIN: group_news_focus -->
 <div class="box_chamsoc">
-  <h3><span><a href="hoat-dong-nhan-hang.html" >Hoạt động của JEX MAX</a></span></h3>
+  <h3><span><a href="hoat-dong-nhan-hang.html" >{LANG.global.action_clinova}</a></span></h3>
   <div class="content">
     <div id="owl-hdnh" class="owl-carousel">
 

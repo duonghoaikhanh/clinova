@@ -64,6 +64,7 @@ function html_list_item ($arr_in = array())
 					from faq
 					where is_show=1 
 					and lang='".$ttH->conf["lang_cur"]."' 
+					and status =1
 					".$where." ");
 	$num_total = $ttH->db->num_rows($res_num);
 	$n = (isset($ttH->setting['faq']["num_list"])) ? $ttH->setting['faq']["num_list"] : 30;
@@ -80,6 +81,7 @@ function html_list_item ($arr_in = array())
 					from faq
 					where is_show=1 
 					and lang='".$ttH->conf["lang_cur"]."' 
+					and status =1
 					".$where." 
 					limit $start,$n";
 	//echo $sql;

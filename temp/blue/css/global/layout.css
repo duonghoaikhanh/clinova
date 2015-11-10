@@ -100,7 +100,8 @@ a {
 }
 
 div#header {
-    background: #0A5193;
+    //background: #0A5193;
+	background: #056BB2;
     min-height: 81px;
 }
 
@@ -1471,7 +1472,7 @@ ol.breadcrumb > li + li:before {
 }
 
 .logo_header img {
-    max-width: 380px;
+    //max-width: 380px;
 }
 
 #menu_desk .show_640, #menu_desk .w50 {

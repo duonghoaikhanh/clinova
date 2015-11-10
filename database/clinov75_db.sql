@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.10.7
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 03, 2015 at 06:58 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost:3306
+-- Generation Time: Nov 10, 2015 at 09:44 PM
+-- Server version: 5.5.45-cll-lve
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `clinova`
+-- Database: `clinov75_db`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `about` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -47,8 +47,9 @@ CREATE TABLE IF NOT EXISTS `about` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `about`
@@ -71,15 +72,16 @@ INSERT INTO `about` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `title
 --
 
 CREATE TABLE IF NOT EXISTS `about_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `about_meta_title` varchar(250) NOT NULL,
   `about_meta_key` text NOT NULL,
   `about_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `background` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `about_setting`
@@ -96,7 +98,7 @@ INSERT INTO `about_setting` (`id`, `about_meta_title`, `about_meta_key`, `about_
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -104,15 +106,16 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `full_name` varchar(150) NOT NULL,
   `email` varchar(250) NOT NULL,
   `date_login` int(11) NOT NULL,
-  `session` varchar(50) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `session` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `group_id`, `username`, `password`, `picture`, `full_name`, `email`, `date_login`, `session`) VALUES
-(1, -1, 'admin', '91739eb0a14999c738a8cea3691902d7', '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1446558386, 'cd61a580392a70389e27b0bc2b439f49');
+(1, -1, 'admin', '91739eb0a14999c738a8cea3691902d7', '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1447155072, 'cd61a580392a70389e27b0bc2b439f49');
 
 -- --------------------------------------------------------
 
@@ -121,14 +124,15 @@ INSERT INTO `admin` (`id`, `group_id`, `username`, `password`, `picture`, `full_
 --
 
 CREATE TABLE IF NOT EXISTS `admin_group` (
-`group_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL AUTO_INCREMENT,
   `arr_title` text NOT NULL,
   `arr_powers` text NOT NULL,
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`group_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `admin_group`
@@ -144,7 +148,7 @@ INSERT INTO `admin_group` (`group_id`, `arr_title`, `arr_powers`, `show_order`, 
 --
 
 CREATE TABLE IF NOT EXISTS `admin_menu` (
-`menu_id` int(10) unsigned NOT NULL,
+  `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
   `is_type` varchar(50) NOT NULL DEFAULT 'module',
   `name_action` varchar(50) NOT NULL,
@@ -154,8 +158,10 @@ CREATE TABLE IF NOT EXISTS `admin_menu` (
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `show_order` float NOT NULL DEFAULT '0',
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`menu_id`),
+  KEY `menu_id` (`menu_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=102 ;
 
 --
 -- Dumping data for table `admin_menu`
@@ -171,7 +177,7 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (7, 6, 'action', 'setting', 'fa-wrench', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:13:"Configuration";} ', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
 (8, 6, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:22:"Quản lý nhóm trang";s:2:"en";s:17:"Manage group page";} ', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
 (9, 6, 'action', 'page', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý trang";s:2:"en";s:11:"Manage page";} ', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
-(10, 0, 'module', 'library', 'fa-folder', 'a:2:{s:2:"vi";s:22:"Quản lý thư viện";s:2:"en";s:14:"Manage library";} ', 'add,edit,manage,trash,restore,del', 1, -10, 0, 0),
+(10, 0, 'module', 'library', 'fa-folder', 'a:2:{s:2:"vi";s:22:"Quản lý thư viện";s:2:"en";s:14:"Manage library";} ', 'add,edit,manage,trash,restore,del', 0, -10, 0, 0),
 (11, 10, 'action', 'library', 'fa-folder', 'a:2:{s:2:"vi";s:22:"Quản lý thư viện";s:2:"en";s:14:"Manage library";} ', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
 (12, 0, 'module', 'banner', 'fa-folder', 'a:2:{s:2:"vi";s:23:"Quản lý banner, logo";s:2:"en";s:19:"Manage banner, logo";}', 'add,edit,manage,trash,restore,del', 1, -9, 0, 0),
 (13, 12, 'action', 'group', 'fa-folder', 'a:2:{s:2:"vi";s:20:"Quản lý vị trí";s:2:"en";s:10:"Manage pos";}', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
@@ -186,8 +192,8 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (22, 21, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:13:"Configuration";}', 'add,edit,manage,trash,restore,del', 1, 10, 0, 0),
 (23, 21, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:29:"Quản lý nhóm sản phẩm";s:2:"en";s:17:"Manage group page";}', 'add,edit,manage,trash,restore,del', 1, 9, 0, 1392811655),
 (24, 21, 'action', 'product', 'fa-list', 'a:2:{s:2:"vi";s:23:"Quản lý sản phẩm";s:2:"en";s:14:"Manage product";}', 'add,edit,manage,trash,restore,del', 1, 0, 0, 0),
-(25, 21, 'action', 'brand', 'fa-list', 'a:2:{s:2:"vi";s:26:"Quản lý thương hiệu";s:2:"en";s:26:"Quản lý thương hiệu";}', 'add,edit,manage,trash,restore,del', 1, 8, 1392356968, 1392356968),
-(26, 21, 'action', 'option', 'fa-list', 'a:2:{s:2:"vi";s:24:"Tính năng sản phẩm";s:2:"en";s:24:"Tính năng sản phẩm";}', 'add,edit,manage,trash,restore,del', 1, 7, 1392372571, 1392372571),
+(25, 21, 'action', 'brand', 'fa-list', 'a:2:{s:2:"vi";s:26:"Quản lý thương hiệu";s:2:"en";s:26:"Quản lý thương hiệu";}', 'add,edit,manage,trash,restore,del', 0, 8, 1392356968, 1392356968),
+(26, 21, 'action', 'option', 'fa-list', 'a:2:{s:2:"vi";s:24:"Tính năng sản phẩm";s:2:"en";s:24:"Tính năng sản phẩm";}', 'add,edit,manage,trash,restore,del', 0, 7, 1392372571, 1392372571),
 (27, 1, 'action', 'lang', 'fa-list', 'a:2:{s:2:"vi";s:22:"Quản lý ngôn ngữ";s:2:"en";s:22:"Quản lý ngôn ngữ";}', 'add,edit,manage,trash,restore,del', 1, 0, 1392864959, 1392864959),
 (28, 0, 'module', 'home', 'fa-folder', 'a:2:{s:2:"vi";s:11:"Manage home";s:2:"en";s:11:"Manage home";}', 'add,edit,manage,trash,restore,del', 1, 97, 1392886984, 1392886984),
 (29, 28, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:11:"Cấu hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1392887016, 1392887016),
@@ -202,17 +208,17 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (38, 0, 'module', 'admin', 'fa-folder', 'a:1:{s:2:"vi";s:25:"Tài khoản quản trị";}', 'add,edit,manage,trash,restore,del', 1, 99, 1394983368, 1394983368),
 (39, 38, 'action', 'group', 'fa-list', 'a:1:{s:2:"vi";s:16:"Quản lý nhóm";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394983568, 1394983568),
 (40, 38, 'action', 'admin', 'fa-list', 'a:1:{s:2:"vi";s:23:"Quản lý tài khoản";}', 'add,edit,manage,trash,restore,del', 1, 0, 1394983589, 1394983589),
-(41, 21, 'action', 'color', 'fa-list', 'a:1:{s:2:"vi";s:15:"Quản lý màu";}', 'add,edit,manage,trash,restore,del', 1, 6, 1395217382, 1395217382),
-(42, 21, 'action', 'status', 'fa-list', 'a:1:{s:2:"vi";s:26:"Trạng thái sản phẩm";}', 'add,edit,manage,trash,restore,del', 1, 5, 1395717158, 1395717158),
+(41, 21, 'action', 'color', 'fa-list', 'a:1:{s:2:"vi";s:15:"Quản lý màu";}', 'add,edit,manage,trash,restore,del', 0, 6, 1395217382, 1395217382),
+(42, 21, 'action', 'status', 'fa-list', 'a:1:{s:2:"vi";s:26:"Trạng thái sản phẩm";}', 'add,edit,manage,trash,restore,del', 0, 5, 1395717158, 1395717158),
 (43, 1, 'action', 'support', 'fa-list', 'a:1:{s:2:"vi";s:25:"Hỗ trợ trực tuyến";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395738093, 1395738093),
-(44, 21, 'action', 'ordering', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản ký đơn hàng";}', 'edit,manage,trash,restore,del', 1, -2, 1395817787, 1395817787),
+(44, 21, 'action', 'ordering', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản ký đơn hàng";}', 'edit,manage,trash,restore,del', 0, -2, 1395817787, 1395817787),
 (45, 0, 'module', 'user', 'fa-folder', 'a:1:{s:2:"vi";s:23:"Quản lý thành viên";}', 'add,edit,manage,trash,restore,del', 0, 0, 1395888659, 1395888659),
 (46, 45, 'action', 'setting', 'fa-list', 'a:1:{s:2:"vi";s:11:"Cấu hình";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395888675, 1395888675),
 (47, 45, 'action', 'user', 'fa-list', 'a:1:{s:2:"vi";s:23:"Danh sách thành viên";}', 'add,edit,manage,trash,restore,del', 1, 0, 1395888703, 1395888703),
-(48, 21, 'action', 'order_shipping', 'fa-list', 'a:1:{s:2:"vi";s:30:"Phương thức vận chuyển";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1396281376, 1396281376),
-(49, 21, 'action', 'order_method', 'fa-list', 'a:1:{s:2:"vi";s:27:"Phương thức thanh toán";}', 'add,edit,duplicate,manage,trash,restore,del', 1, -1, 1396281394, 1396281394),
-(50, 21, 'action', 'size', 'fa-list', 'a:1:{s:2:"vi";s:15:"Quản lý size";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 4, 1396317848, 1398140155),
-(51, 21, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý phiếu kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, -3, 1398240358, 1398240358),
+(48, 21, 'action', 'order_shipping', 'fa-list', 'a:1:{s:2:"vi";s:30:"Phương thức vận chuyển";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 0, 1396281376, 1396281376),
+(49, 21, 'action', 'order_method', 'fa-list', 'a:1:{s:2:"vi";s:27:"Phương thức thanh toán";}', 'add,edit,duplicate,manage,trash,restore,del', 0, -1, 1396281394, 1396281394),
+(50, 21, 'action', 'size', 'fa-list', 'a:1:{s:2:"vi";s:15:"Quản lý size";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 4, 1396317848, 1398140155),
+(51, 21, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý phiếu kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, -3, 1398240358, 1398240358),
 (52, 0, 'module', 'ordering', 'fa-folder', 'a:1:{s:2:"vi";s:19:"Đơn hàng và kho";}', 'add,edit,duplicate,manage,trash,restore,del', 0, 79, 1398303939, 1398303939),
 (53, 52, 'action', 'receipt', 'fa-list', 'a:1:{s:2:"vi";s:22:"Quản lý phiếu kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398303976, 1398304053),
 (54, 56, 'action', 'repository', 'fa-list', 'a:1:{s:2:"vi";s:3:"Kho";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1398495627, 1398678657),
@@ -259,7 +265,10 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (95, 93, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý nhóm";s:2:"en";s:16:"Quản lý nhóm";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1422843021, 1422843021),
 (96, 93, 'action', 'download', 'fa-list', 'a:2:{s:2:"vi";s:19:"Quản lý download";s:2:"en";s:19:"Quản lý download";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1422843298, 1422843298),
 (97, 15, 'action', 'widget', 'fa-list', 'a:2:{s:2:"vi";s:6:"Widget";s:2:"en";s:6:"Widget";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882852, 1423882852),
-(98, 15, 'action', 'sidebar', 'fa-list', 'a:2:{s:2:"vi";s:18:"Quản lý sidebar";s:2:"en";s:18:"Quản lý sidebar";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882872, 1423882872);
+(98, 15, 'action', 'sidebar', 'fa-list', 'a:2:{s:2:"vi";s:18:"Quản lý sidebar";s:2:"en";s:18:"Quản lý sidebar";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882872, 1423882872),
+(99, 0, 'module', 'faq', 'fa-folder', 'a:2:{s:2:"vi";s:21:"Hỏi đáp tư vấn";s:2:"en";s:21:"Hỏi đáp tư vấn";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1446871726, 1446871726),
+(100, 99, 'action', 'faq', 'fa-list', 'a:2:{s:2:"vi";s:32:"Quản lí hỏi đáp tư vấn";s:2:"en";s:32:"Quản lí hỏi đáp tư vấn";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1446871827, 1446871827),
+(101, 99, 'action', 'setting', 'fa-list', 'a:2:{s:2:"vi";s:11:"Cấu hình";s:2:"en";s:11:"Cấu hình";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1447053270, 1447053270);
 
 -- --------------------------------------------------------
 
@@ -268,7 +277,7 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 --
 
 CREATE TABLE IF NOT EXISTS `banner` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `banner_id` int(11) NOT NULL,
   `group_id` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
@@ -285,16 +294,17 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `is_show` tinyint(1) NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(20) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+  `lang` varchar(20) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type`, `link`, `target`, `content`, `date_begin`, `date_end`, `show_mod`, `show_act`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'logo', 'image', 'Công Ty TNHH Giải Pháp IMS', 'site', '', '_self', 'banner/2015_11/logo.png', 0, 0, '', '', 0, 1, 1407469101, 1446384375, 'vi'),
-(3, 3, 'footer', 'text', '', 'site', '', '_self', '<p>CHI NH&Aacute;NH C&Ocirc;NG TY CỔ PHẦN DƯỢC PHẨM ECO (TP.H&agrave; Nội)<br /> Giấy chứng nhận ĐKKD số 0102637020 do Sở Kế Hoạch v&agrave; Đầu Tư H&agrave; Nội cấp ng&agrave;y 01/02/2008.<br /> Địa chỉ: 148 Ho&agrave;ng Hoa Th&aacute;m, Phường 12, Quận T&acirc;n B&igrave;nh, TP.HCM<br /> Điện thoại: <a style="color: #fff;" href="tel:+84862936629">(84 8) 62936629</a> - <a style="color: #fff;" href="tel:+84862936630">62936630</a> - Email: tuvanykhoa@jexmax.com.vn<br /> Bản quyền &copy; 2014 thuộc về ECO PHARMA.</p>', 0, 0, '', '', 0, 1, 1407476242, 1446559208, 'vi'),
+(1, 1, 'logo', 'image', 'Công Ty TNHH Giải Pháp IMS', 'site', '', '_self', 'banner/2015_11/20151112-Header-CLINOVA-001.png', 0, 0, '', '', 0, 1, 1407469101, 1447155281, 'vi'),
+(3, 3, 'footer', 'text', '', 'site', '', '_self', '<p>C&Ocirc;NG TY TNHH SẢN XUẤT THƯƠNG MẠI VINAPHARMA</p>\r\n<p>Giấy chứng nhận ĐKKD số 0312546394 do Sở Kế Hoạch v&agrave; Đầu Tư Tp. HCM cấp ng&agrave;y 14/11/2013</p>\r\n<p>Địa chỉ: T&ograve;a Nh&agrave; AN PH&Uacute; Plaza, 117-119 L&yacute; Ch&iacute;nh Thắng, Phường 7, Quận 3, Tp. HCM</p>\r\n<p>Điện thoại: 08.7302.2888&nbsp;&nbsp;&nbsp; Fax: 08.6291.4745</p>\r\n<p>Email:&nbsp;<a style="color: #fec920;" href="mailto:tuvan@clinova.com.vn" target="_blank">tuvan@clinova.com.vn</a></p>\r\n<p>Bản quyền C 2015 thuộc về VINAPHARMA</p>', 0, 0, '', '', 0, 1, 1407476242, 1447155148, 'vi'),
 (6, 6, 'share', 'image', 'Facebook', 'web', 'http://www.facebook.com', '_blank', 'banner/2015_11/facebook.png', 0, 0, '', '', 9, 1, 1407922065, 1446558556, 'vi'),
 (7, 7, 'ordering-complete', 'text', 'Thông báo đặt hàng thành công', 'site', '', '_self', '<p>Cảm ơn qu&yacute; kh&aacute;ch đ&atilde; đặt h&agrave;ng tại c&ocirc;ng ty ch&uacute;ng t&ocirc;i!</p>\r\n<p>Đơn h&agrave;ng sẽ được xử l&yacute; trong 24h</p>', 0, 0, '', '', 0, 1, 1408091839, 1408091839, 'vi'),
 (8, 8, 'cart-empty', 'text', 'Thông báo giỏ hàng rỗng', 'site', '', '_self', '<p>Hiện tại giỏ h&agrave;ng của bạn đang rỗng!</p>\r\n<p>Vui l&ograve;ng chọn sản phẩm mua để thanh to&aacute;n!</p>', 0, 0, '', '', 0, 1, 1408093957, 1408093957, 'vi'),
@@ -302,8 +312,8 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (10, 10, 'share', 'image', 'Youtube', 'web', 'http://www.youtube.com', '_blank', 'banner/2015_11/youtube.png', 0, 0, '', '', 0, 1, 1410860573, 1446558568, 'vi'),
 (14, 14, 'header', 'image', '', 'site', '', '_self', 'banner/2014_11/share_mess.gif', 0, 0, '', '', 0, 1, 1415352279, 1415352279, 'vi'),
 (15, 15, 'slogan', 'image', '', 'site', '', '_self', 'banner/2014_11/slogan.png', 0, 0, '', '', 0, 1, 1415353339, 1415353339, 'vi'),
-(16, 16, 'banner-main', 'image', 'bbgreen', 'site', '', '_self', 'banner/2015_11/banner_full5.jpg', 0, 0, '', '', 3, 1, 1415601898, 1446384008, 'vi'),
-(17, 17, 'banner-main', 'image', 'main banner', 'site', '', '_self', 'banner/2015_11/banner_full4.jpg', 0, 0, '', '', 2, 1, 1415601928, 1446383993, 'vi'),
+(16, 16, 'banner-main', 'image', 'bbgreen', 'site', '', '_self', 'banner/2015_11/banner_full5.jpg', 0, 0, '', '', 3, 0, 1415601898, 1446384008, 'vi'),
+(17, 17, 'banner-main', 'image', 'main banner', 'site', '', '_self', 'banner/2015_11/20151111-Banner-CLINOVA-GOLD-2.png', 0, 0, '', '', 1, 1, 1415601928, 1447139477, 'vi'),
 (18, 18, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Jellyfish.jpg', 0, 0, '', '', 0, 1, 1415688590, 1415688590, 'vi'),
 (19, 19, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Koala.jpg', 0, 0, '', '', 0, 1, 1415688598, 1415688598, 'vi'),
 (20, 20, 'gallery', 'image', '', 'site', '', '_self', 'banner/2014_11/Lighthouse.jpg', 0, 0, '', '', 0, 1, 1415688605, 1415688605, 'vi'),
@@ -327,13 +337,13 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (38, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'en'),
 (39, 39, 'banner-quangcao', 'image', 'Quảng cáo', 'web', 'https://www.facebook.com/', '_blank', 'banner/2015_10/Penguins.jpg', 0, 0, '', '', 0, 1, 1443856679, 1443856981, 'vi'),
 (40, 39, 'banner-quangcao', 'image', 'Quảng cáo', 'site', 'google.com.vn', '_self', 'banner/2015_10/Penguins.jpg', 0, 0, '', '', 0, 1, 1443856679, 1443856679, 'en'),
-(41, 41, 'banner-header-phone', 'image', '', 'site', '', '_self', 'banner/2015_11/hotline_b.png', 0, 0, '', '', 0, 1, 1446278327, 1446384386, 'vi'),
+(41, 41, 'banner-header-phone', 'image', '', 'site', '', '_self', 'banner/2015_11/HotlineA1.png', 0, 0, '', '', 0, 1, 1446278327, 1447151022, 'vi'),
 (42, 41, 'banner-header-phone', 'image', '', 'site', '', '_self', 'banner/2015_10/hotline_b.png', 0, 0, '', '', 0, 1, 1446278327, 1446278327, 'en'),
-(43, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_11/banner_full1.jpg', 0, 0, '', '', 1, 1, 1446279026, 1446383980, 'vi'),
-(44, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_10/banner_full3.jpg', 0, 0, '', '', 1, 1, 1446279026, 1446279026, 'en'),
+(43, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_11/20151111-Banner-CLINOVA-GOLD-1.png', 0, 0, '', '', 2, 1, 1446279026, 1447139459, 'vi'),
+(44, 43, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2015_10/banner_full3.jpg', 0, 0, '', '', 2, 1, 1446279026, 1446279026, 'en'),
 (45, 45, 'banner-home-faq', 'image', '', 'site', '', '_self', 'banner/2015_11/mod_tu_van.jpg', 0, 0, '', '', 0, 1, 1446468730, 1446468730, 'vi'),
 (46, 45, 'banner-home-faq', 'image', '', 'site', '', '_self', 'banner/2015_11/mod_tu_van.jpg', 0, 0, '', '', 0, 1, 1446468730, 1446468730, 'en'),
-(47, 47, 'logo-footer', 'image', 'Logo cuối trang', 'site', '', '_self', 'banner/2015_11/ecogreen.png', 0, 0, '', '', 0, 1, 1446483940, 1446483940, 'vi'),
+(47, 47, 'logo-footer', 'image', 'Logo cuối trang', 'site', '', '_self', 'banner/2015_11/20151112-Logo-VinaPharma.png', 0, 0, '', '', 0, 1, 1446483940, 1447154486, 'vi'),
 (48, 47, 'logo-footer', 'image', 'Logo cuối trang', 'site', '', '_self', 'banner/2015_11/ecogreen.png', 0, 0, '', '', 0, 1, 1446483940, 1446483940, 'en'),
 (49, 49, 'slide-website-footer', 'image', 'Sâm Alipas', 'site', '', '_self', 'banner/2015_11/alipas.jpg', 0, 0, '', '', 0, 1, 1446484879, 1446484879, 'vi'),
 (50, 49, 'slide-website-footer', 'image', 'Sâm Alipas', 'site', '', '_self', 'banner/2015_11/alipas.jpg', 0, 0, '', '', 0, 1, 1446484879, 1446484879, 'en'),
@@ -363,7 +373,8 @@ CREATE TABLE IF NOT EXISTS `banner_group` (
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -371,34 +382,34 @@ CREATE TABLE IF NOT EXISTS `banner_group` (
 --
 
 INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_show`, `show_order`, `is_show`, `date_create`, `date_update`) VALUES
-('bank', 'a:2:{s:2:"vi";s:11:"Ngân hàng";s:2:"en";s:11:"Ngân hàng";}', 102, 50, 'full', 0, 1, 1421317164, 1421317164),
+('bank', 'a:2:{s:2:"vi";s:11:"Ngân hàng";s:2:"en";s:11:"Ngân hàng";}', 102, 50, 'full', 0, 0, 1421317164, 1421317164),
 ('banner-header-phone', 'a:2:{s:2:"vi";s:19:"Banner Header Phone";s:2:"en";s:19:"Banner Header Phone";}', 0, 0, 'fixed', 0, 1, 1446278291, 1446278291),
 ('banner-home-faq', 'a:2:{s:2:"vi";s:44:"Banner tư vấn hỏi đáp ở trang chủ";s:2:"en";s:44:"Banner tư vấn hỏi đáp ở trang chủ";}', 0, 0, 'fixed', 0, 1, 1446468167, 1446468167),
 ('banner-main', 'a:2:{s:2:"vi";s:13:"Banner chính";s:2:"en";s:13:"Banner chính";}', 0, 0, 'full', 0, 1, 1393908826, 1421303885),
 ('banner-quangcao', 'a:2:{s:2:"vi";s:19:"Banner quảng cáo";s:2:"en";s:19:"Banner quảng cáo";}', 100, 100, 'fixed', 0, 1, 1443856585, 1443857003),
 ('button-facebook-share', 'a:2:{s:2:"vi";s:28:"Button share facebook footer";s:2:"en";s:29:"Button share facebook footer ";}', 107, 36, 'fixed', 0, 1, 1446559747, 1446560046),
-('cart-empty', 'a:1:{s:2:"vi";s:30:"Thông báo giỏ hàng rỗng";}', 800, 0, 'fixed', 0, 1, 1408093869, 1408093869),
+('cart-empty', 'a:1:{s:2:"vi";s:30:"Thông báo giỏ hàng rỗng";}', 800, 0, 'fixed', 0, 0, 1408093869, 1408093869),
 ('content', 'a:2:{s:2:"vi";s:16:"Nội dung tĩnh";s:2:"en";s:22:"Nội dung trang chủ";}', 725, 0, 'fixed', 0, 1, 1392038710, 1395710846),
 ('footer', 'a:2:{s:2:"vi";s:12:"Cuối trang";s:2:"en";s:23:"Nội dung cuối trang";}', 500, 0, 'fixed', -10, 1, 1393814759, 1415354805),
 ('footer-banner1', 'a:1:{s:2:"vi";s:21:"Banner cuối trang 1";}', 255, 70, 'fixed', 0, 0, 1400747734, 1400747734),
 ('footer-banner2', 'a:1:{s:2:"vi";s:21:"Banner cuối trang 2";}', 444, 70, 'fixed', 0, 0, 1400747747, 1400747747),
-('gallery', 'a:1:{s:2:"vi";s:19:"Hình chụp khách";}', 108, 167, 'fixed', 0, 1, 1415688513, 1415689825),
-('header', 'a:2:{s:2:"vi";s:12:"Đầu trang";s:2:"en";s:12:"Đầu trang";}', 342, 38, 'fixed', 99, 1, 1391611737, 1415352246),
+('gallery', 'a:1:{s:2:"vi";s:19:"Hình chụp khách";}', 108, 167, 'fixed', 0, 0, 1415688513, 1415689825),
+('header', 'a:2:{s:2:"vi";s:12:"Đầu trang";s:2:"en";s:12:"Đầu trang";}', 342, 38, 'fixed', 99, 0, 1391611737, 1415352246),
 ('header-tool', 'a:2:{s:2:"vi";s:11:"Header tool";s:2:"en";s:38:"Tin hiệu ứng dưới banner chính";}', 70, 80, 'fixed', 98, 0, 1393994588, 1395116583),
 ('header1', 'a:1:{s:2:"vi";s:14:"Đầu trang 1";}', 220, 50, 'fixed', 98, 0, 1400638125, 1400638125),
 ('hotline-footer', 'a:1:{s:2:"vi";s:20:"Hotline cuối trang";}', 160, 0, 'fixed', 0, 0, 1396607739, 1396608026),
 ('left', 'a:1:{s:2:"vi";s:12:"Banner trái";}', 180, 0, 'fixed', 0, 0, 1397444134, 1397444134),
-('logo', 'a:2:{s:2:"vi";s:4:"Logo";s:2:"en";s:4:"Logo";}', 380, 56, 'full', 100, 1, 1391610951, 1446384438),
-('logo-footer', 'a:2:{s:2:"vi";s:17:"Logo cuối trang";s:2:"en";s:17:"Logo cuối trang";}', 156, 61, 'fixed', -11, 1, 1393840329, 1446483878),
-('ordering-complete', 'a:1:{s:2:"vi";s:37:"Thông báo đặt hàng thành công";}', 800, 0, 'fixed', 0, 1, 1408091759, 1408091759),
+('logo', 'a:2:{s:2:"vi";s:4:"Logo";s:2:"en";s:4:"Logo";}', 650, 120, 'fixed', 100, 1, 1391610951, 1447155326),
+('logo-footer', 'a:2:{s:2:"vi";s:17:"Logo cuối trang";s:2:"en";s:17:"Logo cuối trang";}', 100, 61, 'fixed', -11, 1, 1393840329, 1447154566),
+('ordering-complete', 'a:1:{s:2:"vi";s:37:"Thông báo đặt hàng thành công";}', 800, 0, 'fixed', 0, 0, 1408091759, 1408091759),
 ('right', 'a:2:{s:2:"vi";s:17:"Cột bên phải";s:2:"en";s:17:"Cột bên phải";}', 184, 0, 'fixed', -9, 0, 1391611851, 1395735328),
 ('right-top', 'a:1:{s:2:"vi";s:26:"Cột phải (Trên cùng)";}', 198, 0, 'fixed', -8, 0, 1395735220, 1395735220),
 ('share', 'a:1:{s:2:"vi";s:26:"Chia sẻ mạng xã hội";}', 34, 36, 'fixed', 0, 1, 1395743114, 1446558605),
-('signup', 'a:1:{s:2:"vi";s:17:"Create An Account";}', 356, 0, 'fixed', 0, 1, 1401263915, 1401263915),
+('signup', 'a:1:{s:2:"vi";s:17:"Create An Account";}', 356, 0, 'fixed', 0, 0, 1401263915, 1401263915),
 ('slide-website-footer', 'a:2:{s:2:"vi";s:20:"Slide website footer";s:2:"en";s:20:"Slide website footer";}', 182, 50, 'fixed', 0, 1, 1446484795, 1446485205),
-('slogan', 'a:1:{s:2:"vi";s:5:"Sogan";}', 662, 33, 'fixed', 97, 1, 1400638211, 1415353287),
+('slogan', 'a:1:{s:2:"vi";s:5:"Sogan";}', 662, 33, 'fixed', 97, 0, 1400638211, 1415353287),
 ('support', 'a:1:{s:2:"vi";s:25:"Hỗ trợ trực tuyến";}', 124, 0, 'fixed', 0, 1, 1395738853, 1415693451),
-('under-construction', 'a:1:{s:2:"vi";s:18:"Under construction";}', 0, 0, 'full', 0, 1, 1420616861, 1420616861),
+('under-construction', 'a:1:{s:2:"vi";s:18:"Under construction";}', 0, 0, 'full', 0, 0, 1420616861, 1420616861),
 ('welcome', 'a:1:{s:2:"vi";s:7:"welcome";}', 760, 0, 'fixed', 0, 0, 1400734580, 1400734580);
 
 -- --------------------------------------------------------
@@ -408,7 +419,7 @@ INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_sh
 --
 
 CREATE TABLE IF NOT EXISTS `config` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(250) NOT NULL,
   `hotline` varchar(250) NOT NULL,
   `hotline_support` varchar(250) NOT NULL,
@@ -428,15 +439,16 @@ CREATE TABLE IF NOT EXISTS `config` (
   `share_link` varchar(250) NOT NULL,
   `share_title` varchar(250) NOT NULL,
   `is_under_construction` tinyint(4) NOT NULL DEFAULT '0',
-  `date_check` int(11) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `date_check` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `config`
 --
 
 INSERT INTO `config` (`id`, `email`, `hotline`, `hotline_support`, `fax`, `n_list`, `ad_skin`, `lang_view`, `skin`, `method_email`, `smtp_host`, `smtp_port`, `smtp_username`, `smtp_password`, `visitors_start`, `fanpage_facebook`, `link_youtube_company`, `share_link`, `share_title`, `is_under_construction`, `date_check`) VALUES
-(1, 'phanlien1093@gmail.com', '01697339242', '', '', 20, 'default', 'vi', 'blue', 'gmail', 'smtp.gmail.com', 465, 'imshostemail@gmail.com', 'AaBbCc1122', 500, 'https://www.facebook.com/chuot.chui.37', 'https://www.youtube.com/watch?v=aw3in_BxVlc', '', 'lien_cms', 0, 1421638054);
+(1, 'phanlien1093@gmail.com', '01697339242', '', '', 20, 'default', 'vi', 'blue', 'gmail', 'smtp.gmail.com', 465, 'imshostemail@gmail.com', 'AaBbCc1122', 500, 'https://www.facebook.com/chuot.chui.37', 'https://www.youtube.com/watch?v=aw3in_BxVlc', '', 'lien_cms', 0, 1447113721);
 
 -- --------------------------------------------------------
 
@@ -445,7 +457,7 @@ INSERT INTO `config` (`id`, `email`, `hotline`, `hotline_support`, `fax`, `n_lis
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
-`contact_id` int(10) unsigned NOT NULL,
+  `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `full_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `email_forward` varchar(250) NOT NULL,
@@ -458,8 +470,17 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `is_status` tinyint(1) NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `full_name`, `email`, `email_forward`, `address`, `phone`, `title`, `re_title`, `content`, `re_content`, `is_status`, `is_show`, `date_create`, `date_update`) VALUES
+(1, 'sdsad', 'khanh@gmail.com', '', 'dsadas', '3213213', 'sdsadsadada', '', '', '', 1, 1, 1446645262, 1446645262),
+(2, 'khanh duong', 'duonghoaikhanh@gmail.com', '', '8 nguyen ba tuyen', '0239389103', 'test maik', 'Re: test maik', '', '<p>xin chao ban, toi da doc dc email gop y cua ben rat chan thanh.</p>', 3, 1, 1446645375, 1446645464);
 
 -- --------------------------------------------------------
 
@@ -468,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 CREATE TABLE IF NOT EXISTS `contact_map` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `map_id` int(11) NOT NULL,
   `map_type` varchar(20) NOT NULL DEFAULT 'google_map',
   `map_latitude` float NOT NULL,
@@ -482,16 +503,17 @@ CREATE TABLE IF NOT EXISTS `contact_map` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `contact_map`
 --
 
 INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_longitude`, `title`, `short`, `content`, `map_information`, `map_picture`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'google_map', 10.7937, 106.657, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '&lt;p&gt;L&amp;ecirc; B&amp;igrave;nh, Phường 4, T&amp;acirc;n B&amp;igrave;nh, Hồ Ch&amp;iacute; Minh, Việt Nam&lt;/p&gt;', '', 0, 1, 1425455383, 1443860382, 'vi'),
-(2, 1, 'google_map', 10.7937, 106.657, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1443860382, 'en');
+(1, 1, 'google_map', 10.7994, 106.648, 'Clinova', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;&amp;nbsp;&lt;img src=&quot;/uploads/contact/2015_11/home.jpg&quot; alt=&quot;&quot; width=&quot;24&quot; height=&quot;19&quot; /&gt;:&amp;nbsp;148 Ho&amp;agrave;ng Hoa Th&amp;aacute;m, Phường 12, Quận T&amp;acirc;n B&amp;igrave;nh, TP.HCM&lt;br /&gt;&lt;img src=&quot;/uploads/contact/2015_11/phone.jpg&quot; alt=&quot;&quot; width=&quot;24&quot; height=&quot;19&quot; /&gt;&amp;nbsp;: (84 8) 62936629 - 62936630&lt;br /&gt;&lt;img src=&quot;/uploads/contact/2015_11/fax.jpg&quot; alt=&quot;&quot; width=&quot;24&quot; height=&quot;19&quot; /&gt;&amp;nbsp;: (84 8) 62937051&lt;br /&gt;&lt;img src=&quot;/uploads/contact/2015_11/mail.jpg&quot; alt=&quot;&quot; width=&quot;24&quot; height=&quot;19&quot; /&gt;&amp;nbsp;: &lt;a href=&quot;mailto:tuvanykhoa@jexmax.com.vn&quot;&gt;tuvanykhoa@jexmax.com.vn&lt;/a&gt;&lt;/p&gt;', '&lt;p&gt;8 Nguyễn B&amp;aacute; Tuyển, Phường 12, T&amp;acirc;n B&amp;igrave;nh, Hồ Ch&amp;iacute; Minh, Việt Nam&lt;/p&gt;', '', 0, 1, 1425455383, 1447141918, 'vi'),
+(2, 1, 'google_map', 10.7994, 106.648, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1447141918, 'en');
 
 -- --------------------------------------------------------
 
@@ -500,7 +522,7 @@ INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_long
 --
 
 CREATE TABLE IF NOT EXISTS `contact_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `contact_meta_title` varchar(250) NOT NULL,
   `contact_meta_key` text NOT NULL,
   `contact_meta_desc` text NOT NULL,
@@ -509,8 +531,9 @@ CREATE TABLE IF NOT EXISTS `contact_setting` (
   `email` varchar(250) NOT NULL,
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `background` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `contact_setting`
@@ -527,7 +550,7 @@ INSERT INTO `contact_setting` (`id`, `contact_meta_title`, `contact_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `dealer` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -558,8 +581,9 @@ CREATE TABLE IF NOT EXISTS `dealer` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `dealer`
@@ -578,7 +602,7 @@ INSERT INTO `dealer` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`,
 --
 
 CREATE TABLE IF NOT EXISTS `dealer_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -601,8 +625,9 @@ CREATE TABLE IF NOT EXISTS `dealer_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -611,15 +636,16 @@ CREATE TABLE IF NOT EXISTS `dealer_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `dealer_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `dealer_meta_title` varchar(250) NOT NULL,
   `dealer_meta_key` text NOT NULL,
   `dealer_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `background` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `dealer_setting`
@@ -636,7 +662,7 @@ INSERT INTO `dealer_setting` (`id`, `dealer_meta_title`, `dealer_meta_key`, `dea
 --
 
 CREATE TABLE IF NOT EXISTS `download` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -657,8 +683,9 @@ CREATE TABLE IF NOT EXISTS `download` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `download`
@@ -677,7 +704,7 @@ INSERT INTO `download` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `fi
 --
 
 CREATE TABLE IF NOT EXISTS `download_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -700,8 +727,9 @@ CREATE TABLE IF NOT EXISTS `download_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `download_group`
@@ -720,14 +748,15 @@ INSERT INTO `download_group` (`id`, `group_id`, `group_nav`, `group_level`, `par
 --
 
 CREATE TABLE IF NOT EXISTS `download_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `download_meta_title` varchar(250) NOT NULL,
   `download_meta_key` text NOT NULL,
   `download_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `download_setting`
@@ -740,11 +769,121 @@ INSERT INTO `download_setting` (`id`, `download_meta_title`, `download_meta_key`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faq`
+--
+
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NOT NULL,
+  `group_nav` varchar(250) NOT NULL,
+  `group_id` int(10) unsigned NOT NULL,
+  `group_related` text NOT NULL,
+  `picture` varchar(250) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `short` text NOT NULL,
+  `content` text NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `admin_reply` text NOT NULL,
+  `friendly_link` varchar(250) NOT NULL,
+  `meta_title` varchar(250) NOT NULL,
+  `meta_key` text NOT NULL,
+  `meta_desc` text NOT NULL,
+  `is_focus` tinyint(1) DEFAULT '0',
+  `is_focus_group` int(11) NOT NULL DEFAULT '0',
+  `show_order` float NOT NULL,
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `date_create` int(11) NOT NULL,
+  `date_update` int(11) NOT NULL,
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `name`, `email`, `title`, `short`, `content`, `status`, `admin_reply`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(1, 0, '', 0, '', '', 'phanlien', 'phanlien1093@gmail.com', 'test faq', '', 'test faq', 1, '', '', '', '', '', 0, 0, 0, 0, 1447054000, 1447054000, 'vi'),
+(2, 0, '', 0, '', '', 'Hoai Khanh', 'khanh@gmail.com', '1. Tôi đang dùng JEX và thấy hài lòng với sản phẩm này. Vì sao nên dùng JEX MAX? Nếu dùng JEX MAX tôi có cần thay đổi liều lượng và cách dùng không?', '', 'JEX giúp giảm đau, tái tạo và nuôi dưỡng sụn khớp. Nay JEX MAX với tinh chất PEPTAN thiên nhiên, là bước tiến mới của JEX, giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. JEX MAX giúp giảm đau xương khớp cấp tính và mạn tính, hỗ trợ điều trị viêm khớp, viêm đa khớp dạng thấp, giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ điều trị và phòng ngừa loãng xương. Vì vậy, dùng JEX MAX là sự lựa chọn tối ưu cho người muốn dự phòng hoặc hỗ trợ điều trị các bệnh xương khớp.\r\nLiều dùng của JEX MAX là 2 viên (sáng, chiều) / 1 ngày, uống sau bữa ăn.', 1, '', '', '', '', '', 0, 0, 0, 0, 1447074769, 1447074769, 'vi'),
+(3, 0, '', 0, '', '', 'khanh', 'khanh@gmail.com', 'Câu hỏi khó nói', '', 'Tôi đang dùng JEX và thấy hài lòng với sản phẩm này. Vì sao nên dùng JEX MAX? Nếu dùng JEX MAX tôi có cần thay đổi liều lượng và cách dùng không?', 1, 'JEX giúp giảm đau, tái tạo và nuôi dưỡng sụn khớp. Nay JEX MAX với tinh chất PEPTAN thiên nhiên, là bước tiến mới của JEX, giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. JEX MAX giúp giảm đau xương khớp cấp tính và mạn tính, hỗ trợ điều trị viêm khớp, viêm đa khớp dạng thấp, giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ điều trị và phòng ngừa loãng xương. Vì vậy, dùng JEX MAX là sự lựa chọn tối ưu cho người muốn dự phòng hoặc hỗ trợ điều trị các bệnh xương khớp.\r\nLiều dùng của JEX MAX là 2 viên (sáng, chiều) / 1 ngày, uống sau bữa ăn.', '', '', '', '', 0, 0, 0, 1, 1447074881, 1447074881, 'vi'),
+(4, 0, '', 0, '', '', 'khanh 1', 'khanh1@gmail.com', 'Câu hỏi 1', '', 'Dùng JEX MAX bao lâu sẽ có tác dụng ?', 1, 'Hiệu quả của JEX MAX sẽ cảm nhận được sau vài ngày đến 1 tuần sử dụng. Tùy thuộc vào loại bệnh lý và tình trạng bệnh xương khớp nặng hay nhẹ mà hiệu quả điều trị sẽ đến nhanh hay chậm hơn.\r\nNên dùng JEX MAX mỗi ngày để có kết quả tốt nhất.', '', '', '', '', 0, 0, 0, 1, 1447075354, 1447075354, 'vi'),
+(5, 0, '', 0, '', '', 'khanh 2', 'khanh2@gmail.com', 'Câu hỏi 2', '', 'Tôi bị đau nhức khớp và đang sử dụng JEX MAX. Hiện tại tình trạng đau nhức của tôi đã đỡ hẳn, tôi có nên ngưng uống JEX MAX không? Bệnh tôi có bị tái đi, tái lại không?', 0, 'Sau tuổi 30, quá trình lão hóa tự nhiên diễn ra làm tổn thương sụn khớp và xương dưới sụn, dẫn đến tình trạng thoái hóa khớp. Do vậy, khi bạn ngưng sử dụng JEX MAX, cơ thể bản vẫn âm thầm xảy ra quá trình lão hóa và gây ra thoái hóa khớp ngày càng nặng hơn.\r\nJEX MAX chứa PEPTAN và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Đặc biệt, JEX MAX giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp.\r\nJEX MAX an toàn và phù hợp với sự chuyển hóa tự nhiên của cơ thể nên được khuyến khích dùng thường xuyên để không phải đối diện với các bệnh xương khớp.', '', '', '', '', 0, 0, 0, 1, 1447075430, 1447075430, 'vi'),
+(6, 0, '', 0, '', '', 'khanh 3', 'khanh3@gmail.com', 'Câu hỏi 3', '', 'Dùng JEX MAX lâu dài có bị tác dụng phụ không ?', 0, 'JEX MAX chứa PEPTAN và các tinh chất quý từ thiên nhiên nên bạn có thể yên tâm về tính an toàn khi sử dụng lâu dài. Các nghiên cứu lâm sàng không ghi nhận tác dụng phụ đáng kể khi sử dụng JEX MAX.', '', '', '', '', 0, 0, 0, 1, 1447075489, 1447075489, 'vi'),
+(7, 0, '', 0, '', '', 'khanh 4', 'khanh4@gmail.com', 'Câu hỏi 4', '', 'Tôi bị thoái hóa khớp, đồng thời đau dạ dày nhiều năm nay. Tôi muốn dùng JEX MAX để phòng ngừa bệnh thoái hóa khớp. Tôi uống JEX MAX được không? JEX MAX có gây ảnh hưởng đến dạ dày của tôi không?', 0, 'JEX MAX chứa Peptan và các tinh chất quý từ thiên nhiên, đồng thời có bổ sung tinh chất Turmeric (chứa Curcumin) có trong nghệ với chiết xuất cao 8:1, giúp bảo vệ niêm mạc dạ dày. Do vậy, JEX MAX không gây ảnh hưởng với người đau dạ dày. Bạn có thể yên tâm dùng JEX MAX lâu dài để phòng ngừa bệnh thoái hóa khớp.', '', '', '', '', 0, 0, 0, 1, 1447075540, 1447075540, 'vi'),
+(8, 0, '', 0, '', '', 'khanh 5', 'khanh5@gmail.com', 'Câu hỏi 5', '', 'Bố tôi 58 tuổi, đi khám bệnh thì kết quả là thoái hóa khớp, phải uống thuốc theo phác đồ điều trị của bác sĩ. Vậy bố tôi uống thêm JEX MAX được không?', 0, 'Trường hợp của bố bạn, bên cạnh việc tuân thủ phác đồ điều trị của bác sĩ thì vẫn có thể dùng thêm JEX MAX.\r\nVì JEX MAX chứa PEPTAN và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Do vậy, khi sử dụng thêm JEX MAX sẽ giúp hỗ trợ quá trình điều trị được tốt hơn.\r\nHơn nữa, JEX MAX giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ phòng ngừa và điều trị loãng xương.', '', '', '', '', 0, 0, 0, 1, 1447075608, 1447075608, 'vi'),
+(9, 0, '', 0, '', '', 'khanh 6', 'khanh6@gmail.com', 'Câu hỏi 6', '', 'Bà nội tôi đã ngoài 70 tuổi nhưng sức khỏe vẫn tốt, ngoại trừ bà tôi hay đau nhức xương khớp, đặc biệt là khớp gối. Dân gian thường gọi là bệnh người già. Mỗi lần bà tôi lên xuống cầu thang thường đau gối và có tiếng kêu lục cục. Bà tôi có uống JEX MAX được không?', 0, 'Bệnh lý xương khớp là bệnh lý rất phổ biến ở người già. Nguyên nhân chính là do quá trình thoái hóa sụn khớp và tổn thương xương dưới sụn.\r\nJEX MAX chứa PEPTAN và các tinh chất quý từ thiên nhiên giúp giảm đau, tăng cường tái tạo sụn khớp và xương dưới sụn, tăng độ bền và dẻo dai cho khớp. Bên cạnh đó, JEX MAX còn giúp phòng ngừa và làm chậm quá trình thoái hóa xương khớp, hỗ trợ điều trị và phòng ngừa loãng xương. Vì vậy, JEX MAX hỗ trợ rất tốt cho tình trạng của bà nội bạn.', '', '', '', '', 0, 0, 0, 1, 1447075662, 1447075662, 'vi'),
+(10, 0, '', 0, '', '', 'Khánh', 'duonghoaikhanh@gmail.com', 'Hỏi', '', 'Khánh test hỏi đáp như thế nào?', 0, '', '', '', '', '', 0, 0, 0, 1, 1447087225, 1447087225, 'vi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq_group`
+--
+
+CREATE TABLE IF NOT EXISTS `faq_group` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `group_nav` varchar(250) NOT NULL,
+  `group_level` tinyint(2) NOT NULL,
+  `parent_id` int(10) unsigned NOT NULL,
+  `group_related` text NOT NULL,
+  `picture` varchar(250) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `short` text NOT NULL,
+  `content` text NOT NULL,
+  `friendly_link` varchar(250) NOT NULL,
+  `meta_title` varchar(250) NOT NULL,
+  `meta_key` text NOT NULL,
+  `meta_desc` text NOT NULL,
+  `pic_show` varchar(20) NOT NULL DEFAULT 'grid',
+  `type_show` varchar(20) NOT NULL DEFAULT 'list_item',
+  `num_show` int(11) NOT NULL,
+  `is_focus` tinyint(4) NOT NULL,
+  `is_show_menu` tinyint(4) NOT NULL,
+  `show_order` float NOT NULL,
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `date_create` int(11) NOT NULL,
+  `date_update` int(11) NOT NULL,
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq_setting`
+--
+
+CREATE TABLE IF NOT EXISTS `faq_setting` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `img_list_w` int(11) NOT NULL DEFAULT '100',
+  `img_list_h` int(11) NOT NULL DEFAULT '100',
+  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_order_detail` int(11) NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  `faq_meta_title` varchar(250) NOT NULL,
+  `faq_meta_key` text NOT NULL,
+  `faq_meta_desc` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `faq_setting`
+--
+
+INSERT INTO `faq_setting` (`id`, `img_list_w`, `img_list_h`, `num_list`, `num_order_detail`, `lang`, `faq_meta_title`, `faq_meta_key`, `faq_meta_desc`) VALUES
+(1, 100, 100, 10, 10, 'vi', 'Tư vấn', 'tu-van', 'Tư vấn hỏi đáp');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `friendly_link`
 --
 
 CREATE TABLE IF NOT EXISTS `friendly_link` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `friendly_link` varchar(250) NOT NULL,
   `module` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
@@ -752,8 +891,9 @@ CREATE TABLE IF NOT EXISTS `friendly_link` (
   `dbtable_id` varchar(50) NOT NULL DEFAULT '0',
   `lang` varchar(4) NOT NULL DEFAULT 'vi',
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1351 DEFAULT CHARSET=utf8;
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1357 ;
 
 --
 -- Dumping data for table `friendly_link`
@@ -2025,7 +2165,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1310, 'dong-hanh-cung-dau-an1', 'news', 'group', 'news_group', '13', 'en', 1446279687, 1446279687),
 (1311, 'tien-ich', 'download', 'group', 'download_group', '9', 'vi', 1446279762, 1446279762),
 (1312, 'tien-ich1', 'download', 'group', 'download_group', '9', 'en', 1446279762, 1446279762),
-(1313, 'benh-xuong-khop', 'page', 'group', 'page_group', '7', 'vi', 1446384574, 1446384574),
+(1313, 'benh-xuong-khop', 'page', 'group', 'page_group', '7', 'vi', 1446384574, 1447144934),
 (1314, 'benh-xuong-khop1', 'page', 'group', 'page_group', '7', 'en', 1446384574, 1446384574),
 (1315, 'khop-sun-khop-xuong-duoi-sun', 'page', 'detail', 'page', '3', 'vi', 1446384616, 1446384616),
 (1316, 'khop-sun-khop-xuong-duoi-sun1', 'page', 'detail', 'page', '3', 'en', 1446384616, 1446384616),
@@ -2062,7 +2202,13 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1347, 'sun-va-xuong-duoi-sun-bo-doi-hu-ton-tan-pha-khop', 'news', 'detail', 'news', '15', 'vi', 1446571289, 1446571289),
 (1348, 'sun-va-xuong-duoi-sun-bo-doi-hu-ton-tan-pha-khop1', 'news', 'detail', 'news', '15', 'en', 1446571290, 1446571290),
 (1349, '7-cach-phong-ngua-thoai-hoa-khop-hieu-qua', 'news', 'detail', 'news', '17', 'vi', 1446572398, 1446572398),
-(1350, '7-cach-phong-ngua-thoai-hoa-khop-hieu-qua1', 'news', 'detail', 'news', '17', 'en', 1446572398, 1446572398);
+(1350, '7-cach-phong-ngua-thoai-hoa-khop-hieu-qua1', 'news', 'detail', 'news', '17', 'en', 1446572398, 1446572398),
+(1351, 'clinova', 'product', 'detail', 'product', '13', 'vi', 1446646971, 1447140738),
+(1352, 'jex-max3', 'product', 'detail', 'product', '13', 'en', 1446646971, 1446646971),
+(1353, 'peptan-uc-ii2', 'product', 'detail', 'product', '15', 'vi', 1446870313, 1447144962),
+(1354, 'peptan-uc-ii3', 'product', 'detail', 'product', '15', 'en', 1446870314, 1446870314),
+(1355, 'tu-van', 'faq', 'faq', 'modules', 'faq', 'vi', 1447053073, 1447053073),
+(1356, 'tu-van-bien-phap-moi-phong-tri-benh-xuong-khop2', 'faq', 'faq', 'modules', 'faq', 'en', 1447053073, 1447053073);
 
 -- --------------------------------------------------------
 
@@ -2071,7 +2217,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 --
 
 CREATE TABLE IF NOT EXISTS `gallery` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -2089,8 +2235,9 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `gallery`
@@ -2109,7 +2256,7 @@ INSERT INTO `gallery` (`id`, `item_id`, `group_nav`, `group_id`, `picture`, `tit
 --
 
 CREATE TABLE IF NOT EXISTS `gallery_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -2127,8 +2274,9 @@ CREATE TABLE IF NOT EXISTS `gallery_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `gallery_group`
@@ -2145,7 +2293,7 @@ INSERT INTO `gallery_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `gallery_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
@@ -2154,8 +2302,9 @@ CREATE TABLE IF NOT EXISTS `gallery_setting` (
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
   `gallery_meta_title` varchar(250) NOT NULL,
   `gallery_meta_key` text NOT NULL,
-  `gallery_meta_desc` text NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `gallery_meta_desc` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `gallery_setting`
@@ -2172,7 +2321,7 @@ INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_m
 --
 
 CREATE TABLE IF NOT EXISTS `home_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `home_meta_title` varchar(250) NOT NULL,
   `home_meta_key` text NOT NULL,
   `home_meta_desc` text NOT NULL,
@@ -2181,8 +2330,9 @@ CREATE TABLE IF NOT EXISTS `home_setting` (
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
   `layout` int(11) NOT NULL,
   `sidebar_left` int(11) NOT NULL,
-  `sidebar_right` int(11) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `sidebar_right` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `home_setting`
@@ -2199,13 +2349,14 @@ INSERT INTO `home_setting` (`id`, `home_meta_title`, `home_meta_key`, `home_meta
 --
 
 CREATE TABLE IF NOT EXISTS `lang` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT 'vi',
   `title` varchar(250) NOT NULL,
   `is_default` tinyint(4) NOT NULL DEFAULT '0',
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
-  `show_order` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `show_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `lang`
@@ -8212,7 +8363,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `menu_id` int(11) NOT NULL,
   `group_id` varchar(20) NOT NULL DEFAULT 'menu_header',
   `menu_nav` varchar(250) NOT NULL,
@@ -8232,8 +8383,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `is_show` tinyint(1) NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(5) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+  `lang` varchar(5) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
 
 --
 -- Dumping data for table `menu`
@@ -8272,22 +8424,26 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 (52, 51, 'menu_header', '51', 1, 0, 'product-item-11', '_self', 'Sâm Angela', '', 'site', 'sam-angela1.html', '', 0, '', '', 6, 0, 1446279484, 1446279484, 'en'),
 (53, 53, 'menu_header', '53', 1, 0, 'page-group-5', '_self', 'Kiến thức bệnh học', '', 'site', 'kien-thuc-benh-hoc', '', 0, '', '', 5, 0, 1446279510, 1446279510, 'vi'),
 (54, 53, 'menu_header', '53', 1, 0, 'page-group-5', '_self', 'Kiến thức bệnh học', '', 'site', 'kien-thuc-benh-hoc1', '', 0, '', '', 5, 0, 1446279510, 1446279510, 'en'),
-(55, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', 'tien-ich', '', 0, '', '', 2, 1, 1446279767, 1446279767, 'vi'),
-(56, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', 'tien-ich1', '', 0, '', '', 2, 1, 1446279767, 1446279767, 'en'),
+(55, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', '', '', 0, '', '', 2, 0, 1446279767, 1447080624, 'vi'),
+(56, 55, 'menu_header', '55', 1, 0, 'download-group-9', '_self', 'Tiện ích', '', 'site', 'tien-ich1', '', 0, '', '', 2, 0, 1446279767, 1447080624, 'en'),
 (57, 57, 'menu_header', '57', 1, 0, 'news-group-5', '_self', 'Hoạt động', '', 'site', 'hoat-dong', 'group', 0, '', '', 3, 0, 1446279888, 1446279888, 'vi'),
 (58, 57, 'menu_header', '57', 1, 0, 'news-group-5', '_self', 'Hoạt động', '', 'site', 'hoat-dong1', 'group', 0, '', '', 3, 0, 1446279888, 1446279888, 'en'),
-(59, 59, 'menu_header', '59', 1, 0, 'page-group-7', '_self', 'Bệnh xương khớp', '', 'site', 'benh-xuong-khop', 'item', 0, '', '', 7, 1, 1446384623, 1446384623, 'vi'),
+(59, 59, 'menu_header', '59', 1, 0, 'page-group-7', '_self', 'Bệnh dạ dày', '', 'site', 'benh-xuong-khop', 'item', 0, '', '', 7, 1, 1446384623, 1446384623, 'vi'),
 (60, 59, 'menu_header', '59', 1, 0, 'page-group-7', '_self', 'Bệnh xương khớp', '', 'site', 'benh-xuong-khop1', 'item', 0, '', '', 7, 1, 1446384623, 1446384623, 'en'),
 (61, 61, 'menu_header', '59,61', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun.html', '', 0, '', '', 0, 0, 1446384778, 1446384778, 'vi'),
 (62, 61, 'menu_header', '59,61', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun1.html', '', 0, '', '', 0, 0, 1446384778, 1446384778, 'en'),
-(63, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii', '', 0, '', '', 6, 1, 1446385064, 1446385064, 'vi'),
-(64, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii1', '', 0, '', '', 6, 1, 1446385064, 1446385064, 'en'),
-(65, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max', '', 0, '', '', 5, 1, 1446385226, 1446385226, 'vi'),
-(66, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max1', '', 0, '', '', 5, 1, 1446385226, 1446385226, 'en'),
+(63, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii', '', 0, '', '', 6, 0, 1446385064, 1446385064, 'vi'),
+(64, 63, 'menu_header', '63', 1, 0, 'page-group-9', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii1', '', 0, '', '', 6, 0, 1446385064, 1446385064, 'en'),
+(65, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max', '', 0, '', '', 5, 0, 1446385226, 1446385226, 'vi'),
+(66, 65, 'menu_header', '65', 1, 0, 'page-group-11', '_self', 'Jex Max', '', 'site', 'jex-max1', '', 0, '', '', 5, 0, 1446385226, 1446385226, 'en'),
 (67, 67, 'menu_header', '59,67', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun.html', '', 0, '', '', 0, 0, 1446466131, 1446466131, 'vi'),
 (68, 67, 'menu_header', '59,67', 2, 59, 'page-item-3', '_self', 'Khớp, sụn khớp & xương dưới sụn', '', 'site', 'khop-sun-khop-xuong-duoi-sun1.html', '', 0, '', '', 0, 0, 1446466131, 1446466131, 'en'),
-(69, 69, 'menu_header', '69', 1, 0, '1446467582', '_self', 'Hỏi đáp tư vấn', '', 'site', '', '', 0, '', '', 1, 1, 1446467582, 1446467582, 'vi'),
-(70, 69, 'menu_header', '69', 1, 0, '1446467582', '_self', 'Hỏi đáp tư vấn', '', 'site', '', '', 0, '', '', 1, 1, 1446467582, 1446467582, 'en');
+(69, 69, 'menu_header', '69', 1, 0, 'faq', '_self', 'Hỏi đáp tư vấn', '', 'site', 'tu-van', '', 0, '', '', 1, 1, 1446467582, 1447053177, 'vi'),
+(70, 69, 'menu_header', '69', 1, 0, 'faq', '_self', 'Hỏi đáp tư vấn', '', 'site', '', '', 0, '', '', 1, 1, 1446467582, 1447053177, 'en'),
+(71, 71, 'menu_header', '71', 1, 0, 'product-item-13', '_self', 'Clinova', '', 'site', 'clinova.html', '', 0, '', '', 5, 1, 1446647139, 1446647139, 'vi'),
+(72, 71, 'menu_header', '71', 1, 0, 'product-item-13', '_self', 'Jex Max', '', 'site', 'jex-max3.html', '', 0, '', '', 5, 1, 1446647139, 1446647139, 'en'),
+(73, 73, 'menu_header', '73', 1, 0, 'product-item-15', '_self', 'Nanocurcumin', '', 'site', 'peptan-uc-ii2.html', '', 0, '', '', 6, 1, 1446870364, 1446870364, 'vi'),
+(74, 73, 'menu_header', '73', 1, 0, 'product-item-15', '_self', 'Peptan & UC-II', '', 'site', 'peptan-uc-ii3.html', '', 0, '', '', 6, 1, 1446870364, 1446870364, 'en');
 
 -- --------------------------------------------------------
 
@@ -8296,13 +8452,14 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
-`mod_id` int(10) unsigned NOT NULL,
+  `mod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `arr_friendly_link` text NOT NULL,
   `show_order` int(11) NOT NULL,
-  `is_show` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`mod_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `modules`
@@ -8317,7 +8474,8 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 (9, 'service', 'a:2:{s:2:"vi";s:7:"Service";s:2:"en";s:7:"Service";}', 'a:2:{s:2:"vi";s:7:"dich-vu";s:2:"en";s:7:"service";}', 0, 1),
 (10, 'project', 'a:2:{s:2:"vi";s:8:"Dự án";s:2:"en";s:7:"Project";}', 'a:2:{s:2:"vi";s:5:"du-an";s:2:"en";s:7:"project";}', 0, 1),
 (11, 'product', 'a:2:{s:2:"vi";s:8:"San Pham";s:2:"en";s:8:"San Pham";}', 'a:2:{s:2:"vi";s:8:"shop-hoa";s:2:"en";s:15:"san-pham-nhom-3";}', 0, 1),
-(12, 'news', 'a:2:{s:2:"vi";s:9:"Tin Tức";s:2:"en";s:9:"Tin Tức";}', 'a:2:{s:2:"vi";s:7:"tin-tuc";s:2:"en";s:8:"tin-tuc2";}', 0, 1);
+(12, 'news', 'a:2:{s:2:"vi";s:9:"Tin Tức";s:2:"en";s:9:"Tin Tức";}', 'a:2:{s:2:"vi";s:7:"tin-tuc";s:2:"en";s:8:"tin-tuc2";}', 0, 1),
+(13, 'faq', 'a:2:{s:2:"vi";s:21:"Hỏi đáp tư vấn";s:2:"en";s:21:"Hỏi đáp tư vấn";}', 'a:2:{s:2:"vi";s:6:"tu-van";s:2:"en";s:47:"tu-van-bien-phap-moi-phong-tri-benh-xuong-khop2";}', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -8326,7 +8484,7 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8345,8 +8503,9 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `news`
@@ -8383,7 +8542,7 @@ INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `
 --
 
 CREATE TABLE IF NOT EXISTS `news_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8406,8 +8565,9 @@ CREATE TABLE IF NOT EXISTS `news_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `news_group`
@@ -8446,7 +8606,7 @@ INSERT INTO `news_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 --
 
 CREATE TABLE IF NOT EXISTS `news_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
@@ -8454,8 +8614,9 @@ CREATE TABLE IF NOT EXISTS `news_setting` (
   `img_list_h` int(11) NOT NULL DEFAULT '100',
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `news_setting`
@@ -8472,7 +8633,7 @@ INSERT INTO `news_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta
 --
 
 CREATE TABLE IF NOT EXISTS `order_method` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `method_id` int(10) unsigned NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -8483,8 +8644,9 @@ CREATE TABLE IF NOT EXISTS `order_method` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `order_method`
@@ -8503,7 +8665,7 @@ INSERT INTO `order_method` (`id`, `method_id`, `name_action`, `picture`, `title`
 --
 
 CREATE TABLE IF NOT EXISTS `order_shipping` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `shipping_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `price` float NOT NULL,
@@ -8513,8 +8675,9 @@ CREATE TABLE IF NOT EXISTS `order_shipping` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `order_shipping`
@@ -8531,7 +8694,7 @@ INSERT INTO `order_shipping` (`id`, `shipping_id`, `picture`, `price`, `title`, 
 --
 
 CREATE TABLE IF NOT EXISTS `page` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -8552,8 +8715,9 @@ CREATE TABLE IF NOT EXISTS `page` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `page`
@@ -8575,7 +8739,7 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 --
 
 CREATE TABLE IF NOT EXISTS `page_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8598,8 +8762,9 @@ CREATE TABLE IF NOT EXISTS `page_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `page_group`
@@ -8610,8 +8775,8 @@ INSERT INTO `page_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 (3, 3, '3', 1, 0, '', '', 'Não Bộ - Tuyến Yên - Buồng Trứng', '', '', 'nao-bo-tuyen-yen-buong-trung', 'Não Bộ - Tuyến Yên - Buồng Trứng | Nao Bo - Tuyen Yen - Buong Trung', 'Não Bộ - Tuyến Yên - Buồng Trứng, Nao Bo - Tuyen Yen - Buong Trung', '', 'grid', '', 0, 0, 0, 0, 0, 1446279384, 1446279384, 'vi'),
 (5, 5, '5', 1, 0, '', '', 'Kiến thức bệnh học', '', '', 'kien-thuc-benh-hoc', 'Kiến thức bệnh học | Kien thuc benh hoc', 'Kiến thức bệnh học, Kien thuc benh hoc', '', 'grid', '', 0, 0, 0, 0, 0, 1446279504, 1446279504, 'vi'),
 (6, 5, '5', 1, 0, '', '', 'Kiến thức bệnh học', '', '', 'kien-thuc-benh-hoc1', 'Kiến thức bệnh học | Kien thuc benh hoc', 'Kiến thức bệnh học, Kien thuc benh hoc', '', 'grid', '', 0, 0, 0, 0, 0, 1446279504, 1446279504, 'en'),
-(7, 7, '7', 1, 0, '', '', 'Bệnh xương khớp', '', '', 'benh-xuong-khop', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1446384574, 'vi'),
-(8, 7, '7', 1, 0, '', '', 'Bệnh xương khớp', '', '', 'benh-xuong-khop1', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1446384574, 'en'),
+(7, 7, '7', 1, 0, '', '', 'Bệnh dạ dày', '', '', 'benh-xuong-khop', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1447144934, 'vi'),
+(8, 7, '7', 1, 0, '', '', 'Bệnh xương khớp', '', '', 'benh-xuong-khop1', 'Bệnh xương khớp | Benh xuong khop', 'Bệnh xương khớp, Benh xuong khop', '', 'grid', '', 0, 0, 0, 0, 1, 1446384574, 1447144934, 'en'),
 (9, 9, '9', 1, 0, '', '', 'Peptan & UC-II', '', '&lt;h1 class=&quot;head_title&quot;&gt;PEPTAN &amp;amp; UC-II&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;/div&gt;', 'peptan-uc-ii', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'PEPTAN &amp; UC-II\r\n&nbsp;\r\n\r\nI. PEPTAN\r\n1. Peptan l&agrave; g&igrave;?\r\nPEPTAN&nbsp;l&agrave; ph&aacute;t minh vượt trội mang lại giải ph&aacute;p hữu hiệu, gi&uacute;p ph&ograve;ng...', 'grid', '', 0, 0, 0, 0, 1, 1446385055, 1446385055, 'vi'),
 (10, 9, '9', 1, 0, '', '', 'Peptan & UC-II', '', '&lt;h1 class=&quot;head_title&quot;&gt;PEPTAN &amp;amp; UC-II&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;/div&gt;', 'peptan-uc-ii1', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'PEPTAN &amp; UC-II\r\n&nbsp;\r\n\r\nI. PEPTAN\r\n1. Peptan l&agrave; g&igrave;?\r\nPEPTAN&nbsp;l&agrave; ph&aacute;t minh vượt trội mang lại giải ph&aacute;p hữu hiệu, gi&uacute;p ph&ograve;ng...', 'grid', '', 0, 0, 0, 0, 1, 1446385055, 1446385055, 'en'),
 (11, 11, '11', 1, 0, '', '', 'Jex Max', '', '&lt;h1 class=&quot;head_title&quot;&gt;Jex Max&lt;/h1&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;inner_content_news&quot;&gt;\r\n&lt;div&gt;\r\n&lt;p&gt;Tiến bộ khoa học hiện đại gi&amp;uacute;p ch&amp;uacute;ng ta c&amp;oacute; thể chủ động ph&amp;ograve;ng ngừa, l&amp;agrave;m chậm v&amp;agrave; hỗ trợ điều trị c&amp;aacute;c bệnh l&amp;yacute; xương khớp từ gốc l&amp;agrave; sụn khớp v&amp;agrave; xương dưới sụn.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX, bước tiến vượt trội từ JEX, bổ sung th&amp;ecirc;m tinh chất&amp;nbsp;PEPTAN&amp;nbsp;thi&amp;ecirc;n nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c thảo dược qu&amp;yacute;, gi&amp;uacute;p giảm đau, k&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o tạo xương sản sinh xương mới, đẩy nhanh qu&amp;aacute; tr&amp;igrave;nh phục hồi m&amp;ocirc; sụn tại c&amp;aacute;c khớp.&lt;/p&gt;\r\n&lt;h4&gt;1. C&amp;ocirc;ng dụng&lt;/h4&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;PEPTAN&amp;nbsp;v&amp;agrave; c&amp;aacute;c tinh chất qu&amp;yacute; từ thi&amp;ecirc;n nhi&amp;ecirc;n, gi&amp;uacute;p giảm đau, tăng cường t&amp;aacute;i tạo&amp;nbsp;sụn khớp v&amp;agrave; xương dưới sụn, tăng độ bền v&amp;agrave; dẻo dai cho khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Giảm đau xương khớp cấp t&amp;iacute;nh v&amp;agrave; m&amp;atilde;n t&amp;iacute;nh.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị vi&amp;ecirc;m khớp: vi&amp;ecirc;m xương khớp, vi&amp;ecirc;m đa khớp dạng thấp.&lt;/p&gt;\r\n&lt;p&gt;+ Gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; l&amp;agrave;m chậm qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a xương khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị v&amp;agrave; ph&amp;ograve;ng ngừa lo&amp;atilde;ng xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/jex-max-x.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;h4&gt;2. Th&amp;ocirc;ng tin sản phẩm :&lt;/h4&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-4 pull-right noleft noright&quot;&gt;&lt;img src=&quot;http://jexmax.com.vn/files/image/2436-BOTTLE_JEXMAX.jpg&quot; alt=&quot;JEX&quot; /&gt;&lt;/div&gt;\r\n&lt;p&gt;2.1. Th&amp;agrave;nh phần&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-8 noleft &quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-striped&quot; border=&quot;1&quot; width=&quot;500&quot; cellspacing=&quot;1&quot; cellpadding=&quot;1&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;PEPTAN&lt;/td&gt;\r\n&lt;td&gt;200 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Undenatured Type II Collagen (UC-II)&lt;/td&gt;\r\n&lt;td&gt;40 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;White Willow Bark 15%&lt;/td&gt;\r\n&lt;td&gt;250 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Chondroitin Sulfate 90%&lt;/td&gt;\r\n&lt;td&gt;100 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Turmeric Extract 8:1 (contains Curcumin)&lt;/td&gt;\r\n&lt;td&gt;50 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Alcolec F-100 (Phosphatidylcholine 24%)&lt;/td&gt;\r\n&lt;td&gt;20 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Bromelain 2400 GDU&lt;/td&gt;\r\n&lt;td&gt;60 GDU&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&lt;br /&gt;2.2. C&amp;aacute;ch d&amp;ugrave;ng &amp;amp; liều d&amp;ugrave;ng:&lt;/p&gt;\r\n&lt;p&gt;+ Ng&amp;agrave;y uống 2 lần (s&amp;aacute;ng, chiều), mỗi lần 01 vi&amp;ecirc;n. Uống sau bữa ăn.&lt;/p&gt;\r\n&lt;p&gt;+ C&amp;oacute; thể uống 03 vi&amp;ecirc;n/ ng&amp;agrave;y trong trường hợp bệnh nặng.&lt;/p&gt;\r\n&lt;p&gt;+ N&amp;ecirc;n d&amp;ugrave;ng thường xuy&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;2.3. Đối tượng sử dụng:&amp;nbsp;Người tr&amp;ecirc;n 18 tuổi.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;', 'jex-max', 'Jex Max | Jex Max', 'Jex Max, Jex Max', 'Jex Max\r\n&nbsp;\r\n\r\n\r\nTiến bộ khoa học hiện đại gi&uacute;p ch&uacute;ng ta c&oacute; thể chủ động ph&ograve;ng ngừa, l&agrave;m chậm v&agrave; hỗ trợ điều trị...', 'grid', '', 0, 0, 0, 0, 1, 1446385104, 1446385104, 'vi'),
@@ -8624,14 +8789,15 @@ INSERT INTO `page_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 --
 
 CREATE TABLE IF NOT EXISTS `page_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `page_meta_title` varchar(250) NOT NULL,
   `page_meta_key` text NOT NULL,
   `page_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `page_setting`
@@ -8648,7 +8814,7 @@ INSERT INTO `page_setting` (`id`, `page_meta_title`, `page_meta_key`, `page_meta
 --
 
 CREATE TABLE IF NOT EXISTS `partner` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8668,8 +8834,9 @@ CREATE TABLE IF NOT EXISTS `partner` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `partner`
@@ -8686,7 +8853,7 @@ INSERT INTO `partner` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `partner_comment` (
-`cid` int(10) unsigned NOT NULL,
+  `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL DEFAULT 'partner',
   `type_id` int(11) NOT NULL DEFAULT '0',
   `link_page` varchar(250) NOT NULL,
@@ -8700,8 +8867,9 @@ CREATE TABLE IF NOT EXISTS `partner_comment` (
   `show_order` int(11) NOT NULL DEFAULT '0',
   `is_show` tinyint(2) NOT NULL DEFAULT '2',
   `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -8710,7 +8878,7 @@ CREATE TABLE IF NOT EXISTS `partner_comment` (
 --
 
 CREATE TABLE IF NOT EXISTS `partner_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8728,8 +8896,9 @@ CREATE TABLE IF NOT EXISTS `partner_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `partner_group`
@@ -8746,7 +8915,7 @@ INSERT INTO `partner_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `partner_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `partner_meta_title` varchar(250) NOT NULL,
   `partner_meta_key` text NOT NULL,
   `partner_meta_desc` text NOT NULL,
@@ -8754,8 +8923,9 @@ CREATE TABLE IF NOT EXISTS `partner_setting` (
   `num_order_detail` int(11) NOT NULL DEFAULT '5',
   `img_list_w` int(11) NOT NULL DEFAULT '150',
   `img_list_h` int(11) NOT NULL DEFAULT '100',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `partner_setting`
@@ -8772,7 +8942,7 @@ INSERT INTO `partner_setting` (`id`, `partner_meta_title`, `partner_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
@@ -8806,8 +8976,9 @@ CREATE TABLE IF NOT EXISTS `product` (
   `is_focus` tinyint(1) NOT NULL DEFAULT '0',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `product`
@@ -8824,8 +8995,12 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 (8, 7, '5', 5, 'a:1:{i:1;s:4:"aaaa";}', '', 0, '6PPCSN', 'product/2014_11/spct1.jpg', '', 'Áo sơ mi', 'slide', 0, 1000000, 0, 1000000, '&lt;p&gt;&amp;Aacute;o sơ mi Nam&lt;/p&gt;', '&lt;p&gt;B&amp;aacute;n h&amp;agrave;ng online trực tuyến&lt;/p&gt;', 'ao-so-mi1', 'Áo sơ mi | Ao so mi', 'Áo sơ mi, Ao so mi', 'B&aacute;n h&agrave;ng online trực tuyến', 0, 0, '', '', '', '', 0, 0, 0, 0, 1443854466, 1443859143, 'en'),
 (9, 9, '7', 7, 's:4:"s:4:";', '', 0, '8GATPK', 'product/2015_10/Chrysanthemum.jpg', '', 'Hoa Lan', 'slide', 0, 100000, 0, 100000, '', '&lt;p&gt;Hoa Lan gi&amp;aacute; cực rẻ!!!&lt;/p&gt;', 'hoa-lan2', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', 'Hoa Lan giá cực rẻ!!!', 0, 0, '', '', '', '', 0, 0, 0, 1, 1443859285, 1443948181, 'vi'),
 (10, 9, '7', 7, 's:0:"";', '', 0, '8GATPK', 'product/2015_10/Chrysanthemum.jpg', '', 'Hoa Lan', 'slide', 0, 100000, 0, 100000, '', '&lt;p&gt;Hoa Lan gi&amp;aacute; cực rẻ!!!&lt;/p&gt;', 'hoa-lan3', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', 'Hoa Lan gi&aacute; cực rẻ!!!', 0, 0, '', '', '', '', 0, 0, 0, 1, 1443859285, 1443948181, 'en'),
-(11, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446279474, 1446279474, 'vi'),
-(12, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela1', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446279474, 1446279474, 'en');
+(11, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 0, 0, 1446279474, 1446279474, 'vi'),
+(12, 11, '', 0, 's:0:"";', '', 0, '10FRBUV', '', '', 'Sâm Angela', 'slide', 0, 0, 0, 0, '', '', 'sam-angela1', 'Sâm Angela | Sam Angela', 'Sâm Angela, Sam Angela', '', 0, 0, '', '', '', '', 0, 0, 0, 0, 1446279474, 1446279474, 'en'),
+(13, 13, '', 0, 's:4:"s:0:";', '', 0, '12HQUGC', '', '', 'Clinova', 'slide', 0, 0, 0, 0, '', '&lt;div&gt;\r\n&lt;p&gt;Tiến bộ khoa học hiện đại gi&amp;uacute;p ch&amp;uacute;ng ta c&amp;oacute; thể chủ động ph&amp;ograve;ng ngừa, l&amp;agrave;m chậm v&amp;agrave; hỗ trợ điều trị c&amp;aacute;c bệnh l&amp;yacute; xương khớp từ gốc l&amp;agrave; sụn khớp v&amp;agrave; xương dưới sụn.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX, bước tiến vượt trội từ JEX, bổ sung th&amp;ecirc;m tinh chất&amp;nbsp;PEPTAN&amp;nbsp;thi&amp;ecirc;n nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c thảo dược qu&amp;yacute;, gi&amp;uacute;p giảm đau, k&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o tạo xương sản sinh xương mới, đẩy nhanh qu&amp;aacute; tr&amp;igrave;nh phục hồi m&amp;ocirc; sụn tại c&amp;aacute;c khớp.&lt;/p&gt;\r\n&lt;h4&gt;1. C&amp;ocirc;ng dụng&lt;/h4&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;PEPTAN&amp;nbsp;v&amp;agrave; c&amp;aacute;c tinh chất qu&amp;yacute; từ thi&amp;ecirc;n nhi&amp;ecirc;n, gi&amp;uacute;p giảm đau, tăng cường t&amp;aacute;i tạo&amp;nbsp;sụn khớp v&amp;agrave; xương dưới sụn, tăng độ bền v&amp;agrave; dẻo dai cho khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Giảm đau xương khớp cấp t&amp;iacute;nh v&amp;agrave; m&amp;atilde;n t&amp;iacute;nh.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị vi&amp;ecirc;m khớp: vi&amp;ecirc;m xương khớp, vi&amp;ecirc;m đa khớp dạng thấp.&lt;/p&gt;\r\n&lt;p&gt;+ Gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; l&amp;agrave;m chậm qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a xương khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị v&amp;agrave; ph&amp;ograve;ng ngừa lo&amp;atilde;ng xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/jex-max-x.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;h4&gt;2. Th&amp;ocirc;ng tin sản phẩm :&lt;/h4&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-4 pull-right noleft noright&quot;&gt;&lt;img src=&quot;http://jexmax.com.vn/files/image/2436-BOTTLE_JEXMAX.jpg&quot; alt=&quot;JEX&quot; /&gt;&lt;/div&gt;\r\n&lt;p&gt;2.1. Th&amp;agrave;nh phần&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-8 noleft &quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-striped&quot; border=&quot;1&quot; width=&quot;500&quot; cellspacing=&quot;1&quot; cellpadding=&quot;1&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;PEPTAN&lt;/td&gt;\r\n&lt;td&gt;200 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Undenatured Type II Collagen (UC-II)&lt;/td&gt;\r\n&lt;td&gt;40 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;White Willow Bark 15%&lt;/td&gt;\r\n&lt;td&gt;250 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Chondroitin Sulfate 90%&lt;/td&gt;\r\n&lt;td&gt;100 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Turmeric Extract 8:1 (contains Curcumin)&lt;/td&gt;\r\n&lt;td&gt;50 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Alcolec F-100 (Phosphatidylcholine 24%)&lt;/td&gt;\r\n&lt;td&gt;20 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Bromelain 2400 GDU&lt;/td&gt;\r\n&lt;td&gt;60 GDU&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&lt;br /&gt;2.2. C&amp;aacute;ch d&amp;ugrave;ng &amp;amp; liều d&amp;ugrave;ng:&lt;/p&gt;\r\n&lt;p&gt;+ Ng&amp;agrave;y uống 2 lần (s&amp;aacute;ng, chiều), mỗi lần 01 vi&amp;ecirc;n. Uống sau bữa ăn.&lt;/p&gt;\r\n&lt;p&gt;+ C&amp;oacute; thể uống 03 vi&amp;ecirc;n/ ng&amp;agrave;y trong trường hợp bệnh nặng.&lt;/p&gt;\r\n&lt;p&gt;+ N&amp;ecirc;n d&amp;ugrave;ng thường xuy&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;2.3. Đối tượng sử dụng:&amp;nbsp;Người tr&amp;ecirc;n 18 tuổi.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;', 'clinova', 'Clinova | Clinova', 'Clinova, Clinova', '\r\nTiến bộ khoa học hiện đại gi&uacute;p ch&uacute;ng ta c&oacute; thể chủ động ph&ograve;ng ngừa, l&agrave;m chậm v&agrave; hỗ trợ điều trị c&aacute;c bệnh l&yacute;...', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446646971, 1447140738, 'vi'),
+(14, 13, '', 0, 's:0:"";', '', 0, '12HQUGC', '', '', 'Jex Max', 'slide', 0, 0, 0, 0, '', '&lt;div&gt;\r\n&lt;p&gt;Tiến bộ khoa học hiện đại gi&amp;uacute;p ch&amp;uacute;ng ta c&amp;oacute; thể chủ động ph&amp;ograve;ng ngừa, l&amp;agrave;m chậm v&amp;agrave; hỗ trợ điều trị c&amp;aacute;c bệnh l&amp;yacute; xương khớp từ gốc l&amp;agrave; sụn khớp v&amp;agrave; xương dưới sụn.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX, bước tiến vượt trội từ JEX, bổ sung th&amp;ecirc;m tinh chất&amp;nbsp;PEPTAN&amp;nbsp;thi&amp;ecirc;n nhi&amp;ecirc;n v&amp;agrave; c&amp;aacute;c thảo dược qu&amp;yacute;, gi&amp;uacute;p giảm đau, k&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o tạo xương sản sinh xương mới, đẩy nhanh qu&amp;aacute; tr&amp;igrave;nh phục hồi m&amp;ocirc; sụn tại c&amp;aacute;c khớp.&lt;/p&gt;\r\n&lt;h4&gt;1. C&amp;ocirc;ng dụng&lt;/h4&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;PEPTAN&amp;nbsp;v&amp;agrave; c&amp;aacute;c tinh chất qu&amp;yacute; từ thi&amp;ecirc;n nhi&amp;ecirc;n, gi&amp;uacute;p giảm đau, tăng cường t&amp;aacute;i tạo&amp;nbsp;sụn khớp v&amp;agrave; xương dưới sụn, tăng độ bền v&amp;agrave; dẻo dai cho khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Giảm đau xương khớp cấp t&amp;iacute;nh v&amp;agrave; m&amp;atilde;n t&amp;iacute;nh.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị vi&amp;ecirc;m khớp: vi&amp;ecirc;m xương khớp, vi&amp;ecirc;m đa khớp dạng thấp.&lt;/p&gt;\r\n&lt;p&gt;+ Gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; l&amp;agrave;m chậm qu&amp;aacute; tr&amp;igrave;nh tho&amp;aacute;i h&amp;oacute;a xương khớp.&lt;/p&gt;\r\n&lt;p&gt;+ Hỗ trợ điều trị v&amp;agrave; ph&amp;ograve;ng ngừa lo&amp;atilde;ng xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/jex-max-x.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;h4&gt;2. Th&amp;ocirc;ng tin sản phẩm :&lt;/h4&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-4 pull-right noleft noright&quot;&gt;&lt;img src=&quot;http://jexmax.com.vn/files/image/2436-BOTTLE_JEXMAX.jpg&quot; alt=&quot;JEX&quot; /&gt;&lt;/div&gt;\r\n&lt;p&gt;2.1. Th&amp;agrave;nh phần&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;col-xs-12 col-md-8 noleft &quot;&gt;\r\n&lt;table class=&quot;table table-bordered table-striped&quot; border=&quot;1&quot; width=&quot;500&quot; cellspacing=&quot;1&quot; cellpadding=&quot;1&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;PEPTAN&lt;/td&gt;\r\n&lt;td&gt;200 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Undenatured Type II Collagen (UC-II)&lt;/td&gt;\r\n&lt;td&gt;40 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;White Willow Bark 15%&lt;/td&gt;\r\n&lt;td&gt;250 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Chondroitin Sulfate 90%&lt;/td&gt;\r\n&lt;td&gt;100 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Turmeric Extract 8:1 (contains Curcumin)&lt;/td&gt;\r\n&lt;td&gt;50 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Alcolec F-100 (Phosphatidylcholine 24%)&lt;/td&gt;\r\n&lt;td&gt;20 mg&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;Bromelain 2400 GDU&lt;/td&gt;\r\n&lt;td&gt;60 GDU&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&lt;br /&gt;2.2. C&amp;aacute;ch d&amp;ugrave;ng &amp;amp; liều d&amp;ugrave;ng:&lt;/p&gt;\r\n&lt;p&gt;+ Ng&amp;agrave;y uống 2 lần (s&amp;aacute;ng, chiều), mỗi lần 01 vi&amp;ecirc;n. Uống sau bữa ăn.&lt;/p&gt;\r\n&lt;p&gt;+ C&amp;oacute; thể uống 03 vi&amp;ecirc;n/ ng&amp;agrave;y trong trường hợp bệnh nặng.&lt;/p&gt;\r\n&lt;p&gt;+ N&amp;ecirc;n d&amp;ugrave;ng thường xuy&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;2.3. Đối tượng sử dụng:&amp;nbsp;Người tr&amp;ecirc;n 18 tuổi.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;', 'jex-max3', 'Jex Max | Jex Max', 'Jex Max, Jex Max', '\r\nTiến bộ khoa học hiện đại gi&uacute;p ch&uacute;ng ta c&oacute; thể chủ động ph&ograve;ng ngừa, l&agrave;m chậm v&agrave; hỗ trợ điều trị c&aacute;c bệnh l&yacute;...', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446646971, 1447140738, 'en'),
+(15, 15, '', 0, 's:4:"s:0:";', '', 0, '14OQLJH', '', '', 'Nanocurcumin', 'slide', 0, 0, 0, 0, '', '&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;', 'peptan-uc-ii2', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'I. PEPTAN\r\n1. Peptan là gì?\r\nPEPTAN là phát minh vượt trội mang lại giải pháp hữu hiệu, giúp phòng ngừa và hỗ trợ...', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446870313, 1447144962, 'vi'),
+(16, 15, '', 0, 's:0:"";', '', 0, '14OQLJH', '', '', 'Peptan & UC-II', 'slide', 0, 0, 0, 0, '', '&lt;h4&gt;I. PEPTAN&lt;/h4&gt;\r\n&lt;h4&gt;1. Peptan l&amp;agrave; g&amp;igrave;?&lt;/h4&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;l&amp;agrave; ph&amp;aacute;t minh vượt trội mang lại giải ph&amp;aacute;p hữu hiệu, gi&amp;uacute;p ph&amp;ograve;ng ngừa v&amp;agrave; hỗ trợ điều trị bệnh l&amp;yacute; xương khớp.&lt;/p&gt;\r\n&lt;p&gt;Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;cung cấp nhiều loại acid amin qu&amp;yacute; với độ tinh chiết rất cao m&amp;agrave; kh&amp;ocirc;ng thể được t&amp;igrave;m thấy trong c&amp;aacute;c loại protein kh&amp;aacute;c. C&amp;aacute;c nghi&amp;ecirc;n cứu cho thấy hơn 90% th&amp;agrave;nh phần của&amp;nbsp;PEPTAN&amp;nbsp;được ti&amp;ecirc;u h&amp;oacute;a v&amp;agrave; hấp thụ trong v&amp;ograve;ng 12 giờ sau khi uống, nhanh ch&amp;oacute;ng c&amp;oacute; mặt trong m&amp;ocirc; li&amp;ecirc;n kết tại sụn v&amp;agrave; xương dưới sụn để k&amp;iacute;ch th&amp;iacute;ch tổng hợp nhiều hơn c&amp;aacute;c th&amp;agrave;nh phần chất nền cho xương khớp l&amp;agrave; Collagen v&amp;agrave; Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;Với th&amp;agrave;nh phần 100% thi&amp;ecirc;n nhi&amp;ecirc;n, c&amp;oacute; hoạt t&amp;iacute;nh sinh học cao v&amp;agrave; dễ hấp thu, an to&amp;agrave;n khi sử dụng,&amp;nbsp;PEPTAN&amp;nbsp;nhận được nhiều bằng s&amp;aacute;ng chế v&amp;agrave; được FDA c&amp;ocirc;ng nhận v&amp;agrave; trao chứng nhận an to&amp;agrave;n GRAS (Generally Recognized as Safe).&lt;/p&gt;\r\n&lt;div&gt;\r\n&lt;div&gt;\r\n&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;http://www.youtube.com/embed/YjBRq7sjOJ0?rel=0&amp;amp;showinfo=0&quot; width=&quot;300&quot; height=&quot;150&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;h4&gt;2. Nghi&amp;ecirc;n cứu l&amp;acirc;m s&amp;agrave;ng&lt;/h4&gt;\r\n&lt;p&gt;2.1 Peptan t&amp;aacute;c dụng đặc biệt tr&amp;ecirc;n sụn khớp&lt;/p&gt;\r\n&lt;p&gt;K&amp;iacute;ch th&amp;iacute;ch tế b&amp;agrave;o sụn sản xuất c&amp;aacute;c chất căn bản:&lt;/p&gt;\r\n&lt;p&gt;- Collagen nội sinh c&amp;oacute; c&amp;ocirc;ng dụng l&amp;agrave;m tăng cường c&amp;aacute;c kết cấu của sụn khớp - khớp.&lt;/p&gt;\r\n&lt;p&gt;- Aggrencan - th&amp;agrave;nh phần tham gia cấu tạo v&amp;agrave; dịch khớp.&lt;/p&gt;\r\n&lt;p&gt;Kết quả nghi&amp;ecirc;n cứu sau 8 ng&amp;agrave;y sử dụng&amp;nbsp;PEPTAN&amp;nbsp;đ&amp;atilde; l&amp;agrave;m tăng gấp 3,2 lần lượng Collagen tu&amp;yacute;p II v&amp;agrave; 3,6 lần lượng Aggrecan.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-2.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.2&amp;nbsp;PEPTAN gi&amp;uacute;p tăng mật độ kho&amp;aacute;ng của xương, bảo vệ v&amp;agrave; phục hồi xương dưới sụn&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;k&amp;iacute;ch th&amp;iacute;ch c&amp;aacute;c tế b&amp;agrave;o tăng sản sinh xương (tạo cốt b&amp;agrave;o) cạnh tranh với c&amp;aacute;c tế b&amp;agrave;o li&amp;ecirc;n quan đến ti&amp;ecirc;u xương (hủy cốt b&amp;agrave;o), l&amp;agrave;m gia tăng h&amp;igrave;nh th&amp;agrave;nh xương. Từ đ&amp;oacute;, phục hồi mật độ kho&amp;aacute;ng chất của xương (giảm lo&amp;atilde;ng xương), tăng sức bền của xương.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-3.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;2.3&amp;nbsp;PEPTAN được khoa học kiểm chứng c&amp;oacute; hiệu quả tối ưu cho xương khớp&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;đạt hiệu quả tối ưu l&amp;agrave;m giảm đau, cải thiện vận động hỗ trợ điều trị c&amp;aacute;c tổn thương ở c&amp;aacute;c khớp trong cơ thể. Tại thử nghiệm l&amp;acirc;m s&amp;agrave;ng m&amp;ugrave; đ&amp;ocirc;i c&amp;oacute; đối chứng giả dược tr&amp;ecirc;n 94 đối tượng nữ trong độ tuổi 40-70 bị đau khớp gối hoặc đau do tho&amp;aacute;i h&amp;oacute;a khớp, kết quả chứng minh&amp;nbsp;PEPTAN&amp;nbsp;l&amp;agrave;m giảm đau r&amp;otilde; rệt khi vận động.&lt;/p&gt;\r\n&lt;p&gt;Nhiều nghi&amp;ecirc;n cứu cho thấy sử dụng&amp;nbsp;PEPTAN&amp;nbsp;h&amp;agrave;ng ng&amp;agrave;y c&amp;oacute; thể gi&amp;uacute;p ngăn ngừa sự mất khối lượng xương ở phụ nữ tiền m&amp;atilde;n kinh v&amp;agrave; tr&amp;ecirc;n c&amp;aacute;c vận động vi&amp;ecirc;n thể dục thể thao với c&amp;aacute;c hoạt động li&amp;ecirc;n quan đến khớp. Đặc biệt,&amp;nbsp;PEPTAN&amp;nbsp;giảm đau khớp đ&amp;aacute;ng kể khi nghỉ ngơi, đứng, đi lại, mang v&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;PEPTAN&amp;nbsp;- Đảm bảo sự khỏe mạnh tối ưu cho xương khớp.&lt;/p&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-4.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-5.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/div&gt;\r\n&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;\r\n&lt;h4&gt;II. UNDENATURED TYPE II COLLAGEN (UC-II)&lt;/h4&gt;\r\n&lt;p&gt;Undenatured type II Collagen (UC-II) l&amp;agrave; nguồn cung cấp Collagen tu&amp;yacute;p 2 kh&amp;ocirc;ng biến t&amp;iacute;nh, l&amp;agrave; loại dưỡng chất cho sụn khớp.&lt;/p&gt;\r\n&lt;p&gt;JEX MAX&amp;nbsp;chứa&amp;nbsp;UC-II&amp;nbsp;gi&amp;uacute;p kh&amp;aacute;ng vi&amp;ecirc;m, giảm đau, bảo vệ Collagen trong sụn khớp, c&amp;oacute; hiệu quả gấp đ&amp;ocirc;i so với Glucosamine + Chondroitin.&lt;/p&gt;\r\n&lt;p&gt;Khi sử dụng&amp;nbsp;UC-II&amp;nbsp;bằng đường uống, một phần (khoảng 53%) được cơ thể hấp thu để cung cấp dưỡng chất gi&amp;uacute;p nu&amp;ocirc;i dưỡng v&amp;agrave; t&amp;aacute;i tạo m&amp;ocirc; sụn tại c&amp;aacute;c khớp; một phần (khoảng 47%) giữ nguy&amp;ecirc;n cấu tr&amp;uacute;c ph&amp;acirc;n tử c&amp;oacute; t&amp;aacute;c dụng điều chỉnh đ&amp;aacute;p ứng miễn dịch, bảo vệ Collagen tu&amp;yacute;p 2 trong sụn khớp kh&amp;ocirc;ng bị ph&amp;aacute; hủy theo quy luật tự nhi&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;img class=&quot;nvo-image&quot; src=&quot;http://jexmax.com.vn/img/peptan-6.jpg&quot; alt=&quot;peptan&quot; /&gt;&lt;/p&gt;', 'peptan-uc-ii3', 'Peptan & UC-II | Peptan & UC-II', 'Peptan & UC-II, Peptan & UC-II', 'I. PEPTAN\r\n1. Peptan l&agrave; g&igrave;?\r\nPEPTAN&nbsp;l&agrave; ph&aacute;t minh vượt trội mang lại giải ph&aacute;p hữu hiệu, gi&uacute;p ph&ograve;ng ngừa v&agrave; hỗ trợ...', 0, 0, '', '', '', '', 0, 0, 1, 0, 1446870313, 1447144962, 'en');
 
 -- --------------------------------------------------------
 
@@ -8834,7 +9009,7 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_brand` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `brand_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -8847,8 +9022,9 @@ CREATE TABLE IF NOT EXISTS `product_brand` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product_brand`
@@ -8865,7 +9041,7 @@ INSERT INTO `product_brand` (`id`, `brand_id`, `picture`, `title`, `content`, `f
 --
 
 CREATE TABLE IF NOT EXISTS `product_code_pic` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `code_pic_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -8874,8 +9050,9 @@ CREATE TABLE IF NOT EXISTS `product_code_pic` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product_code_pic`
@@ -8892,7 +9069,7 @@ INSERT INTO `product_code_pic` (`id`, `code_pic_id`, `picture`, `title`, `conten
 --
 
 CREATE TABLE IF NOT EXISTS `product_color` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `color` varchar(7) NOT NULL,
@@ -8901,8 +9078,9 @@ CREATE TABLE IF NOT EXISTS `product_color` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `product_color`
@@ -8927,7 +9105,7 @@ INSERT INTO `product_color` (`id`, `color_id`, `picture`, `color`, `title`, `sho
 --
 
 CREATE TABLE IF NOT EXISTS `product_combine` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL DEFAULT 'product',
   `type_id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
@@ -8937,8 +9115,9 @@ CREATE TABLE IF NOT EXISTS `product_combine` (
   `in_stock` int(11) NOT NULL,
   `out_stock` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -8947,7 +9126,7 @@ CREATE TABLE IF NOT EXISTS `product_combine` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -8970,8 +9149,9 @@ CREATE TABLE IF NOT EXISTS `product_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `product_group`
@@ -8982,10 +9162,10 @@ INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 (2, 1, '1', 1, 0, '', 'product/2015_03/vista_blue_and_green_aurora-t2.jpg', 'Nhóm 1', '&lt;p&gt;fsdfsdfd&lt;/p&gt;', '&lt;p&gt;dsfsdfsfds&lt;/p&gt;', 'nhom-1-3', 'Nhóm 1 | Nhom 1', 'Nhóm 1, Nhom 1', 'dsfsdfsfds', 'grid', 'list_item', 0, 0, 0, 0, 0, 1425373716, 1425373716, 'en'),
 (3, 3, '1,3', 2, 1, '', 'product/2014_11/sp1.png', 'San Pham nhom 1', '&lt;p&gt;test&lt;/p&gt;', '&lt;p&gt;test&lt;/p&gt;', 'san-pham-nhom-1', 'test them moi nhom san pham', 'San Pham nhom 1, San Pham nhom 1', 'test', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443854264, 1443854264, 'vi'),
 (4, 3, '1,3', 2, 1, '', 'product/2014_11/sp1.png', 'San Pham nhom 1', '&lt;p&gt;test&lt;/p&gt;', '&lt;p&gt;test&lt;/p&gt;', 'san-pham-nhom-2', 'test them moi nhom san pham', 'San Pham nhom 1, San Pham nhom 1', 'test', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443854264, 1443854264, 'en'),
-(5, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858820, 1443858820, 'vi'),
-(6, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong1', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858820, 1443858820, 'en'),
-(7, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858828, 1443858828, 'vi'),
-(8, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan1', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 1, 1443858828, 1443858828, 'en');
+(5, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443858820, 1443858820, 'vi'),
+(6, 5, '5', 1, 0, '', '', 'Hoa Hồng', '', '', 'hoa-hong1', 'Hoa Hồng | Hoa Hong', 'Hoa Hồng, Hoa Hong', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443858820, 1443858820, 'en'),
+(7, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443858828, 1443858828, 'vi'),
+(8, 7, '7', 1, 0, '', '', 'Hoa Lan', '', '', 'hoa-lan1', 'Hoa Lan | Hoa Lan', 'Hoa Lan, Hoa Lan', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1443858828, 1443858828, 'en');
 
 -- --------------------------------------------------------
 
@@ -8994,7 +9174,7 @@ INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `product_option` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `option_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9002,8 +9182,9 @@ CREATE TABLE IF NOT EXISTS `product_option` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product_option`
@@ -9020,7 +9201,7 @@ INSERT INTO `product_option` (`id`, `option_id`, `picture`, `title`, `show_order
 --
 
 CREATE TABLE IF NOT EXISTS `product_order` (
-`order_id` int(10) unsigned NOT NULL,
+  `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `order_code` varchar(20) NOT NULL,
   `o_full_name` varchar(250) NOT NULL,
   `o_email` varchar(250) NOT NULL,
@@ -9058,8 +9239,9 @@ CREATE TABLE IF NOT EXISTS `product_order` (
   `is_status` tinyint(4) NOT NULL DEFAULT '1',
   `is_show` tinyint(2) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `product_order`
@@ -9075,7 +9257,7 @@ INSERT INTO `product_order` (`order_id`, `order_code`, `o_full_name`, `o_email`,
 --
 
 CREATE TABLE IF NOT EXISTS `product_order_detail` (
-`detail_id` int(10) unsigned NOT NULL,
+  `detail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` int(10) unsigned NOT NULL,
   `type` varchar(20) NOT NULL DEFAULT 'product',
   `type_id` int(10) unsigned NOT NULL,
@@ -9086,8 +9268,9 @@ CREATE TABLE IF NOT EXISTS `product_order_detail` (
   `out_stock` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
-  `code_pic` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `code_pic` int(11) NOT NULL,
+  PRIMARY KEY (`detail_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `product_order_detail`
@@ -9103,7 +9286,7 @@ INSERT INTO `product_order_detail` (`detail_id`, `order_id`, `type`, `type_id`, 
 --
 
 CREATE TABLE IF NOT EXISTS `product_pic` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pic_id` int(11) NOT NULL,
   `type` varchar(250) NOT NULL DEFAULT 'item',
   `type_id` int(10) unsigned NOT NULL,
@@ -9114,8 +9297,9 @@ CREATE TABLE IF NOT EXISTS `product_pic` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `product_pic`
@@ -9134,7 +9318,7 @@ INSERT INTO `product_pic` (`id`, `pic_id`, `type`, `type_id`, `picture`, `title`
 --
 
 CREATE TABLE IF NOT EXISTS `product_receipt` (
-`receipt_id` int(10) unsigned NOT NULL,
+  `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -9142,8 +9326,9 @@ CREATE TABLE IF NOT EXISTS `product_receipt` (
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`receipt_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9152,7 +9337,7 @@ CREATE TABLE IF NOT EXISTS `product_receipt` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -9163,8 +9348,9 @@ CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
   `in_stock` int(11) NOT NULL,
   `out_stock` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9173,7 +9359,7 @@ CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_meta_title` varchar(250) NOT NULL,
   `product_meta_key` text NOT NULL,
   `product_meta_desc` text NOT NULL,
@@ -9205,8 +9391,9 @@ CREATE TABLE IF NOT EXISTS `product_setting` (
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '6',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `brand_link` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `brand_link` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product_setting`
@@ -9223,7 +9410,7 @@ INSERT INTO `product_setting` (`id`, `product_meta_title`, `product_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_size` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `size_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9231,8 +9418,9 @@ CREATE TABLE IF NOT EXISTS `product_size` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `product_size`
@@ -9262,7 +9450,7 @@ INSERT INTO `product_size` (`id`, `size_id`, `picture`, `title`, `show_order`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product_status` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `status_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9270,8 +9458,9 @@ CREATE TABLE IF NOT EXISTS `product_status` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product_status`
@@ -9288,7 +9477,7 @@ INSERT INTO `product_status` (`id`, `status_id`, `picture`, `title`, `show_order
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` varchar(250) NOT NULL,
@@ -9309,8 +9498,9 @@ CREATE TABLE IF NOT EXISTS `project` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `project`
@@ -9327,7 +9517,7 @@ INSERT INTO `project` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `project_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -9350,8 +9540,9 @@ CREATE TABLE IF NOT EXISTS `project_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `project_group`
@@ -9368,14 +9559,15 @@ INSERT INTO `project_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `project_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `project_meta_title` varchar(250) NOT NULL,
   `project_meta_key` text NOT NULL,
   `project_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `project_setting`
@@ -9402,7 +9594,8 @@ CREATE TABLE IF NOT EXISTS `promotion` (
   `date_start` int(11) NOT NULL,
   `date_end` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`promotion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -9412,7 +9605,7 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9423,8 +9616,9 @@ CREATE TABLE IF NOT EXISTS `repository` (
   `admin_id` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9433,7 +9627,7 @@ CREATE TABLE IF NOT EXISTS `repository` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_method` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `method_id` int(10) unsigned NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `method_type` varchar(20) NOT NULL DEFAULT 'import',
@@ -9446,8 +9640,9 @@ CREATE TABLE IF NOT EXISTS `repository_method` (
   `admin_id` int(10) unsigned NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9456,7 +9651,7 @@ CREATE TABLE IF NOT EXISTS `repository_method` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_method_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(10) unsigned NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -9467,8 +9662,9 @@ CREATE TABLE IF NOT EXISTS `repository_method_group` (
   `admin_id` int(10) unsigned NOT NULL,
   `date_create` int(10) unsigned NOT NULL,
   `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9477,7 +9673,7 @@ CREATE TABLE IF NOT EXISTS `repository_method_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt` (
-`receipt_id` int(10) unsigned NOT NULL,
+  `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -9490,8 +9686,9 @@ CREATE TABLE IF NOT EXISTS `repository_receipt` (
   `admin_edit` int(11) NOT NULL,
   `admin_finish` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`receipt_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9500,7 +9697,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
-`id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -9510,8 +9707,9 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
   `price` float NOT NULL,
   `quantity` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9520,7 +9718,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
 --
 
 CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -9530,8 +9728,9 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
   `admin_id` int(11) NOT NULL,
   `admin_edit` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9540,7 +9739,7 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
 --
 
 CREATE TABLE IF NOT EXISTS `service` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -9561,8 +9760,9 @@ CREATE TABLE IF NOT EXISTS `service` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `service`
@@ -9579,7 +9779,7 @@ INSERT INTO `service` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 --
 
 CREATE TABLE IF NOT EXISTS `service_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -9602,8 +9802,9 @@ CREATE TABLE IF NOT EXISTS `service_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `service_group`
@@ -9620,7 +9821,7 @@ INSERT INTO `service_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 --
 
 CREATE TABLE IF NOT EXISTS `service_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `service_meta_title` varchar(250) NOT NULL,
   `service_meta_key` text NOT NULL,
   `service_meta_desc` text NOT NULL,
@@ -9635,8 +9836,9 @@ CREATE TABLE IF NOT EXISTS `service_setting` (
   `sidebar_item_left` int(11) NOT NULL,
   `sidebar_item_right` int(11) NOT NULL,
   `weight_min` varchar(250) NOT NULL,
-  `weight_each` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `weight_each` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `service_setting`
@@ -9653,14 +9855,15 @@ INSERT INTO `service_setting` (`id`, `service_meta_title`, `service_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sidebar` (
-`sidebar_id` int(10) unsigned NOT NULL,
+  `sidebar_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `list_widget` text NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`sidebar_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `sidebar`
@@ -9679,7 +9882,7 @@ INSERT INTO `sidebar` (`sidebar_id`, `title`, `list_widget`, `show_order`, `is_s
 --
 
 CREATE TABLE IF NOT EXISTS `statistic` (
-`id` double NOT NULL,
+  `id` double NOT NULL AUTO_INCREMENT,
   `session` varchar(32) NOT NULL,
   `date_log` varchar(150) NOT NULL DEFAULT '01-01-2000',
   `domain` varchar(250) NOT NULL,
@@ -9694,8 +9897,9 @@ CREATE TABLE IF NOT EXISTS `statistic` (
   `screen_height` int(11) NOT NULL,
   `date_time` int(11) NOT NULL DEFAULT '0',
   `date_update` int(11) NOT NULL,
-  `time_stay` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=250 DEFAULT CHARSET=utf8;
+  `time_stay` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=250 ;
 
 --
 -- Dumping data for table `statistic`
@@ -9960,7 +10164,7 @@ INSERT INTO `statistic` (`id`, `session`, `date_log`, `domain`, `web_link`, `ref
 --
 
 CREATE TABLE IF NOT EXISTS `support` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `yahoo` varchar(250) NOT NULL,
@@ -9971,8 +10175,9 @@ CREATE TABLE IF NOT EXISTS `support` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -9981,7 +10186,7 @@ CREATE TABLE IF NOT EXISTS `support` (
 --
 
 CREATE TABLE IF NOT EXISTS `template_email` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `template_id` varchar(50) NOT NULL,
   `title` varchar(250) NOT NULL,
   `subject` varchar(250) NOT NULL,
@@ -9990,8 +10195,9 @@ CREATE TABLE IF NOT EXISTS `template_email` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `template_email`
@@ -10013,7 +10219,7 @@ INSERT INTO `template_email` (`id`, `template_id`, `title`, `subject`, `content`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(150) NOT NULL,
   `password` varchar(50) NOT NULL,
   `session` varchar(50) NOT NULL,
@@ -10036,8 +10242,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(2) NOT NULL DEFAULT '0',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `username` (`username`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -10046,7 +10255,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `welcome` text NOT NULL,
   `user_meta_title` varchar(250) NOT NULL,
   `user_meta_key` text NOT NULL,
@@ -10092,8 +10301,9 @@ CREATE TABLE IF NOT EXISTS `user_setting` (
   `voucher_meta_key` text NOT NULL,
   `voucher_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_setting`
@@ -10110,7 +10320,7 @@ INSERT INTO `user_setting` (`id`, `welcome`, `user_meta_title`, `user_meta_key`,
 --
 
 CREATE TABLE IF NOT EXISTS `video` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   `group_nav` text NOT NULL,
@@ -10130,8 +10340,9 @@ CREATE TABLE IF NOT EXISTS `video` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `video`
@@ -10150,7 +10361,7 @@ INSERT INTO `video` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, 
 --
 
 CREATE TABLE IF NOT EXISTS `video_group` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -10171,8 +10382,9 @@ CREATE TABLE IF NOT EXISTS `video_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `video_group`
@@ -10189,15 +10401,16 @@ INSERT INTO `video_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent
 --
 
 CREATE TABLE IF NOT EXISTS `video_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `video_meta_title` varchar(250) NOT NULL,
   `video_meta_key` text NOT NULL,
   `video_meta_desc` text NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `background` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `video_setting`
@@ -10223,7 +10436,8 @@ CREATE TABLE IF NOT EXISTS `voucher` (
   `date_start` int(11) NOT NULL,
   `date_end` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`voucher_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -10233,15 +10447,16 @@ CREATE TABLE IF NOT EXISTS `voucher` (
 --
 
 CREATE TABLE IF NOT EXISTS `voucher_history` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `voucher_id` varchar(50) NOT NULL,
   `order_code` varchar(50) NOT NULL,
   `amount_type` varchar(20) NOT NULL DEFAULT 'buy_product',
   `amount` float NOT NULL,
   `amount_has` float NOT NULL,
   `content` varchar(250) NOT NULL,
-  `date_create` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `date_create` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -10268,7 +10483,8 @@ CREATE TABLE IF NOT EXISTS `voucher_order` (
   `is_status` tinyint(2) NOT NULL DEFAULT '1',
   `is_show` tinyint(2) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL
+  `date_update` int(11) NOT NULL,
+  PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -10278,7 +10494,7 @@ CREATE TABLE IF NOT EXISTS `voucher_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `voucher_setting` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `voucher_meta_title` varchar(250) NOT NULL,
   `voucher_meta_key` text NOT NULL,
   `voucher_meta_desc` text NOT NULL,
@@ -10289,8 +10505,9 @@ CREATE TABLE IF NOT EXISTS `voucher_setting` (
   `voucher_day_end` int(11) NOT NULL,
   `num_list` int(10) unsigned NOT NULL DEFAULT '10',
   `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi'
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `voucher_setting`
@@ -10307,12 +10524,13 @@ INSERT INTO `voucher_setting` (`id`, `voucher_meta_title`, `voucher_meta_key`, `
 --
 
 CREATE TABLE IF NOT EXISTS `widget` (
-`widget_id` int(10) unsigned NOT NULL,
+  `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `show_order` int(11) NOT NULL,
-  `is_show` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`widget_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `widget`
@@ -10321,863 +10539,6 @@ CREATE TABLE IF NOT EXISTS `widget` (
 INSERT INTO `widget` (`widget_id`, `name_action`, `arr_title`, `show_order`, `is_show`) VALUES
 (1, 'menu_group', 'a:2:{s:2:"vi";s:10:"Menu nhóm";s:2:"en";s:10:"Menu nhóm";}', 0, 1);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `about`
---
-ALTER TABLE `about`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `about_setting`
---
-ALTER TABLE `about_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admin_group`
---
-ALTER TABLE `admin_group`
- ADD PRIMARY KEY (`group_id`);
-
---
--- Indexes for table `admin_menu`
---
-ALTER TABLE `admin_menu`
- ADD PRIMARY KEY (`menu_id`), ADD KEY `menu_id` (`menu_id`);
-
---
--- Indexes for table `banner`
---
-ALTER TABLE `banner`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `banner_group`
---
-ALTER TABLE `banner_group`
- ADD PRIMARY KEY (`group_id`);
-
---
--- Indexes for table `config`
---
-ALTER TABLE `config`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
- ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `contact_map`
---
-ALTER TABLE `contact_map`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contact_setting`
---
-ALTER TABLE `contact_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dealer`
---
-ALTER TABLE `dealer`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dealer_group`
---
-ALTER TABLE `dealer_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dealer_setting`
---
-ALTER TABLE `dealer_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `download`
---
-ALTER TABLE `download`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `download_group`
---
-ALTER TABLE `download_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `download_setting`
---
-ALTER TABLE `download_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `friendly_link`
---
-ALTER TABLE `friendly_link`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery`
---
-ALTER TABLE `gallery`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery_group`
---
-ALTER TABLE `gallery_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gallery_setting`
---
-ALTER TABLE `gallery_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `home_setting`
---
-ALTER TABLE `home_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lang`
---
-ALTER TABLE `lang`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `menu`
---
-ALTER TABLE `menu`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `modules`
---
-ALTER TABLE `modules`
- ADD PRIMARY KEY (`mod_id`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `news_group`
---
-ALTER TABLE `news_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `news_setting`
---
-ALTER TABLE `news_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_method`
---
-ALTER TABLE `order_method`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_shipping`
---
-ALTER TABLE `order_shipping`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `page`
---
-ALTER TABLE `page`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `page_group`
---
-ALTER TABLE `page_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `page_setting`
---
-ALTER TABLE `page_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `partner`
---
-ALTER TABLE `partner`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `partner_comment`
---
-ALTER TABLE `partner_comment`
- ADD PRIMARY KEY (`cid`);
-
---
--- Indexes for table `partner_group`
---
-ALTER TABLE `partner_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `partner_setting`
---
-ALTER TABLE `partner_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_brand`
---
-ALTER TABLE `product_brand`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_code_pic`
---
-ALTER TABLE `product_code_pic`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_color`
---
-ALTER TABLE `product_color`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_combine`
---
-ALTER TABLE `product_combine`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_group`
---
-ALTER TABLE `product_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_option`
---
-ALTER TABLE `product_option`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_order`
---
-ALTER TABLE `product_order`
- ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `product_order_detail`
---
-ALTER TABLE `product_order_detail`
- ADD PRIMARY KEY (`detail_id`);
-
---
--- Indexes for table `product_pic`
---
-ALTER TABLE `product_pic`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_receipt`
---
-ALTER TABLE `product_receipt`
- ADD PRIMARY KEY (`receipt_id`);
-
---
--- Indexes for table `product_receipt_detail`
---
-ALTER TABLE `product_receipt_detail`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_setting`
---
-ALTER TABLE `product_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_size`
---
-ALTER TABLE `product_size`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product_status`
---
-ALTER TABLE `product_status`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `project`
---
-ALTER TABLE `project`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `project_group`
---
-ALTER TABLE `project_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `project_setting`
---
-ALTER TABLE `project_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `promotion`
---
-ALTER TABLE `promotion`
- ADD PRIMARY KEY (`promotion_id`);
-
---
--- Indexes for table `repository`
---
-ALTER TABLE `repository`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `repository_method`
---
-ALTER TABLE `repository_method`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `repository_method_group`
---
-ALTER TABLE `repository_method_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `repository_receipt`
---
-ALTER TABLE `repository_receipt`
- ADD PRIMARY KEY (`receipt_id`);
-
---
--- Indexes for table `repository_receipt_detail`
---
-ALTER TABLE `repository_receipt_detail`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `repository_receipt_import`
---
-ALTER TABLE `repository_receipt_import`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `service`
---
-ALTER TABLE `service`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `service_group`
---
-ALTER TABLE `service_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `service_setting`
---
-ALTER TABLE `service_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sidebar`
---
-ALTER TABLE `sidebar`
- ADD PRIMARY KEY (`sidebar_id`);
-
---
--- Indexes for table `statistic`
---
-ALTER TABLE `statistic`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `support`
---
-ALTER TABLE `support`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `template_email`
---
-ALTER TABLE `template_email`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`user_id`), ADD KEY `username` (`username`), ADD KEY `email` (`email`);
-
---
--- Indexes for table `user_setting`
---
-ALTER TABLE `user_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `video`
---
-ALTER TABLE `video`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `video_group`
---
-ALTER TABLE `video_group`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `video_setting`
---
-ALTER TABLE `video_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `voucher`
---
-ALTER TABLE `voucher`
- ADD PRIMARY KEY (`voucher_id`);
-
---
--- Indexes for table `voucher_history`
---
-ALTER TABLE `voucher_history`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `voucher_order`
---
-ALTER TABLE `voucher_order`
- ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `voucher_setting`
---
-ALTER TABLE `voucher_setting`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `widget`
---
-ALTER TABLE `widget`
- ADD PRIMARY KEY (`widget_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `about`
---
-ALTER TABLE `about`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `about_setting`
---
-ALTER TABLE `about_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `admin_group`
---
-ALTER TABLE `admin_group`
-MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `admin_menu`
---
-ALTER TABLE `admin_menu`
-MODIFY `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
---
--- AUTO_INCREMENT for table `banner`
---
-ALTER TABLE `banner`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
---
--- AUTO_INCREMENT for table `config`
---
-ALTER TABLE `config`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-MODIFY `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `contact_map`
---
-ALTER TABLE `contact_map`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `contact_setting`
---
-ALTER TABLE `contact_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `dealer`
---
-ALTER TABLE `dealer`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `dealer_group`
---
-ALTER TABLE `dealer_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `dealer_setting`
---
-ALTER TABLE `dealer_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `download`
---
-ALTER TABLE `download`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `download_group`
---
-ALTER TABLE `download_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `download_setting`
---
-ALTER TABLE `download_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `friendly_link`
---
-ALTER TABLE `friendly_link`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1351;
---
--- AUTO_INCREMENT for table `gallery`
---
-ALTER TABLE `gallery`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `gallery_group`
---
-ALTER TABLE `gallery_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `gallery_setting`
---
-ALTER TABLE `gallery_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `home_setting`
---
-ALTER TABLE `home_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `lang`
---
-ALTER TABLE `lang`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `menu`
---
-ALTER TABLE `menu`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
---
--- AUTO_INCREMENT for table `modules`
---
-ALTER TABLE `modules`
-MODIFY `mod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `news`
---
-ALTER TABLE `news`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT for table `news_group`
---
-ALTER TABLE `news_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `news_setting`
---
-ALTER TABLE `news_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `order_method`
---
-ALTER TABLE `order_method`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `order_shipping`
---
-ALTER TABLE `order_shipping`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `page`
---
-ALTER TABLE `page`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `page_group`
---
-ALTER TABLE `page_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `page_setting`
---
-ALTER TABLE `page_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `partner`
---
-ALTER TABLE `partner`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `partner_comment`
---
-ALTER TABLE `partner_comment`
-MODIFY `cid` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `partner_group`
---
-ALTER TABLE `partner_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `partner_setting`
---
-ALTER TABLE `partner_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product`
---
-ALTER TABLE `product`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `product_brand`
---
-ALTER TABLE `product_brand`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product_code_pic`
---
-ALTER TABLE `product_code_pic`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product_color`
---
-ALTER TABLE `product_color`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `product_combine`
---
-ALTER TABLE `product_combine`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `product_group`
---
-ALTER TABLE `product_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `product_option`
---
-ALTER TABLE `product_option`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product_order`
---
-ALTER TABLE `product_order`
-MODIFY `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `product_order_detail`
---
-ALTER TABLE `product_order_detail`
-MODIFY `detail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `product_pic`
---
-ALTER TABLE `product_pic`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `product_receipt`
---
-ALTER TABLE `product_receipt`
-MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `product_receipt_detail`
---
-ALTER TABLE `product_receipt_detail`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `product_setting`
---
-ALTER TABLE `product_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product_size`
---
-ALTER TABLE `product_size`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `product_status`
---
-ALTER TABLE `product_status`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `project`
---
-ALTER TABLE `project`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `project_group`
---
-ALTER TABLE `project_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `project_setting`
---
-ALTER TABLE `project_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `repository`
---
-ALTER TABLE `repository`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `repository_method`
---
-ALTER TABLE `repository_method`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `repository_method_group`
---
-ALTER TABLE `repository_method_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `repository_receipt`
---
-ALTER TABLE `repository_receipt`
-MODIFY `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `repository_receipt_detail`
---
-ALTER TABLE `repository_receipt_detail`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `repository_receipt_import`
---
-ALTER TABLE `repository_receipt_import`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `service`
---
-ALTER TABLE `service`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `service_group`
---
-ALTER TABLE `service_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `service_setting`
---
-ALTER TABLE `service_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `sidebar`
---
-ALTER TABLE `sidebar`
-MODIFY `sidebar_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `statistic`
---
-ALTER TABLE `statistic`
-MODIFY `id` double NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=250;
---
--- AUTO_INCREMENT for table `support`
---
-ALTER TABLE `support`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `template_email`
---
-ALTER TABLE `template_email`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_setting`
---
-ALTER TABLE `user_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `video`
---
-ALTER TABLE `video`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `video_group`
---
-ALTER TABLE `video_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `video_setting`
---
-ALTER TABLE `video_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `voucher_history`
---
-ALTER TABLE `voucher_history`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `voucher_setting`
---
-ALTER TABLE `voucher_setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `widget`
---
-ALTER TABLE `widget`
-MODIFY `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -206,6 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col-xs-12 col-sm-12 noleft noright">
             <div class="col12 col-xs-3 col-sm-2 eco-green pull-left noleft ">
               {data.logo_footer}
+		
             </div>
             <div class="col12 col-xs-9 col-sm-10 noleft noright slide_logo">
               <div id="owl-custome">
@@ -216,11 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="col-xs-12 col-sm-6 pull-right noright share_logo">
             <div style="text-align:right;"><a style="color:#fff;" class="csbm" href="javascript:if(confirm(%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html%27" tppabs="http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật thông tin</a><br clear="all"></div>
             <div class="col-xs-12 col-sm-6 noright">
-              <div class="textright linkhot">
-                  <a href="tel:+84838112777">
-                    {data.banner_header_phone}
-                  </a>
-              </div>
+              
             </div>
             <div class="col-xs-12 col-sm-6 pull-right share_box">
               <div class="box">
