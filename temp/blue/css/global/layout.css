@@ -123,7 +123,8 @@ li.iconew {
 
 #mainmenu {
     height: 37px;
-    background: #fff;
+    /*background: #fff;*/
+    background: url('../images/bgmenu.gif') center;
     border-bottom: 1px solid #677050;
 }
 
@@ -328,6 +329,7 @@ li.iconew {
 
 #home_box .box_thugian h3 span {
     background: url('../images/box3.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box3.jpg*/ no-repeat left top;
+    /*background: url('../images/bgmenu.gif');*/
     padding-left: 60px;
 }
 

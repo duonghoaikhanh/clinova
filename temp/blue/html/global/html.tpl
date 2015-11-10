@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="hidden-xs col-sm-4 pull-right textright noright">
               <div class="hotline_header ">
                 {data.banner_header_phone}
-                  <span style="color: #fff; display: block; font-family: 'UTM Swiss'; margin: 3px 0px;">
+                  <span style="color: #fff; display: block; font-family: 'MyriadPro-Cond'; margin: 3px 0px;font-size: 16px;">
                     {LANG.global.brand_company}
                   </span>
               </div>
