@@ -71,7 +71,7 @@
 
 <!-- BEGIN: group_news -->
 <div class="box_tintuc">
-  <h3><span><a href="tin-tuc-c1.html" tppabs="http://jexmax.com.vn/tin-tuc-c1.html">Tin tức</a></span></h3>
+  <h3><a href="tin-tuc5"><span>{LANG.global.box_news}</span></a></h3>
   <div class="content">
     <!-- BEGIN: row -->
     <div class="box_news">
@@ -103,7 +103,7 @@
 
 <!-- BEGIN: group_news_focus -->
 <div class="box_chamsoc">
-  <h3><span><a href="hoat-dong-nhan-hang.html" >{LANG.global.action_clinova}</a></span></h3>
+  <h3><a href="hoat-dong-cua-jex-max" ><span>{LANG.global.action_clinova}</span></a></h3>
   <div class="content">
     <div id="owl-hdnh" class="owl-carousel">
 

@@ -1,15 +1,14 @@
-<!-- BEGIN: main -->
-
+﻿<!-- BEGIN: main -->
 <div id="home_box">
   <div class="container">
     <div class="row" >
       <div class="xs12 col-xs-6 col-sm-4">
         <div class="box_tuvan">
-          <h3><span><a href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">{LANG.home.faq}</a></span></h3>
+          <h3><a href="tu-van"><span>{LANG.global.faq}</span></a></h3>
           <div class="content"><p>
               {data.banner_faq_home}<br />
               {LANG.home.short_faq}</p></div>
-          <a class="view_all" href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">Xem tiếp</a>
+          <a class="view_all" href="hoi-dap.html">Xem tiếp</a>
           <div class="box_b"><span></span></div>
         </div>
       </div>
@@ -27,7 +26,7 @@
 
 <!-- BEGIN: group_news_focus -->
 <div class="box_chamsoc">
-  <h3><span><a href="hoat-dong-nhan-hang.html" tppabs="http://jexmax.com.vn/hoat-dong-nhan-hang.html">Hoạt động của JEX MAX</a></span></h3>
+  <h3><span><a href="hoat-dong-nhan-hang.html">Hoạt động của JEX MAX</a></span></h3>
   <div class="content">
     <div id="owl-hdnh" class="owl-carousel">
 
@@ -41,14 +40,14 @@
 
     </div>
   </div>
-  <a class="view_all" href="hoat-dong-nhan-hang.html" tppabs="http://jexmax.com.vn/hoat-dong-nhan-hang.html">Chi tiết</a>
+  <a class="view_all" href="hoat-dong-nhan-hang.html">Chi tiết</a>
   <div class="box_b"><span></span></div>
 </div>
 <!-- END: group_news_focus -->
 
 <!-- BEGIN: group_news -->
 <div class="box_tintuc">
-  <h3><span><a href="tin-tuc-c1.html" tppabs="http://jexmax.com.vn/tin-tuc-c1.html">Tin tức</a></span></h3>
+  <h3><span><a href="tin-tuc-c1.html">Tin tức</a></span></h3>
   <div class="content">
     <!-- BEGIN: row -->
     <div class="box_news">
@@ -73,7 +72,7 @@
     <!-- END: row -->
   </div>
 
-  <a class="view_all" href="tin-tuc-c1.html" tppabs="http://jexmax.com.vn/tin-tuc-c1.html">Xem tiếp</a>
+  <a class="view_all" href="tin-tuc-c1.html">Xem tiếp</a>
   <div class="box_b"><span></span></div>
 </div>
 <!-- BEGIN: group_news -->

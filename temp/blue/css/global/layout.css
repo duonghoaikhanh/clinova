@@ -1,6 +1,7 @@
 @charset "utf-8";
 body {
     background: #f7f7f6;
+	//background: url('../images/bg_body.jpg')repeat-y top center;
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -101,7 +102,8 @@ a {
 
 div#header {
     //background: #0A5193;
-	background: #056BB2;
+	//background: #056BB2;
+	background: url('../images/bg_blue_sky.jpg') center center fixed;
     min-height: 81px;
 }
 
@@ -313,7 +315,7 @@ li.iconew {
 }
 
 #home_box .box_tuvan h3:hover span {
-    background: url('../images/box1_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box1_h.jpg*/ no-repeat left top;
+    //background: url('../images/box1_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box1_h.jpg*/ no-repeat left top;
     padding-left: 60px;
 }
 
@@ -323,7 +325,7 @@ li.iconew {
 }
 
 #home_box .box_chamsoc h3:hover span {
-    background: url('../images/box2_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box2_h.jpg*/ no-repeat left top;
+    //background: url('../images/box2_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box2_h.jpg*/ no-repeat left top;
     padding-left: 60px;
 }
 
@@ -334,7 +336,7 @@ li.iconew {
 }
 
 #home_box .box_thugian h3:hover span {
-    background: url('../images/box3_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box3_h.jpg*/ no-repeat left top;
+    //background: url('../images/box3_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box3_h.jpg*/ no-repeat left top;
     padding-left: 60px;
 }
 
@@ -344,7 +346,7 @@ li.iconew {
 }
 
 #home_box .box_tintuc h3:hover span {
-    background: url('../images/box4_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box4_h.jpg*/ no-repeat left top;
+    //background: url('../images/box4_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box4_h.jpg*/ no-repeat left top;
     padding-left: 70px;
 }
 
@@ -469,7 +471,8 @@ li.iconew {
 }
 
 div#footer {
-    background: #0A5193;
+    //background: #0A5193;
+	background: url('../images/bg_blue_sky.jpg') center center fixed;
     padding: 6px 0;
     border-top: 1px solid #9ac865;
 }
@@ -1488,7 +1491,7 @@ ol.breadcrumb > li + li:before {
 .fixbox {
     position: fixed;
     width: 100%;
-    height: 120px;
+    height: 161px;
     top: 0;
     z-index: 9999;
 }
@@ -2877,4 +2880,7 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
 }
 .breadcrumb li.active a {
     color: #777;
+}
+#main_slide {
+    margin-top: 44px;
 }

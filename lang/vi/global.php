@@ -81,9 +81,10 @@ $lang = array (
 	'footer_bank' => 'Đối tác thanh toán',
 	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved',
 	'brand_company' => 'Sản phẩm của công ty BV PHARMA',
-	'faq' => 'Hỏi đáp tư vấn',
+	'faq' => '',
 	'short_faq' => 'Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…',
-	'action_clinova' => 'ĐỒNG HÀNH CÙNG CLINOVA',
-	'text_after_logo_footer' => 'Born to Heal'
+	'action_clinova' => '',
+	'text_after_logo_footer' => 'Born to Heal',
+	'box_news' => ''
 ); 
 ?>

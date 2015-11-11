@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*================================================================================*\
 Name code : class_functions.php
@@ -1308,7 +1308,7 @@ class Site
     global $ttH;
 		$output = '<div class="hidden-xs col-sm-3 mod_right noright noleft" id="home_box">';
 			$output .= '<div class="col-xs-12 col-sm-12 noleft noright"><div class="box_tuvan">
-						  <h3><span><a href="hoi-dap.html" tppabs="http://jexmax.com.vn/hoi-dap.html">'.$ttH->lang['global']['faq'].'</a></span></h3>
+						  <h3><a href="tu-van"><span>'.$ttH->lang['global']['faq'].'</span></a></h3>
 						  <div class="content"><p>
 							  '.$this->get_banner("banner-home-faq").'<br />
 							  	'.$ttH->lang['global']['short_faq'].'</p></div>
