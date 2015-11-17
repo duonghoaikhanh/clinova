@@ -74,6 +74,12 @@ class sMain
 			$arr_in["date_create"] = time();
 			$arr_in["date_update"] = time();
 			$ok = $ttH->db->do_insert("faq", $arr_in);
+			$item_id_chinh = $ttH->db->insertid();
+			$ttH->db->do_update('faq',array('item_id'=>$item_id_chinh), " id='".$item_id_chinh."'");	// update current
+			$arr_in['lang'] = 'en';
+			$ok1 = $ttH->db->do_insert("faq", $arr_in);
+			$item_id_sau = $ttH->db->insertid();
+			$ttH->db->do_update('faq',array('item_id'=>$item_id_chinh), " id='".$item_id_sau."'");	// update current
 			if($ok) {				
 				$output['ok'] = 1;
 				$output['mess'] = $ttH->lang['faq']['send_success'];

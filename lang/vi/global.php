@@ -85,6 +85,8 @@ $lang = array (
 	'short_faq' => 'Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…',
 	'action_clinova' => '',
 	'text_after_logo_footer' => 'Born to Heal',
-	'box_news' => ''
+	'box_news' => '',
+	'chinhsachcongty' => 'Chính sách công ty',
+	'text_after_slide_footer' =>'Sản phẩm này không phải là thuốc và không thay thế thuốc chữa bệnh'
 ); 
 ?>

@@ -25,14 +25,12 @@ class sMain
 		'group_id' => array('form_type' => 'select', 'title' => 'select_title'),
 		'group_related' => array('form_type' => 'select', 'muti' => 1),
 		'title' => array('form_type' => 'text', 'required' => '', 'of_lang' => true),
-		'picture' => array('form_type' => 'picture'),
-		'short' => array('form_type' => 'editor', 'editor' => 'mini', 'of_lang' => true),
+
 		'content' => array('form_type' => 'editor', 'of_lang' => true),
+		'admin_reply' => array('form_type' => 'editor', 'of_lang' => true),
 		'is_focus' => array('form_type' => 'checkbox'),
-		'friendly_link' => array('form_type' => 'friendly_link', 'of_lang' => true),
-		'meta_title' => array('form_type' => 'meta_title', 'of_lang' => true),
-		'meta_key' => array('form_type' => 'meta_key', 'of_lang' => true),
-		'meta_desc' => array('form_type' => 'meta_desc', 'of_lang' => true),
+		'status' => array('form_type' => 'checkbox'),
+
 		'show_order' => array('auto' => 0, 'only' => 'add'),
 		'is_show' => array('auto' => 1, 'only' => 'add'),
 		'date_create' => array('auto' => 'time', 'only' => 'add'),

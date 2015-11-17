@@ -107,7 +107,8 @@ function html_list_item ($arr_in = array())
 
 			$row['class'] = ($i%$num_row == 0 || $i == $num) ? ' last' : '';
 			$row['in'] = ($i == 1) ? 'in' : '';
-
+			$row['content'] = $ttH->func->input_editor_decode($row['content']);
+			$row['admin_reply'] = $ttH->func->input_editor_decode($row['admin_reply']);
 
 			$row['short'] = $ttH->func->short ($row['short'], 400);
 			$row["picture"] = $ttH->func->get_src_mod($row["picture"], 457, 229, 1, 1);

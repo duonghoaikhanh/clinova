@@ -164,7 +164,9 @@ class commonFunc extends sMain
 						((isset($v['data']) && is_array($v['data'])) ? $v['data'] : array(1 => $title)), 
 						(isset($data[$k]) ? $data[$k] : ''), 
 						$tmp
-					);	*/
+					);*/
+					$data_out[$k] = '';
+					
 					break;
 				case "editor":
 					$form_col = 12;

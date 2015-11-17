@@ -1,4 +1,4 @@
-﻿<!-- BEGIN: body --><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- BEGIN: body --><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -57,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {CONF.include_js_content}
 
 
-    <script type="text/javascript" src="http://jexmax.com.vn/system/cms/themes/default/js/xjs/bootstrap.js"></script>
+    <script type="text/javascript" src="{DIR_JS}bootstrap.js"></script>
     <script type="text/javascript" src="http://jexmax.com.vn/system/cms/themes/default/js/xjs/owl.carousel.js"></script>
 
     <script src="{DIR_JS}javascript.js"></script>
@@ -121,15 +121,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="col-xs-12 col-sm-9">
                 <div id="menu_desk">
                   {data.list_menu}
+                  {BOX_LANG}
                 </div>
               </div>
               <div class="col-xs-12 col-sm-3 noleft noright ">
-                <div class="form_search_desk">
-                  <form action="http://jexmax.com.vn/chuyen-de.html" method="post">
-                    <input type="text" name="txtKeyword" placeholder="Nhập từ khóa..." />
-                    <input type="submit" name="btnSubmit" value="" />
-                  </form>
-                </div>
+                {data.box_search}
               </div>
             </div>
           </div>
@@ -202,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div id="footer">
       <div class="container">
-        <div class="rowss" >
+        <div class="rows" >
           <div class="col-xs-12 col-sm-12 noleft noright">
             <div class="col12 col-xs-3 col-sm-2 eco-green pull-left noleft ">
               {data.logo_footer}
@@ -211,11 +207,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="col12 col-xs-9 col-sm-10 noleft noright slide_logo">
               <div id="owl-custome">
                 {data.slide_website_footer}
-              </div><div class="text-right noright box-note"style="font-family:'Times New Roman'; margin-top:2px; font-size:12px; opacity:0.4;"><i>Sản phẩm này không phải là thuốc và không thay thế thuốc chữa bệnh</i></div>
+              </div><div class="text-right noright box-note"style="font-family:'Times New Roman'; margin-top:2px; font-size:12px; opacity:0.4;"><i>{LANG.global.text_after_slide_footer}</i></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 pull-right noright share_logo">
-            <div style="text-align:right;"><a style="color:#fff;" class="csbm" href="javascript:if(confirm(%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html%27" tppabs="http://jexmax.com.vn/chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật thông tin</a><br clear="all"></div>
+            <div style="text-align:right;"></div>
             <div class="col-xs-12 col-sm-6 noright">
               
             </div>
@@ -384,12 +380,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- BEGIN: box_lang -->
 <div id="box_lang">
-	<ul>
-  	<!-- BEGIN: row -->
-    <li><a href="{row.link}" class="flag_{row.name} {row.current}">&nbsp;</a></li>
+
+  <ul class="show">
+
+    <!-- BEGIN: row -->
+    <li><a href="{row.link}" class="flag_{row.name} {row.current}"></a></li>
     <!-- END: row -->
+
   </ul>
 </div>
+<div class="clear"></div>
 <!-- END: box_lang -->
 
 

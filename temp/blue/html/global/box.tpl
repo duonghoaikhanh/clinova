@@ -123,12 +123,11 @@
 <!-- END: group_news_focus -->
 
 <!-- BEGIN: box_search -->
-<div class="box_search">
+<div class="form_search_desk">
   <form action="{data.link_search}" method="post">
     <input name="text_search" class="text_search" type="text" value="{data.text_search}" onBlur="if(this.value=='') this.value='{LANG.global.search_text}';" onFocus="if(this.value=='{LANG.global.search_text}') this.value='';">
     <input name="search" value="1" type="hidden" />
-    <input class="btn_search" type="image" src="{DIR_IMAGE}btn_search.png" value="{LANG.global.search_btn}" />
-    <div class="clear"></div>
+    <input type="submit" name="btnSubmit" value="" />
   </form>
 </div>
 <!-- END: box_search -->

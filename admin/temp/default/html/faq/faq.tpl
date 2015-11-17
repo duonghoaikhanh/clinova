@@ -28,6 +28,7 @@
         {row.content}
       </div>
     </div>
+
     <!-- END: element -->
   </div>
   <div class="row" align="center">
@@ -101,7 +102,7 @@
 
             <th class="header" >{data.f_title}</th>
             <th class="header" width="30%">{LANG.global.info}</th>
-            <th class="header" width="10%">{data.f_status}</th>
+
             <th class="header" width="10%">{LANG.global.action}</th>
           </tr>
           </thead>
@@ -122,12 +123,7 @@
               <div><strong>{LANG.global.date_create}:</strong> {row.date_create}</div>
               {row.html_checkbox}
             </td>
-            <td class="cot">
-              <select name="status" onchange="do_check ({row.item_id})">
-                <option value="0" {row.active}>Chưa duyệt</option>
-                <option value="1" {row.active}>Đã duyệt</option>
-              </select>
-            </td>
+
             <td class="cot" align="center">
               {row.manage_act.edit}
               {row.manage_act.pic}

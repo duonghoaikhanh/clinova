@@ -315,7 +315,7 @@ li.iconew {
 }
 
 #home_box .box_tuvan h3:hover span {
-    //background: url('../images/box1_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box1_h.jpg*/ no-repeat left top;
+    background: url('../images/box1_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box1_h.jpg*/ no-repeat left top;
     padding-left: 60px;
 }
 
@@ -325,28 +325,28 @@ li.iconew {
 }
 
 #home_box .box_chamsoc h3:hover span {
-    //background: url('../images/box2_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box2_h.jpg*/ no-repeat left top;
+    background: url('../images/box2_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box2_h.jpg*/ no-repeat left top;
     padding-left: 60px;
 }
 
 #home_box .box_thugian h3 span {
-    background: url('../images/box3.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box3.jpg*/ no-repeat left top;
+    background: url('../images/box3.jpg') no-repeat left top;
     /*background: url('../images/bgmenu.gif');*/
     padding-left: 60px;
 }
 
 #home_box .box_thugian h3:hover span {
-    //background: url('../images/box3_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box3_h.jpg*/ no-repeat left top;
+    background: url('../images/box3_h.jpg')  no-repeat left top;
     padding-left: 60px;
 }
 
 #home_box .box_tintuc h3 span {
-    background: url('../images/box4.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box4.jpg*/ no-repeat left top;
+    background: url('../images/box4.jpg')  no-repeat left top;
     padding-left: 70px;
 }
 
 #home_box .box_tintuc h3:hover span {
-    //background: url('../images/box4_h.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/box4_h.jpg*/ no-repeat left top;
+    background: url('../images/box4_h.jpg')  no-repeat left top;
     padding-left: 70px;
 }
 
@@ -499,7 +499,9 @@ div#footer, div#footer p {
 #footer .eco-green, #footer .slide_logo {
     margin-top: 18px;
 }
-
+#footer .eco-green >.banner_item {
+	margin-top:-20px
+}
 .share_box .item {
     display: table-cell;
     padding-left: 5px;
@@ -2883,4 +2885,69 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
 }
 #main_slide {
     margin-top: 44px;
+}
+#box_lang >.current >span.flag_vi {
+    padding: 2px 0px;
+    background: url(../images/flag_vi.gif) no-repeat top right;
+    padding-right: 27px;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+#box_lang ul.show {
+    display: block;
+}
+#box_lang ul {
+    display: none;
+    
+    z-index: 10;
+    /*background: #1295ff;*/
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+#box_lang ul {
+    list-style: none;
+    margin: 0px;
+}
+#box_lang ul li{
+    float: none;
+}
+
+#box_lang ul li >a.flag_vi {
+    padding: 2px 0px;
+    background: url(../images/flag_vi.gif) no-repeat top right;
+    padding-right: 27px;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: block;
+}
+#box_lang ul li >a.flag_en {
+    padding: 2px 0px;
+    background: url(../images/flag_en.gif) no-repeat top right;
+    padding-right: 27px;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: block;
+}
+#box_lang ul li >a.current {
+    display: none;
+}
+#menu_desk{
+    position: relative;
+}
+#box_lang{
+    position: absolute;
+    right: -40px;
+    top: 10px;
+    z-index: 100;
+    
+}
+#box_lang li:hover{
+    background:none;
 }

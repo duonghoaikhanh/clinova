@@ -51,12 +51,13 @@ class sMain_sub extends sMain {
         $this->func = new commonFunc;
 
         $this->dir = $this->func->create_folder(date("Y_m"));
-
+        //echo $this->sub;die;
         $data["link_manage"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "manage");
         $data["link_manage_trash"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "manage_trash");
         $data["link_add"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "add");
 
         $this->sub = (isset($ttH->input["sub"])) ? $ttH->input["sub"] : "manage";
+
         switch ($this->sub) {
             case "add":
                 $ttH->conf["page_title"] = $ttH->lang[$this->modules][$this->action."_".$this->sub];
@@ -189,6 +190,7 @@ class sMain_sub extends sMain {
         $err = "";
 
         $item_id = $ttH->input["id"];
+
 
         if (isset($ttH->post['do_submit'])) {
             /*print_arr($ttH->post);
@@ -371,6 +373,7 @@ class sMain_sub extends sMain {
 
                     $arr_show_order = (isset($ttH->post["show_order"])) ? $ttH->post["show_order"] : array();
                     $status = (isset($ttH->post["status"])) ? $ttH->post["status"] : 0;
+
 
                     $mess = $ttH->lang['global']['edit_success'] . " ID: <strong>";
                     $str_mess = "";
