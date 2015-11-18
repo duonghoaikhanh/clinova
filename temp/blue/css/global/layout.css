@@ -2951,3 +2951,21 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
 #box_lang li:hover{
     background:none;
 }
+
+.pagination a, .pagination span {
+
+    padding: 8px 15px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #428bca;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination .pagecur{
+     z-index: 2;
+     color: #fff;
+     cursor: default;
+     background: #0A5193;    padding: 8px 15px;
+     border-color: #428bca;
+ }

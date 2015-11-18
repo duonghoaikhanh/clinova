@@ -99,18 +99,7 @@
 
             </div>
         </div>
-        <div style="clear:both; text-align:center; ">
-            <div class="paginate">
-                <div class="pagination"><ul class="pagination pagination-md"><li class="first"><a href="javascript:void(0);">&lt;&lt;</a></li><li class="prev"><a href="javascript:void(0);">&nbsp;</a></li><li class="active"><a href="javascript:void(0);">1</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/hoi-dap/9.html">2</a></li><li class="next"><a href="http://jexmax.com.vn/hoi-dap/9.html">&nbsp;</a></li><li class="last"><a href="http://jexmax.com.vn/hoi-dap/9.html">&gt;&gt;</a></li></ul></div>                </div>
-        </div>
-
-        <!-- <div style="clear:both; text-align:center; ">
-            <div class="paginate">
-                <div class="pagination">
-                    {data.nav}
-               </div>
-            </div>
-        </div> !-->
+        {data.nav}
 
     </div>
 </div>

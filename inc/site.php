@@ -686,6 +686,7 @@ class Site
 		if ($totalPages - $cPage < $pmore) $prev_page = $pmore + $pmore - ($totalPages - $cPage);
 		if ($totalPages > 1)
 		{
+			$navigation .= "<div class='pagination'>";
 		  //$navigation .= "<span class=\"pagetotal\">" . $totalPages . " " . $ttH->lang['global']['pages'] . "</span>";
 		  // Show first page
 		  if ($cPage > ($pmore + 1))
@@ -701,7 +702,7 @@ class Site
 			if (! empty($extra)) $pLink = $root_link . "/?{$p}=" . $numpage . "{$extra}";
 			else
 			  $pLink = $root_link . "/?{$p}=" . $numpage;
-			$navigation .= "<a href='" . $pLink . "' class='btnPage prev'>&#8249;</a>";
+			$navigation .= "<a href='" . $pLink . "' class='btnPage prev'>&lt;&lt;</a>";
 		  }
 		  // End	
 		  // Left
@@ -735,7 +736,7 @@ class Site
 
 			$numpage = $cPage + 1;
 			$pLink = $root_link . "/?{$p}=" . $numpage . "{$extra}";
-			$navigation .= "<a href='" . $pLink . "' class='btnPage next'>&#8250;</a>";
+			$navigation .= "<a href='" . $pLink . "' class='btnPage next'>&gt;&gt;</a>";
 		  }
 		  // End		
 		  // Show Last page
@@ -745,7 +746,7 @@ class Site
 			$navigation .= "<a href='" . $pLink . "' class='btnPage last' >&raquo;&raquo;</a>";
 		  }
 		  // End
-			
+			$navigation .= '</div>';
 			$navigation = '<div class="paginate">'.$navigation.'</div>';
 			
 		} // end if total pages is greater than one

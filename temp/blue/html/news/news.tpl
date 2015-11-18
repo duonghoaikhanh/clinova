@@ -106,11 +106,9 @@
 
 
     <div class="clear"></div>
-    <div style="clear:both; text-align:center; ">
-        {data.nav}
-        <div class="paginate">
-            <div class="pagination"><ul class="pagination pagination-md"><li class="first"><a href="javascript:void(0);">&lt;&lt;</a></li><li class="prev"><a href="javascript:void(0);">&nbsp;</a></li><li class="active"><a href="javascript:void(0);">1</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/5.html">2</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/10.html">3</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/15">4</a></li><li class="pag_cur"><a href="http://jexmax.com.vn/tin-tuc-c1/20">5</a></li><li class="next"><a href="http://jexmax.com.vn/tin-tuc-c1/5.html">&nbsp;</a></li><li class="last"><a href="http://jexmax.com.vn/tin-tuc-c1/510.html">&gt;&gt;</a></li></ul></div>            </div>
-    </div>
+
+    {data.nav}
+
 
 </div>
 
