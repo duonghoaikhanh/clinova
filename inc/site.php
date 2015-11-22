@@ -418,16 +418,16 @@ class Site
 		$ttH->temp_html->reset("menu.item.menu_sub");*/
 		return $menu_sub;
 	}
-	
+
 	//=================list_menu===============
 	function list_menu ($group_id='menu_header', $temp_name = 'menu'){
 		global $ttH;
-		
+
 		$ttH->load_data->data_menu ();
-		
+
 		$arr_cur = array();
 		$str_cur = '';
-		
+
 		$menu_aciton = (isset($ttH->conf['menu_action'])) ? $ttH->conf['menu_action'] : '';
 		if(is_array($menu_aciton)) {
 			foreach($menu_aciton as $value) {
@@ -440,26 +440,26 @@ class Site
 			$arr_menu_action = (isset($ttH->data['menu_action'][$group_id][$menu_aciton])) ? $ttH->data['menu_action'][$group_id][$menu_aciton] : array();
 			$arr_cur = (isset($arr_menu_action["menu_nav"])) ? explode(',',$arr_menu_action["menu_nav"]) : array();
 		}
-		
+
 		$arr_cur = array_unique($arr_cur);
-		
+
 		$output = '';
-		
+
 		if(count($ttH->data["menu_tree_".$group_id]) > 0){
 			$menu_sub = '';
 			$menu_more_tree = array();
-			
+
 			$num = count($ttH->data["menu_tree_".$group_id]);
 			$i = 0;
 			foreach($ttH->data["menu_tree_".$group_id] as $row)
 			{
 				$i++;
-				
+
 				$row['link'] = $this->get_link_menu ($row['link'], $row['link_type']);
 				$row['class'] = (isset($row['class'])) ? $row['class'] : '';
 				$row['class'] = (in_array($row["menu_id"],$arr_cur)) ? 'current' : $row['class'];
-				
-				
+
+
 				$arr_class_li = array();
 				if($i == 1) {
 					$arr_class_li[] = 'first';
@@ -469,18 +469,18 @@ class Site
 				}
 				$row['class_li'] = (count($arr_class_li) > 0) ? implode(' ',$arr_class_li) : '';
 				//$row['attr_menu_li'] = ' style="width:'.(100/$num).'%;"';
-				
+
 				$row['menu_sub'] = '';
 				if($row['auto_sub'] == 'group'){
 					$row['menu_sub'] .= $this->list_menu_sub_group ($temp_name, $row['name_action']);
-				} 
+				}
 				if($row['auto_sub'] == 'item'){
 					$row['menu_sub'] .= $this->list_menu_sub_item ($temp_name, $row['name_action']);
-				} 
+				}
 				if (isset($row['arr_sub'])){
 					$row['menu_sub'] .= $this->list_menu_sub ($temp_name, $row['arr_sub'], $arr_cur);
 				}
-				
+
 				if($row['menu_sub']) {
 					$ttH->temp_html->reset($temp_name.".item.menu_sub");
 					$ttH->temp_html->assign('row', array('content' => $row['menu_sub']));
@@ -488,16 +488,16 @@ class Site
 					$row['menu_sub'] = $ttH->temp_html->text($temp_name.".item.menu_sub");
 					$ttH->temp_html->reset($temp_name.".item.menu_sub");
 				}
-				
+
 				$ttH->temp_html->assign('row', $row);
 				$ttH->temp_html->parse($temp_name.".item");
-			}		
-			
+			}
+
 			$ttH->temp_html->reset($temp_name);
 			$ttH->temp_html->parse($temp_name);
 			$output = $ttH->temp_html->text($temp_name);
 		}
-		
+
 		return $output;
 	}
 	

@@ -10,6 +10,6 @@ $lang = array (
 	'product_focus' => 'Sản phẩm hot',
 	'no_have_item' => 'no have item',
 	'faq' => 'Hỏi đáp - Tư vấn',
-	'short_faq' =>'Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…'
-);
+	'short_faq' => 'Thông tin hỏi đáp, tư vấn sức khỏe giúp phòng ngừa và hổ trợ điều trị các bệnh về đường tiêu hóa, viêm loét dạ dày, hành tá tràng, viêm gan, xơ gan, ung thư, . . .'
+); 
 ?>

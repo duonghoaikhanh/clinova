@@ -207,7 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="col12 col-xs-9 col-sm-10 noleft noright slide_logo">
               <div id="owl-custome">
                 {data.slide_website_footer}
-              </div><div class="text-right noright box-note"style="font-family:'Times New Roman'; margin-top:2px; font-size:12px; opacity:0.4;"><i>{LANG.global.text_after_slide_footer}</i></div>
+              </div><div class="text-right noright box-note" style="font-family:'Times New Roman'; margin-top:2px; font-size:12px; opacity:0.4;"><i>{LANG.global.text_after_slide_footer}</i></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 pull-right noright share_logo">
@@ -526,7 +526,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- BEGIN: menu -->
 <ul class="pull-right {data.class}" {data.ul_ext}>
   <!-- BEGIN: item -->
-  <li class="menu_li {row.class_li}"><a href="{row.link}" target="{row.target}"  class="menu_link css_bo {row.class}"><span>{row.title}</span></a>
+  <li class="menu_li"><a href="{row.link}" target="{row.target}"  class="menu_link css_bo {row.class}"><span>{row.title}</span></a>
     {row.menu_sub}
     <!-- BEGIN: menu_sub -->
     <ul style="display: none;">

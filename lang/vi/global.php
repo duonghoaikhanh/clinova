@@ -79,14 +79,14 @@ $lang = array (
 	'action_success' => 'Action success',
 	'footer_share' => 'Kết nối với IMS',
 	'footer_bank' => 'Đối tác thanh toán',
-	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved',
+	'copyright' => 'Copyright 2014  clinova  All Rights Reserved',
 	'brand_company' => 'Sản phẩm của công ty BV PHARMA',
 	'faq' => '',
-	'short_faq' => 'Thông tin hỏi đáp, tư vấn Sức khỏe giúp Phòng ngừa và hỗ trợ điều trị các bệnh Thoái hóa khớp, Viêm xương khớp, Viêm khớp dạng thấp…',
+	'short_faq' => 'Thông tin hỏi đáp, tư vấn sức khỏe giúp phòng ngừa và hổ trợ điều trị các bệnh về đường tiêu hóa, viêm loét dạ dày, hành tá tràng, viêm gan, xơ gan, ung thư, . . .',
 	'action_clinova' => '',
 	'text_after_logo_footer' => 'Born to Heal',
 	'box_news' => '',
 	'chinhsachcongty' => 'Chính sách công ty',
-	'text_after_slide_footer' =>'Sản phẩm này không phải là thuốc và không thay thế thuốc chữa bệnh'
+	'text_after_slide_footer' => 'Sản phẩm này không phải là thuốc và không thay thế thuốc chữa bệnh'
 ); 
 ?>

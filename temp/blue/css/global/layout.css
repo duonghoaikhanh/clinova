@@ -163,13 +163,17 @@ li.iconew {
     color: #0A5193;
 }
 
+#menu_desk li:hover ul ul{
+    display: block;
+}
+
 #menu_desk li a, #menu_desk li a span {
     font-family: 'UTM Bebas';
     font-weight: normal;
     font-size: 17px;
     color: #0A5193;
     text-transform: uppercase;
-    white-space: nowrap;
+    //white-space: nowrap;
 }
 
 #menu_desk li a {
@@ -186,6 +190,27 @@ li.iconew {
     z-index: 999;
     padding: 5px 0 0;
     display: none;
+}
+
+#menu_desk li ul li ul{
+    position: absolute;
+    top: 35px;
+    background: none;
+    z-index: 999;
+    padding: 5px 0 0;
+    display: none;
+}
+
+#menu_desk li ul li ul ul{
+    position: absolute;
+    left: 300px;
+    top: 35px;
+    background: none;
+    z-index: 999;
+    padding: 5px 0 0 ;
+    display: none;
+    padding-top: 0;
+    border-left: 2px solid #878787
 }
 
 #menu_desk li ul li {
@@ -1526,7 +1551,7 @@ a.box_lsnews {
 }
 
 .sub_menu a {
-    background: url('../images/submenu.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/submenu.jpg*/;
+    background: url('../images/middle_menu.png') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/submenu.jpg*/;
     background-repeat: repeat-x;
     border-radius: 5px 5px 0 0;
     color: #fff;
@@ -1534,7 +1559,7 @@ a.box_lsnews {
 }
 
 .sub_menu a:hover, .sub_menu a.active {
-    background: url('../images/submenu_active.jpg') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/submenu_active.jpg*/;
+    background: url('../images/middle_menu_active.png') /*tpa=http://jexmax.com.vn/system/cms/themes/default/img/submenu_active.jpg*/;
     background-size: 100% 38px;
     background-repeat: repeat-x;
     border-radius: 5px 5px 0 0;
@@ -2878,13 +2903,19 @@ div .nav-tabs li.active a, div .nav-tabs li:first-child a {
 }
 
 #menu_desk li:hover ul{
+    display: block ;
+}
+
+#menu_desk li ul li:hover ul,#menu_desk li ul li:hover ul ul{
     display: block !important;
+    top:0px;
+
 }
 .breadcrumb li.active a {
     color: #777;
 }
 #main_slide {
-    margin-top: 44px;
+    margin-top: 29px;
 }
 #box_lang >.current >span.flag_vi {
     padding: 2px 0px;
